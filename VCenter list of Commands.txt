@@ -1,0 +1,50 @@
+1. vSphere CLI (vCLI) Commands
+vicfg- commands are used to configure various aspects of vSphere components. Here are a few examples:
+vicfg-hostops - Manage host operations (e.g., reboot, shutdown).
+vicfg-network - Configure network settings on ESXi hosts.
+vicfg-vswitch - Manage virtual switches.
+vicfg-dns - Configure DNS settings.
+vicfg-firewall - Configure the firewall on ESXi hosts.
+2. PowerCLI Commands
+VMware PowerCLI is a powerful command-line tool for managing VMware environments. Here are some common PowerCLI commands:
+
+Connecting to vCenter Server:
+Connect-VIServer -Server <vCenterServer> - Connect to a vCenter Server.
+Managing VMs:
+Get-VM - List all VMs.
+Start-VM -VM <VMName> - Start a VM.
+Stop-VM -VM <VMName> - Stop a VM.
+New-VM -Name <VMName> -Template <TemplateName> - Create a new VM from a template.
+Managing Hosts:
+Get-VMHost - List all ESXi hosts.
+Get-VMHostNetwork - Retrieve network information for an ESXi host.
+Managing Datastores:
+Get-Datastore - List all datastores.
+Set-Datastore -Datastore <DatastoreName> -Capacity <NewCapacity> - Adjust datastore capacity.
+Managing Snapshots:
+Get-Snapshot -VM <VMName> - List snapshots of a VM.
+Remove-Snapshot -Snapshot <SnapshotName> - Remove a snapshot.
+Managing Networks:
+Get-VirtualSwitch - List virtual switches.
+New-VirtualSwitch -Name <SwitchName> - Create a new virtual switch.
+3. vSphere Web Client Commands
+Although not command-line based, the vSphere Web Client provides a graphical interface to perform most of the same tasks.
+
+4. ESXi Shell Commands
+For tasks performed directly on an ESXi host, you can use:
+
+esxcli - A powerful command-line interface for managing ESXi hosts. For example:
+esxcli system version get - Get ESXi version information.
+esxcli network firewall ruleset list - List firewall rulesets.
+esxcli system hostname set --fqdn <hostname> - Set the hostname.
+5. vCenter Server Appliance (VCSA) Commands
+For managing the vCenter Server Appliance:
+
+vpxd - The vCenter Server daemon. Commands typically involve starting, stopping, or restarting services.
+6. Other Useful Commands
+vmkfstools - A command-line tool for managing VMFS volumes and virtual disks.
+vmrun - A command-line utility for managing VMware Workstation and VMware Fusion virtual machines.
+Tips for Using These Commands
+Always ensure you have the correct permissions to execute these commands.
+Backup configurations before making changes to critical settings.
+Consult VMware’s official documentation or knowledge base for detailed syntax and additional options for each command.

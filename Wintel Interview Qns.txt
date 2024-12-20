@@ -1,0 +1,44 @@
+How abt windows clustering?
+RAID technologies?
+Vcenter HA & FT diff?
+how to edit vm template?
+upgradation of win 2016-2022 process?
+diff b/w upgrade and update?
+monthly patch update date?
+VM disk size increase?
+migration process?
+snapshot disk consolidation?
+BSOD error fixing process?
+explain the hirearchy of vm with 2 datacenter and 5esxi nodes?
+kerberos port number?
+steps to create affinity rule?
+DRS technique?
+Teaming means in vmware?
+
+Diff b/w Get and Set commands?
+diff b/w std & datacenter license?
+where to collect memorydump logs in windows server?
+decommision process for DC?
+prerequists to sertup server 2022?
+deduplication?
+file share role?
+Decommision the esxi?
+diff b/w RAID 1+0 and?
+how to create VLAN port?
+Teaming?
+need to migrate vm from cluster to cluster prerequists?
+Vcenter upgradation?
+
+RDP NLA error fixing and multi RDP connection role?
+explain any 3types of Roles in windows?
+diff b/w vsphere and vcenter?
+how vmotion process will work with ex?
+process to upgrade esxi 6.7 to 8?
+OVF/OVA template?
+VSS & Distributed switch?
+hot migration got corrupted?
+vm's move from cluster migration?
+FTP port numbers?
+22 port number?
+decommision the esxi server?
+

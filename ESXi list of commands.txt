@@ -1,0 +1,70 @@
+
+
+Basic ESXi Commands
+esxcli: The primary command-line interface for managing ESXi. It has various namespaces for different functionalities.
+
+esxcli system version get: Displays ESXi version information.
+esxcli system hostname get: Displays the current hostname.
+esxcli system maintenanceMode set --enable true: Enters maintenance mode.
+vim-cmd: A command-line utility for interacting with the VMware vSphere API.
+
+vim-cmd vmsvc/getallvms: Lists all virtual machines on the host.
+vim-cmd vmsvc/power.on [vmid]: Powers on a virtual machine.
+vim-cmd vmsvc/power.off [vmid]: Powers off a virtual machine.
+vim-cmd vmsvc/reload [vmid]: Reloads the virtual machine’s configuration.
+vmkfstools: Manages virtual disk files and other VMFS volumes.
+
+vmkfstools -z [source] [destination]: Clones or copies a virtual disk.
+vmkfstools -e [filename]: Expands a virtual disk.
+esxcfg-*: Various utilities for configuring ESXi settings.
+
+esxcfg-nics -l: Lists network interfaces and their settings.
+esxcfg-vmknic -l: Lists VMkernel network interfaces.
+esxcfg-firewall: Manages the ESXi firewall.
+esxcli network: Commands related to network configuration.
+
+esxcli network ip interface list: Lists all network interfaces and their IP configuration.
+esxcli network ip route list: Displays the IP routing table.
+esxcli storage: Commands related to storage management.
+
+esxcli storage core adapter list: Lists storage adapters.
+esxcli storage vmfs extent list: Lists VMFS datastores and their extents.
+esxcli system: Commands related to system management.
+
+esxcli system maintenanceMode get: Checks if the host is in maintenance mode.
+esxcli system boot: Manages the ESXi boot configuration.
+Troubleshooting Commands
+esxcli system diagnostics: Provides diagnostic information.
+
+esxcli system diagnostics dump: Dumps diagnostic data for troubleshooting.
+esxcli system logs: Manages log files.
+
+esxcli system logs config: Configures log settings.
+esxcli system logs collect: Collects logs from the host.
+esxcli system process: Manages system processes.
+
+esxcli system process list: Lists running processes.
+esxcli system modules: Manages kernel modules.
+
+esxcli system modules list: Lists kernel modules and their status.
+System Information Commands
+esxcli system hardware: Provides hardware information.
+
+esxcli system hardware platform get: Displays platform information.
+esxcli system hardware memory get: Displays memory information.
+esxcli system firmware: Manages firmware settings.
+
+esxcli system firmware get: Retrieves firmware version and settings.
+Networking Commands
+esxcli network firewall: Manages the firewall configuration.
+
+esxcli network firewall ruleset list: Lists firewall rulesets.
+esxcli network vswitch: Commands related to vSwitch management.
+
+esxcli network vswitch standard list: Lists standard vSwitches.
+VMware Tools Commands
+vmware-toolbox-cmd: Command-line interface for VMware Tools.
+vmware-toolbox-cmd stat: Displays VMware Tools status.
+vmware-toolbox-cmd timesync status: Displays the status of time synchronization.
+
+
