@@ -1,0 +1,50 @@
+date > /tmp/${bdir}/datee_${dat}.txt
+uptime > /tmp/${bdir}/uptime_${dat}.txt
+w > /tmp/${bdir}/w_${dat}.txt
+uname -r > /tmp/${bdir}/kernel_${dat}.txt
+uname -a >> /tmp/${bdir}/kernel_${dat}.txt
+cat /etc/redhat-release > /tmp/${bdir}/OS_Version_${dat}.txt
+hostnamectl > /tmp/${bdir}/Hostname_${dat}.txt
+sestatus > /tmp/${bdir}/sestatus_${dat}.txt
+lsblk > /tmp/${bdir}/lsblk_${dat}.txt
+df -Th > /tmp/${bdir}/df_${dat}.txt
+free -m > /tmp/${bdir}/mem_${dat}.txt
+cat /etc/fstab > /tmp/${bdir}/fstab_${dat}.txt
+mount > /tmp/${bdir}/mount_${dat}.txt
+pvdisplay > /tmp/${bdir}/pv_${dat}.txt
+vgdisplay > /tmp/${bdir}/vg_${dat}.txt
+lvdisplay > /tmp/${bdir}/lv_${dat}.txt
+multipath -ll > /tmp/${bdir}/multipath_${dat}.txt
+ifconfig -a > /tmp/${bdir}/ifconfig_${dat}.txt
+route -n > /tmp/${bdir}/route_${dat}.txt
+netstat -an > /tmp/${bdir}/netstat_${dat}.txt
+cat /proc/cpuinfo > /tmp/${bdir}/cpu_${dat}.txt
+lscpu >> /tmp/${bdir}/cpu_${dat}.txt
+cat /proc/meminfo >> /tmp/${bdir}/mem_${dat}.txt
+cat /etc/hosts > /tmp/${bdir}/host_${dat}.txt
+cat /etc/resolv.conf > /tmp/${bdir}/resolve_${dat}.txt
+cat /etc/nsswitch.conf > /tmp/${bdir}/nssswitch_${dat}.txt
+cat /etc/passwd > /tmp/${bdir}/passwd_${dat}.txt
+cat /etc/shadow > /tmp/${bdir}/shadow_${dat}.txt
+cat /etc/group > /tmp/${bdir}/group_${dat}.txt
+cat /etc/gshadow > /tmp/${bdir}/gshadow_${dat}.txt
+systemctl status chronyd > /tmp/${bdir}/ntp_${dat}.txt
+chronyc sources > /tmp/${bdir}/Chrony_Source_${dat}.txt
+crontab -l > /tmp/${bdir}/crontab_${dat}.txt
+
+
+Manual :
+for minor update : yum update
+
+dnf config-manager --save --setopt exclude=''
+dnf remove leapp-deps-el9 leapp-repository-deps-el9
+ls -l /var/log/leapp /root/tmp_leapp_py3 /var/lib/leapp
+rm -rf /var/log/leapp /root/tmp_leapp_py3 /var/lib/leapp
+ls -l /boot/vmlinuz-*rescue* /boot/initramfs-*rescue*
+uname -r
+yum list installed kernel
+rm /boot/vmlinuz-*rescue* /boot/initramfs-*rescue*
+dnf reinstall kernel-core-$(uname -r)
+ls -l /boot/vmlinuz-*rescue* /boot/initramfs-*rescue*
+lsinitrd /boot/initramfs-*rescue*.img | grep -qm1 "$(uname -r)/kernel/" && echo "OK" || echo "FAIL"
+grubby --info $(ls /boot/vmlinuz-*rescue*)
