@@ -104,7 +104,9 @@ network.ip.dns.search                               remove            Remove a s
                                                                       to resolve an host name on
                                                                       the ESXi host.
 network.ip.dns.server                               add               Add a new DNS server to
-                                                                      the end of the list of DNS
+                                                                      the end of the list of DNS      15 esxcli network ip connection list
+                                                                                                      16 esxcli network ip interface ipv4 address list
+
                                                                       servers to use for this
                                                                       ESXi host.
 network.ip.dns.server                               list              Print a list of the DNS
