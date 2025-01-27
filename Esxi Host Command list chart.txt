@@ -1,0 +1,2102 @@
+esxcli network nic list
+esxcli network nic get -n vmnic0
+esxcli software vib list | grep gb
+
+[root@ec6rr0u19:~] esxcli network nic get -n vmnic2
+   Advertised Auto Negotiation: true
+   Advertised Link Modes: Auto, 1000BaseT/Full, 100BaseT/Full, 100BaseT/Half, 10BaseT/Full, 10BaseT/Half
+   Auto Negotiation: true
+   Backing DPUId: N/A
+   Cable Type: Twisted Pair
+   Current Message Level: 0
+   Driver Info:
+         Bus Info: 0000:01:00:0
+         Driver: igbn
+         Firmware Version: 1.67.0:0x800010e0:22.5.7
+         Version: 1.12.0.0
+   Link Detected: false
+   Link Status: Down
+   Name: vmnic2
+   PHYAddress: 0
+   Pause Autonegotiate: true
+   Pause RX: true
+   Pause TX: true
+   Supported Ports: TP
+   Supports Auto Negotiation: true
+   Supports Pause: true
+   Supports Wakeon: false
+   Transceiver: internal
+   Virtual Address: 00:50:56:5c:60:09
+   Wakeon: None
+   
+[root@ec6rr0u19:~] esxcli network nic get -n vmnic5
+   Advertised Auto Negotiation: true
+   Advertised Link Modes: Auto, 10000BaseSR/Full
+   Auto Negotiation: true
+   Backing DPUId: N/A
+   Cable Type: FIBRE
+   Current Message Level: 0
+   Driver Info:
+         Bus Info: 0000:18:00:1
+         Driver: i40en
+         Firmware Version: 9.40 0x8000e9c2 22.5.7
+         Version: 2.8.4.0
+   Link Detected: true
+   Link Status: Up
+   Name: vmnic5
+   PHYAddress: 0
+   Pause Autonegotiate: false
+   Pause RX: true
+   Pause TX: true
+   Supported Ports: FIBRE
+   Supports Auto Negotiation: true
+   Supports Pause: true
+   Supports Wakeon: false
+   Transceiver:
+   Virtual Address: 00:50:56:59:df:98
+   Wakeon: None
+   
+[root@ec6rr0u19:~] esxcli network nic list
+Name    PCI Device    Driver  Admin Status  Link Status  Speed  Duplex  MAC Address         MTU  Description
+------  ------------  ------  ------------  -----------  -----  ------  -----------------  ----  -----------
+vmnic2  0000:01:00.0  igbn    Up            Down             0  Half    78:ac:44:84:e5:3c  1500  Intel(R) I350 Gigabit Network Connection
+vmnic3  0000:01:00.1  igbn    Up            Down             0  Half    78:ac:44:84:e5:3d  1500  Intel(R) I350 Gigabit Network Connection
+vmnic4  0000:18:00.0  i40en   Up            Up           10000  Full    6c:fe:54:24:f9:90  1500  Intel(R) Ethernet Controller X710 for 10GbE SFP+
+vmnic5  0000:18:00.1  i40en   Up            Up           10000  Full    6c:fe:54:24:f9:91  1500  Intel(R) Ethernet Controller X710 for 10GbE SFP+
+
+[root@ec6rr0u19:~] esxcli network nic get -n vmnic2
+
+
+N/W Data Cable modfication for DELL PowerEdge 740 for 1 server:
+
+Total 4 ports conneted with (1ENT+1MFG & 1ENT+1MFG)
+Now we have to segregate like 
+2NIC slots for ENT(1Gig)
+2PCIe slots for MFG(10Gig)
+
+
+network.firewall.ruleset                            list              List the rulesets in
+                                                                      firewall.
+network.firewall.ruleset.rule                       list              List the rules of each
+                                                                      ruleset in firewall.
+network.firewall.ruleset                            set               Set firewall ruleset
+                                                                      status (allowedAll flag
+                                                                      and enabled status).
+network.firewall                                    set               Set firewall enabled
+                                                                      status and default action.
+network.firewall                                    unload            Allow unload firewall
+                                                                      module.
+network.ip.connection                               list              List active TCP/IP
+                                                                      connections
+network.ip.dns.search                               add               Add a search domain to the
+                                                                      list of domains to be
+                                                                      searched when trying to
+                                                                      resolve an host name on
+                                                                      the ESXi host.
+network.ip.dns.search                               list              List the search domains
+                                                                      currently configured on
+                                                                      the ESXi host in the order
+                                                                      in which they will be used
+                                                                      when searching.
+network.ip.dns.search                               remove            Remove a search domain
+                                                                      from the list of domains
+                                                                      to be searched when trying
+                                                                      to resolve an host name on
+                                                                      the ESXi host.
+network.ip.dns.server                               add               Add a new DNS server to
+                                                                      the end of the list of DNS
+                                                                      servers to use for this
+                                                                      ESXi host.
+network.ip.dns.server                               list              Print a list of the DNS
+                                                                      server currently
+                                                                      configured on the system
+                                                                      in the order in which they
+                                                                      will be used.
+network.ip.dns.server                               remove            Remove a DNS server from
+                                                                      the list of DNS servers to
+                                                                      use for this ESXi host.
+network.ip                                          get               Get global IP settings
+network.ip.hosts                                    add               Add association of IP
+                                                                      addresses with host names.
+network.ip.hosts                                    list              List the user specified
+                                                                      associations of IP
+                                                                      addresses with host names.
+network.ip.hosts                                    remove            Remove association of IP
+                                                                      addresses with host names.
+network.ip.interface                                add               Add a new VMkernel network
+                                                                      interface.
+network.ip.interface.ipv4.address                   list              List the IPv4 addresses
+                                                                      assigned to VMkernel
+                                                                      network interfaces.
+network.ip.interface.ipv4                           get               List the IPv4 addresses
+                                                                      assigned to VMkernel
+                                                                      network interfaces.
+network.ip.interface.ipv4                           set               Configure IPv4 setting for
+                                                                      a given VMkernel network
+                                                                      interface.
+network.ip.interface.ipv6.address                   add               Add a static IPv6 address
+                                                                      to a given VMkernel
+                                                                      network interface.
+network.ip.interface.ipv6.address                   list              This command will list all
+                                                                      of the IPv6 addresses
+                                                                      currently assigned to the
+                                                                      system
+network.ip.interface.ipv6.address                   remove            Remove an IPv6 address
+                                                                      from a given VMkernel
+                                                                      network interface.
+network.ip.interface.ipv6                           get               Get IPv6 settings for
+                                                                      VMkernel network
+                                                                      interfaces. This does not
+                                                                      include the IPv6 addresses
+                                                                      which can be found in the
+                                                                      "address list" command.
+network.ip.interface.ipv6                           set               Configure IPv6 settings
+                                                                      for a given VMkernel
+                                                                      network interface.
+network.ip.interface                                list              This command will list the
+                                                                      VMkernel network
+                                                                      interfaces currently known
+                                                                      to the system.
+network.ip.interface                                remove            Remove a VMkernel network
+                                                                      interface from the ESXi
+                                                                      host. A VMKernel network
+                                                                      interface can be uniquely
+                                                                      specified by --interface-
+                                                                      name or --portgroup-name
+                                                                      or --dvs-name/--dvport-id.
+                                                                      i.e. Providing its name or
+                                                                      its connection point are
+                                                                      two ways to uniquely
+                                                                      specify a VMKernel network
+                                                                      interface.
+network.ip.interface                                set               This command sets the
+                                                                      enabled status and MTU
+                                                                      size of a given IP
+                                                                      interface
+network.ip.interface.tag                            add               Adds a tag on a given
+                                                                      VMkernel network
+                                                                      interface. Supported tags
+                                                                      are: Management, VMotion,
+                                                                      faultToleranceLogging,
+                                                                      vSphereReplication,
+                                                                      vSphereReplicationNFC,
+                                                                      vSphereProvisioning, VSAN,
+                                                                      VSANWitness,
+                                                                      vSphereBackupNFC,
+                                                                      PrecisionTimeProtocol,
+                                                                      NVMeTCP, NVMeRDMA
+network.ip.interface.tag                            get               Gets the tags set on the
+                                                                      given VMkernel network
+                                                                      interface.
+network.ip.interface.tag                            remove            Removes a tag on a given
+                                                                      VMkernel network
+                                                                      interface.
+network.ip.ipsec.sa                                 add               Add a Security
+                                                                      Association.
+network.ip.ipsec.sa                                 list              List configured Security
+                                                                      Associations
+network.ip.ipsec.sa                                 remove            Operation to remove
+                                                                      Security Association(s)
+network.ip.ipsec.sp                                 add               Add a Security Policy.
+network.ip.ipsec.sp                                 list              List configured Security
+                                                                      Policys
+network.ip.ipsec.sp                                 remove            Operation to remove
+                                                                      Security Policy
+network.ip.neighbor                                 list              List ARP table entries
+network.ip.neighbor                                 remove            Remove ARP table entries
+network.ip.netstack                                 add               Add a new Netstack
+                                                                      Instance.
+network.ip.netstack                                 get               Get runtime/configuration
+                                                                      settings for a given
+                                                                      Netstack Instance.
+network.ip.netstack                                 list              This command will list the
+                                                                      VMkernel Netstack
+                                                                      instances currently known
+                                                                      to the system.
+network.ip.netstack                                 remove            Remove a new Netstack
+                                                                      Instance.
+network.ip.netstack                                 set               Configure settings for a
+                                                                      given Netstack Instance.
+network.ip.route.ipv4                               add               Add IPv4 route to the
+                                                                      VMkernel.
+network.ip.route.ipv4                               list              List configured IPv4
+                                                                      routes
+network.ip.route.ipv4                               remove            Remove IPv4 route
+network.ip.route.ipv6                               add               Add IPv6 route to the
+                                                                      VMkernel.
+network.ip.route.ipv6                               list              List configured IPv6
+                                                                      routes
+network.ip.route.ipv6                               remove            Remove IPv6 route from the
+                                                                      VMkernel
+network.ip                                          set               Update global IP settings
+network.multicast.group                             list              List all the multicast
+                                                                      group members.
+network.nic.attachment                              add               Attach one uplink as a
+                                                                      branch to a trunk uplink
+                                                                      with specified VLAN ID.
+network.nic.attachment                              list              Show uplink attachment
+                                                                      information.
+network.nic.attachment                              remove            Detach a branch uplink
+                                                                      from its trunk.
+network.nic.coalesce                                get               Get coalesce parameters
+network.nic.coalesce.high                           get               Get information about the
+                                                                      behavior of a NIC when it
+                                                                      sends or receives packets
+                                                                      at high packet rate.
+network.nic.coalesce.high                           set               Set parameters to control
+                                                                      the behavior of a NIC when
+                                                                      it sends or receives
+                                                                      packets at high packet
+                                                                      rate.
+network.nic.coalesce.low                            get               Get information about the
+                                                                      behavior of a NIC when it
+                                                                      sends or receives packets
+                                                                      at low packet rate.
+network.nic.coalesce.low                            set               Set parameters to control
+                                                                      the behavior of a NIC when
+                                                                      it sends or receives
+                                                                      packets at low packet
+                                                                      rate.
+network.nic.coalesce                                set               Set coalesce parameters on
+                                                                      a nic
+network.nic.cso                                     get               Get checksum offload
+                                                                      settings
+network.nic.cso                                     set               Set checksum offload
+                                                                      settings on a nic, which
+                                                                      is not persistent.
+network.nic.dcb.status                              get               Get the DCB information
+                                                                      for a NIC.
+network.nic                                         down              Bring down the specified
+                                                                      network device.
+network.nic.eeprom                                  change            Change EEPROM on a nic
+network.nic.eeprom                                  dump              Dump device EEPROM
+network.nic                                         get               Get the generic
+                                                                      configuration of a network
+                                                                      device
+network.nic.hwCap.activated                         list              List activated hardware
+                                                                      capabilities of physical
+                                                                      NICs.
+network.nic.hwCap.supported                         list              List supported hardware
+                                                                      capabilities of physical
+                                                                      NICs.
+network.nic                                         list              This command will list the
+                                                                      Physical NICs currently
+                                                                      installed and loaded on
+                                                                      the system.
+network.nic.negotiate                               restart           Restart N-Way negotiation
+                                                                      on a nic
+network.nic.pauseParams                             list              List pause parameters of
+                                                                      all NICs
+network.nic.pauseParams                             set               Set pause parameters for a
+                                                                      NIC
+network.nic.queue.count                             get               Get netqueue count on a
+                                                                      nic
+network.nic.queue.count                             set               Set number of netqueues on
+                                                                      a nic
+network.nic.queue.filterclass                       list              List the netqueue
+                                                                      supported filterclass of
+                                                                      all physical NICs
+                                                                      currently installed and
+                                                                      loaded on the system.
+network.nic.queue.loadbalancer                      list              List the load balancer
+                                                                      settings of all the
+                                                                      installed and loaded
+                                                                      physical NICs.
+                                                                      (S:supported,
+                                                                      U:unsupported, N:not-
+                                                                      applicable, A:allowed,
+                                                                      D:disallowed).
+network.nic.queue.loadbalancer.plugin               list              Details of netqueue
+                                                                      balancer plugins on all
+                                                                      physical NICs currently
+                                                                      installed and loaded on
+                                                                      the system
+network.nic.queue.loadbalancer.plugin               set               Enable/disable netqueue
+                                                                      balancer plugin on a NIC
+network.nic.queue.loadbalancer                      set               Enable/disable netqueue
+                                                                      load balancer setting on a
+                                                                      NIC.
+network.nic.queue.loadbalancer.state                list              Netqueue balancer state of
+                                                                      all physical NICs
+                                                                      currently installed and
+                                                                      loaded on the system
+network.nic.queue.loadbalancer.state                set               Enable/disable netqueue
+                                                                      balancer on a NIC
+network.nic.register                                dump              Dump device registers
+network.nic.ring.current                            get               Get current RX/TX ring
+                                                                      buffer parameters of a NIC
+network.nic.ring.current                            set               Set current RX/TX ring
+                                                                      buffer parameters of a NIC
+network.nic.ring.preset                             get               Get preset maximums for
+                                                                      RX/TX ring buffer
+                                                                      parameters of a NIC.
+network.nic.selftest                                run               Run self test
+network.nic                                         set               Set the general options
+                                                                      for the specified ethernet
+                                                                      device.
+network.nic.sg                                      get               Get scatter-gather
+                                                                      settings
+network.nic.sg                                      set               Set scatter-gatter
+                                                                      settings on a nic, which
+                                                                      is not persistent.
+network.nic.software                                list              List software simulation
+                                                                      settings of physical NICs
+                                                                      currently installed and
+                                                                      loaded on the system.
+network.nic.software                                set               Enable and disable
+                                                                      software simulation
+                                                                      settings on a NIC.
+network.nic.stats                                   get               Get NIC statistics for a
+                                                                      given interface.
+network.nic.tso                                     get               Get TCP segmentation
+                                                                      offload settings
+network.nic.tso                                     set               Set TCP segmentation
+                                                                      offload settings on a nic,
+                                                                      which is not persistent.
+network.nic                                         up                Bring up the specified
+                                                                      network device.
+network.nic.vlan.stats                              get               List VLAN statistics for
+                                                                      active VLAN's on the NIC.
+network.nic.vlan.stats                              set               Enable/disable VLAN
+                                                                      statistics collection on
+                                                                      the NIC.
+network.port.filter.stats                           get               Filter statistics for a
+                                                                      given port.
+network.port.stats                                  get               Packet statistics for a
+                                                                      given port.
+network.sriovnic                                    list              This command will list the
+                                                                      SRIOV Enabled NICs (PFs)
+                                                                      currently installed and
+                                                                      loaded on the system.
+network.sriovnic.vf                                 list              Get the generic
+                                                                      configuration of VFs for
+                                                                      SRIOV NIC.
+network.sriovnic.vf                                 stats             Get statistics for given
+                                                                      VF of a SRIOV NIC.
+network.vm                                          list              List networking
+                                                                      information for the VM's
+                                                                      that have active ports.
+network.vm.port                                     list              List of active ports for a
+                                                                      given VM.
+network.vswitch.dvs.vmware.lacp.config              get               Get LACP configuration on
+                                                                      DVS
+network.vswitch.dvs.vmware.lacp.stats               get               Get LACP stats on DVS
+                                                                      uplinks
+network.vswitch.dvs.vmware.lacp.status              get               Get LACP status on DVS
+network.vswitch.dvs.vmware.lacp.timeout             set               Set long/short timeout for
+                                                                      vmnics in one LACP LAG
+network.vswitch.dvs.vmware                          list              List the VMware vSphere
+                                                                      Distributed Switch
+                                                                      currently configured on
+                                                                      the ESXi host.
+network.vswitch.standard                            add               Add a new virtual switch
+                                                                      to the ESXi networking
+                                                                      system.
+network.vswitch.standard                            list              List the virtual switches
+                                                                      current on the ESXi host.
+network.vswitch.standard.policy.failover            get               Get the failover policy
+                                                                      settings governing the
+                                                                      given virtual switch
+network.vswitch.standard.policy.failover            set               Configure the Failover
+                                                                      policy for a virtual
+                                                                      switch.
+network.vswitch.standard.policy.security            get               Get the Security Policy
+                                                                      governing the given
+                                                                      virtual switch.
+network.vswitch.standard.policy.security            set               Set the security policy
+                                                                      for a given virtual switch
+network.vswitch.standard.policy.shaping             get               Get the shaping policy
+                                                                      settings for the given
+                                                                      virtual switch
+network.vswitch.standard.policy.shaping             set               Set the shaping policy
+                                                                      settings for the given
+                                                                      virtual switch
+network.vswitch.standard.portgroup                  add               Allows the addition of a
+                                                                      standard port group to a
+                                                                      virtual switch.
+network.vswitch.standard.portgroup                  list              List all of the port
+                                                                      groups currently on the
+                                                                      system.
+network.vswitch.standard.portgroup.policy.failover  get               Get the network failover
+                                                                      policy settings governing
+                                                                      the given port group
+network.vswitch.standard.portgroup.policy.failover  set               Configure the Failover
+                                                                      policy for a port group.
+                                                                      These setting may
+                                                                      potentially override
+                                                                      virtual switch settings.
+network.vswitch.standard.portgroup.policy.security  get               Get the Security Policy
+                                                                      governing the given port
+                                                                      group.
+network.vswitch.standard.portgroup.policy.security  set               Set the security policy
+                                                                      for a given port group
+network.vswitch.standard.portgroup.policy.shaping   get               Get the network shaping
+                                                                      policy settings governing
+                                                                      the given port group
+network.vswitch.standard.portgroup.policy.shaping   set               Set the shaping policy
+                                                                      settings for the given
+                                                                      port group
+network.vswitch.standard.portgroup                  remove            Remove a port group from
+                                                                      the given virtual switch
+network.vswitch.standard.portgroup                  set               Set the vlan id for the
+                                                                      given port group
+network.vswitch.standard                            remove            Remove a virtual switch
+                                                                      from the ESXi networking
+                                                                      system.
+network.vswitch.standard                            set               This command sets the MTU
+                                                                      size and CDP status of a
+                                                                      given virtual switch.
+network.vswitch.standard.uplink                     add               Add an uplink to the given
+                                                                      virtual switch. Note if
+                                                                      this virtual switch has a
+                                                                      NIC teaming policy
+                                                                      assigned to it then the
+                                                                      policy must also be
+                                                                      modified to enable use of
+                                                                      this uplink on this
+                                                                      virtual switch
+network.vswitch.standard.uplink                     remove            Remove an uplink from the
+                                                                      given virtual switch. Note
+                                                                      if this virtual switch has
+                                                                      a NIC teaming policy
+                                                                      assigned to it then the
+                                                                      policy must also be
+                                                                      modified to disable use of
+                                                                      this uplink on this
+                                                                      virtual switch
+nvme.adapter                                        list              List all NVMe adapters.
+nvme.controller                                     identify          Get NVMe Identify
+                                                                      Controller data (CNS 1h).
+nvme.controller                                     list              List NVMe controllers.
+nvme.device.config                                  list              List the configurable
+                                                                      parameters for this plugin
+nvme.device.config                                  set               Set the plugin's parameter
+nvme.device.controller                              list              List all controllers on
+                                                                      the device if namespace is
+                                                                      not specified, otherwise
+                                                                      list all controllers the
+                                                                      namespace attached
+nvme.device.feature.aec                             get               Get NVMe device feature
+                                                                      async event configuration
+                                                                      information
+nvme.device.feature.aec                             set               Set NVMe device feature
+                                                                      async event configuration
+                                                                      information
+nvme.device.feature.apst                            get               Get NVMe device feature
+                                                                      autonomous power state
+                                                                      transition information
+nvme.device.feature.ar                              get               Get NVMe device feature
+                                                                      arbitration information
+nvme.device.feature.ar                              set               Set NVMe device feature
+                                                                      arbitration information
+nvme.device.feature                                 cap               Get NVMe device feature
+                                                                      supported capabilities
+                                                                      information
+nvme.device.feature.er                              get               Get NVMe device feature
+                                                                      error recovery information
+nvme.device.feature.er                              set               Set NVMe device feature
+                                                                      error recovery information
+nvme.device.feature                                 get               Get NVMe device feature
+nvme.device.feature.hi                              get               Get NVMe device feature
+                                                                      host identifier
+                                                                      information
+nvme.device.feature.hmb                             get               Get NVMe device feature
+                                                                      host memory buffer
+                                                                      information
+nvme.device.feature.ic                              get               Get NVMe device feature
+                                                                      interrupt coalescing
+                                                                      information
+nvme.device.feature.ic                              set               Set NVMe device feature
+                                                                      interrupt coalescing
+                                                                      information
+nvme.device.feature.ivc                             get               Get NVMe device feature
+                                                                      interrupt vector
+                                                                      configuration information
+nvme.device.feature.ivc                             set               Set NVMe device feature
+                                                                      interrupt vector
+                                                                      configuration information
+nvme.device.feature.kat                             get               Get NVMe device feature
+                                                                      keep alive timer
+                                                                      information
+nvme.device.feature.kat                             set               Set NVMe device feature
+                                                                      keep alive timer
+                                                                      information
+nvme.device.feature.lba                             get               Get NVMe device feature
+                                                                      LBA range type information
+nvme.device.feature.nq                              get               Get NVMe device feature
+                                                                      number of queue
+                                                                      information
+nvme.device.feature.pm                              get               Get NVMe device feature
+                                                                      power management
+                                                                      information
+nvme.device.feature.pm                              set               Set NVMe device feature
+                                                                      power management
+                                                                      information
+nvme.device.feature                                 set               Set NVMe device feature
+nvme.device.feature.spm                             get               Get NVMe device feature
+                                                                      software progress marker
+                                                                      information
+nvme.device.feature.spm                             set               Set software progress
+                                                                      marker feature
+                                                                      information, will clear
+                                                                      Pre-boot Software Load
+                                                                      Count (PBSLC) to 0
+nvme.device.feature.tt                              get               Get NVMe device feature
+                                                                      temperature threshold
+                                                                      information
+nvme.device.feature.tt                              set               Set NVMe device feature
+                                                                      temperature threshold
+                                                                      information
+nvme.device.feature.vwc                             get               Get NVMe device feature
+                                                                      volatile write cache
+                                                                      information
+nvme.device.feature.vwc                             set               Set NVMe device feature
+                                                                      volatile write cache
+                                                                      information
+nvme.device.feature.wa                              get               Get NVMe device feature
+                                                                      write atomicity
+                                                                      information
+nvme.device.feature.wa                              set               Set NVMe device feature
+                                                                      write atomicity
+                                                                      information
+nvme.device.firmware                                activate          Commit downloaded firmware
+                                                                      image to a specific slot
+nvme.device.firmware                                download          Download firmware image to
+                                                                      the device
+nvme.device                                         get               Get NVMe device
+                                                                      information
+nvme.device                                         list              List NVMe devices
+                                                                      registered to VMware NVMe
+                                                                      driver
+nvme.device.log.error                               get               Get NVMe device error log
+                                                                      information
+nvme.device.log.fwslot                              get               Get NVMe device firmware
+                                                                      slot log information
+nvme.device.log                                     get               Get NVMe log page
+nvme.device.log.persistentevent                     get               Get NVMe persistent event
+                                                                      log
+nvme.device.log.smart                               get               Get NVMe device SMART log
+                                                                      information
+nvme.device.log.telemetry.controller                get               Get NVMe telemetry
+                                                                      controller-initiated data
+nvme.device.log.telemetry.host                      get               Get NVMe telemetry host-
+                                                                      initiated data
+nvme.device.namespace                               attach            Attach namespace on NVMe
+                                                                      device
+nvme.device.namespace                               create            Create namespace on NVMe
+                                                                      device
+nvme.device.namespace                               delete            Delete namespace on NVMe
+                                                                      device
+nvme.device.namespace                               detach            Detach namespace on NVMe
+                                                                      device
+nvme.device.namespace                               format            Change namespace format
+nvme.device.namespace                               get               Get nvme namespace
+                                                                      information
+nvme.device.namespace                               list              List namespace on NVMe
+                                                                      device
+nvme.device.register                                get               Dump NVMe device registers
+nvme.device.timeout                                 get               Get timeout value of IO
+                                                                      timeout checker
+nvme.device.timeout                                 set               Set timeout value for IO
+                                                                      timeout checker
+nvme.driver.loglevel                                set               Set NVMe driver log level
+                                                                      and debug level
+nvme.fabrics                                        connect           Connect to an NVMe
+                                                                      controller on a specified
+                                                                      target through an adapter.
+nvme.fabrics.connection                             delete            Delete persistent NVMe
+                                                                      over Fabrics connection
+                                                                      entries. Reboot required
+                                                                      for settings to take
+                                                                      effect.
+nvme.fabrics.connection                             list              List all persistent NVMe
+                                                                      over Fabrics connection
+                                                                      entries.
+nvme.fabrics                                        disable           Disable NVMe over Fabrics
+                                                                      for a transport protocol.
+nvme.fabrics                                        disconnect        Disconnect specified NVMe
+                                                                      controller(s) on the
+                                                                      specified NVMe adapter.
+nvme.fabrics                                        discover          Discover NVMe controllers
+                                                                      on the specified target
+                                                                      port through the specified
+                                                                      NVMe adapter and list all
+                                                                      of them.
+nvme.fabrics                                        enable            Enable NVMe over Fabrics
+                                                                      for a transport protocol.
+nvme.info                                           get               Get NVMe host information.
+nvme.info                                           set               Set NVMe host information.
+nvme.namespace                                      identify          Get NVMe Identify
+                                                                      Namespace data (CNS 0h).
+nvme.namespace                                      list              List all NVMe namespaces.
+rdma.device                                         list              List the logical RDMA
+                                                                      devices currently
+                                                                      registered on the system.
+rdma.device.protocol                                list              List the enabled RDMA
+                                                                      protocols.
+rdma.device.stats                                   get               Get statistics for a given
+                                                                      RDMA device.
+rdma.device.vmknic                                  list              List the vmknics
+                                                                      associated with RDMA
+                                                                      devices.
+rdma.iser                                           add               Add an iSER device to
+                                                                      enable iser module driver.
+rdma.iser                                           delete            Delete an iser logical
+                                                                      device.
+rdma.iser.params                                    set               Change iSER kernel driver
+                                                                      settings. (This operation
+                                                                      is deprecated.)
+sched.reliablemem                                   get               Check if the system is
+                                                                      currently aware of
+                                                                      reliable memory.
+sched.swap.system                                   get               Get current state of the
+                                                                      options of the system-wide
+                                                                      shared swap space.
+sched.swap.system                                   set               Change the configuration
+                                                                      of system-wide shared swap
+                                                                      space.
+software.acceptance                                 get               Gets the host acceptance
+                                                                      level. This controls what
+                                                                      VIBs will be allowed on a
+                                                                      host.
+software.acceptance                                 set               Sets the host acceptance
+                                                                      level. This controls what
+                                                                      VIBs will be allowed on a
+                                                                      host.
+software.addon                                      get               Display the installed
+                                                                      Addon on the host and the
+                                                                      managed DPU(s).
+software                                            apply             Applies a complete image
+                                                                      with a software spec that
+                                                                      specifies base image,
+                                                                      addon and components to
+                                                                      install on the host.
+software.baseimage                                  get               Display the installed
+                                                                      baseimage on the host.
+software.component                                  apply             Installs Component
+                                                                      packages from a depot.
+                                                                      Components may be
+                                                                      installed, upgraded.
+                                                                      WARNING: If your
+                                                                      installation requires a
+                                                                      reboot, you need to
+                                                                      disable HA first.
+software.component                                  get               Displays detailed
+                                                                      information about one or
+                                                                      more installed Components
+                                                                      on host and managed
+                                                                      DPU(s).
+software.component                                  list              Lists the installed
+                                                                      Component packages on the
+                                                                      host and the managed
+                                                                      DPU(s).
+software.component                                  remove            Removes components from
+                                                                      the host. WARNING: If your
+                                                                      installation requires a
+                                                                      reboot, you need to
+                                                                      disable HA first.
+software.component.signature                        verify            Verifies the signatures of
+                                                                      installed Components on
+                                                                      the host and the managed
+                                                                      DPU(s) and displays the
+                                                                      name, version, vendor,
+                                                                      acceptance level and the
+                                                                      result of signature
+                                                                      verification for each of
+                                                                      them.
+software.component.vib                              list              List VIBs in an installed
+                                                                      Component on the host and
+                                                                      the managed DPU(s).
+software.profile                                    get               Display the installed
+                                                                      image profile on host and
+                                                                      managed DPU(s).
+software.profile                                    install           Installs or applies an
+                                                                      image profile from a depot
+                                                                      to this host. This command
+                                                                      completely replaces the
+                                                                      installed image with the
+                                                                      image defined by the new
+                                                                      image profile, and may
+                                                                      result in the loss of
+                                                                      installed VIBs. The common
+                                                                      vibs between host and
+                                                                      image profile will be
+                                                                      skipped. To preserve
+                                                                      installed VIBs, use
+                                                                      profile update instead.
+                                                                      WARNING: If your
+                                                                      installation requires a
+                                                                      reboot, you need to
+                                                                      disable HA first.
+software.profile                                    update            Updates the host with VIBs
+                                                                      from an image profile in a
+                                                                      depot. Installed VIBs may
+                                                                      be upgraded (or downgraded
+                                                                      if --allow-downgrades is
+                                                                      specified), but they will
+                                                                      not be removed. Any VIBs
+                                                                      in the image profile which
+                                                                      are not related to any
+                                                                      installed VIBs will be
+                                                                      added to the host.
+                                                                      WARNING: If your
+                                                                      installation requires a
+                                                                      reboot, you need to
+                                                                      disable HA first.
+software.profile                                    validate          Validates the current
+                                                                      image profile on the host
+                                                                      and managed DPU(s) against
+                                                                      an image profile in a
+                                                                      depot.
+software.sources.addon                              get               Display details about
+                                                                      Addons in the depots.
+software.sources.addon                              list              List all Addons in the
+                                                                      depots.
+software.sources.baseimage                          get               Display details about a
+                                                                      Base Image from the depot.
+software.sources.baseimage                          list              List all the Base Images
+                                                                      in a depot.
+software.sources.component                          get               Displays detailed
+                                                                      information about one or
+                                                                      more Components in the
+                                                                      depot
+software.sources.component                          list              List all the Components
+                                                                      from depots.
+software.sources.component.vib                      list              List VIB packages in the
+                                                                      specified Component in a
+                                                                      depot.
+software.sources.profile                            get               Display details about an
+                                                                      image profile from the
+                                                                      depot.
+software.sources.profile                            list              List all the image
+                                                                      profiles in a depot.
+software.sources.vib                                get               Displays detailed
+                                                                      information about one or
+                                                                      more VIB packages in the
+                                                                      depot
+software.sources.vib                                list              List all the VIBs from
+                                                                      depots.
+software.vib                                        get               Displays detailed
+                                                                      information about one or
+                                                                      more installed VIBs on the
+                                                                      host and the managed
+                                                                      DPU(s).
+software.vib                                        install           Installs VIB packages from
+                                                                      a URL or depot. VIBs may
+                                                                      be installed, upgraded, or
+                                                                      downgraded. WARNING: If
+                                                                      your installation requires
+                                                                      a reboot, you need to
+                                                                      disable HA first.
+software.vib                                        list              Lists the installed VIB
+                                                                      packages on the host and
+                                                                      the managed DPU(s).
+software.vib                                        remove            Removes VIB packages from
+                                                                      the host. WARNING: If your
+                                                                      installation requires a
+                                                                      reboot, you need to
+                                                                      disable HA first.
+software.vib.signature                              verify            Verifies the signatures of
+                                                                      installed VIB packages on
+                                                                      the host and the managed
+                                                                      DPU(s) and displays the
+                                                                      name, version, vendor,
+                                                                      acceptance level and the
+                                                                      result of signature
+                                                                      verification for each of
+                                                                      them
+software.vib                                        update            Update installed VIBs to
+                                                                      newer VIB packages. No new
+                                                                      VIBs will be installed,
+                                                                      only updates. WARNING: If
+                                                                      your installation requires
+                                                                      a reboot, you need to
+                                                                      disable HA first.
+storage.core.adapter.capabilities                   list              List the capabilities of
+                                                                      the SCSI HBAs in the
+                                                                      system.
+storage.core.adapter.device                         list              List the devices
+                                                                      associated with HBAs.
+storage.core.adapter                                list              List all the SCSI Host Bus
+                                                                      Adapters on the system.
+storage.core.adapter                                rescan            Rescan SCSI HBAs to search
+                                                                      for new Devices, remove
+                                                                      DEAD paths and update path
+                                                                      state. This operation will
+                                                                      also run an claim
+                                                                      operation equivalent to
+                                                                      the claimrule run command
+                                                                      and a filesystem rescan.
+storage.core.adapter.stats                          get               List the SCSI stats for
+                                                                      the SCSI Host Bus Adapters
+                                                                      in the system.
+storage.core.claiming                               autoclaim         Control the automatic PSA
+                                                                      (path/device) claiming
+                                                                      code allowing the
+                                                                      disabling of the automatic
+                                                                      claiming process or re-
+                                                                      enabling of the claiming
+                                                                      process if it was
+                                                                      previously disabled. By
+                                                                      default the automatic PSA
+                                                                      claiming process is on and
+                                                                      should not be disabled by
+                                                                      users unless specifically
+                                                                      instructed to do so.
+storage.core.claiming                               reclaim            Attempt to unclaim all
+                                                                      paths to a device and then
+                                                                      run the loaded claimrules
+                                                                      on each of the paths
+                                                                      unclaimed to attempt to
+                                                                      reclaim them.
+storage.core.claiming                               unclaim           1) Unclaim a path or set
+                                                                      of paths, disassociating
+                                                                      them from a PSA plugin.
+                                                                      NOTES:  It is normal for
+                                                                      path claiming to fail
+                                                                      especially when unclaiming
+                                                                      by plugin or adapter. Only
+                                                                      inactive paths with no I/O
+                                                                      will be able to be
+                                                                      unclaimed. Typically the
+                                                                      ESXi USB partition and
+                                                                      devices with VMFS volumes
+                                                                      on them will not be
+                                                                      unclaimable. Also NOTE
+                                                                      unclaiming will not
+                                                                      persist and periodic path
+                                                                      claiming will reclaim
+                                                                      these paths in the near
+                                                                      future unless claim rules
+                                                                      are configured to mask the
+                                                                      path. 2) Detach a (set of)
+                                                                      filter(s) from one or more
+                                                                      devices.
+storage.core.claimrule                              add               Add a claimrule to the set
+                                                                      of claimrules on the
+                                                                      system.
+storage.core.claimrule                              convert           Convert ESX 3.x style
+                                                                      /adv/Disk/MaskLUNs LUN
+                                                                      masks to Claim Rule
+                                                                      format. WARNING: This
+                                                                      conversion will not work
+                                                                      for all input MaskLUNs
+                                                                      variations! Please inspect
+                                                                      the list of generated
+                                                                      claim rules carefuly, then
+                                                                      if the suggested LUN mask
+                                                                      claim rules are correct
+                                                                      use the --commit parameter
+                                                                      to write the list to the
+                                                                      config file.
+storage.core.claimrule                              list              List all the claimrules on
+                                                                      the system.
+storage.core.claimrule                              load              Load path claiming rules
+                                                                      from config file into the
+                                                                      VMkernel.
+storage.core.claimrule                              move              Move a claimrule from one
+                                                                      rule id to another
+storage.core.claimrule                              remove            Delete a claimrule to the
+                                                                      set of claimrules on the
+                                                                      system.
+storage.core.claimrule                              run               Execute path claiming
+                                                                      rules.
+storage.core.device.capacity                        list              List capacity information
+                                                                      for the known storage
+                                                                      devices.
+storage.core.device.detached                        list              Lists all devices that
+                                                                      were detached manually by
+                                                                      changing their state on
+                                                                      the system.
+storage.core.device.detached                        remove            Provide control to allow a
+                                                                      user to remove Detached
+                                                                      devices from the
+                                                                      persistent detached device
+                                                                      list.
+storage.core.device.inquirycache                    list              List inquiry cache
+                                                                      information for the known
+                                                                      storage devices.
+storage.core.device.inquirycache                    set               Manipulate inquiry cache
+                                                                      settings of storage
+                                                                      devices.
+storage.core.device.latencythreshold                list              List latency sensitive
+                                                                      threshold for the known
+                                                                      storage devices.
+storage.core.device.latencythreshold                set               Set latency sensitive
+                                                                      threshold for devices.
+                                                                      This option is applicable
+                                                                      only for devices claimed
+                                                                      by MPPs that support
+                                                                      fastpath. The device(s)
+                                                                      can be selected based on
+                                                                      the mutually exclusive
+                                                                      parameters device name,
+                                                                      vendor/model, NVMe
+                                                                      controller model (For NVMe
+                                                                      devices), PCIe vendor
+                                                                      ID/PCIe sub vendor ID. See
+                                                                      the examples for more
+                                                                      details.
+storage.core.device                                 list              List the devices currently
+                                                                      registered with the PSA.
+storage.core.device.partition                       list              For a given device list
+                                                                      all of the partitions
+storage.core.device.partition                       showguid          For a given device list
+                                                                      the GUID for GPT
+                                                                      partitions
+storage.core.device.physical                        get               Get information about a
+                                                                      physical storage device.
+storage.core.device                                 purge             Removes storage devices
+                                                                      which have not been seen
+                                                                      in some time interval.
+storage.core.device.raid                            list              List the physical devices
+                                                                      that compose a given
+                                                                      logical device.
+storage.core.device                                 set               Modify the state of a
+                                                                      storage device.
+storage.core.device                                 setconfig         Set device configuration
+storage.core.device.smart.daemon                    start             Enable smartd.
+storage.core.device.smart.daemon.status             get               Get status of smartd.
+storage.core.device.smart.daemon                    stop              Disable smartd.
+storage.core.device.smart                           get               List Smart device
+                                                                      parameters.
+storage.core.device.smart.status                    get               Get status of SMART stats
+                                                                      on a device.
+storage.core.device.smart.status                    set               Enable or disable SMART
+                                                                      stats gathering on a
+                                                                      device.
+storage.core.device.stats                           get               List the SCSI stats for
+                                                                      SCSI Devices in the
+                                                                      system.
+storage.core.device.uidmap                          list              Get a mapping between a
+                                                                      device's primary UID and
+                                                                      the alternative UIDs for
+                                                                      that device on the system.
+storage.core.device.vaai.ats                        list              List the ATS VAAI
+                                                                      attributes (as per SCSI
+                                                                      standard) for the devices.
+storage.core.device.vaai.clone                      list              List the Clone VAAI
+                                                                      attributes (as per SCSI
+                                                                      standard) for the devices.
+storage.core.device.vaai.delete                     list              List the Delete VAAI
+                                                                      attributes (as per SCSI
+                                                                      standard) for the devices.
+storage.core.device.vaai.status                     get               List VAAI properties for
+                                                                      devices currently
+                                                                      registered with the PSA.
+storage.core.device.vaai.status                     set               Enable/Disable VAAI
+                                                                      operations on local SCSI
+                                                                      disks. (NOTE: A request to
+                                                                      enable an operation will
+                                                                      take effect only if the
+                                                                      underlying device supports
+                                                                      the VAAI operation.)
+storage.core.device.vaai.zero                       list              List the Zero VAAI
+                                                                      attributes (as per SCSI
+                                                                      standard) for the devices.
+storage.core.device.world                           list              Get a list of the worlds
+                                                                      that are currently using
+                                                                      devices on the ESX host.
+storage.core.nvme.device                            list              List the NVMe devices
+                                                                      currently registered with
+                                                                      the PSA.
+storage.core.nvme.path                              list              List all the NVMe paths on
+                                                                      the system.
+storage.core.path                                   list              List all the storage paths
+                                                                      on the system.
+storage.core.path                                   set               Provide control to allow a
+                                                                      user to modify a single
+                                                                      path's state. This
+                                                                      efffectively allows a user
+                                                                      to enable or disable
+                                                                      storage paths. The user is
+                                                                      not able to change the
+                                                                      full range of path states,
+                                                                      but can toggle between
+                                                                      'active' and 'off'. Please
+                                                                      NOTE changing the Path
+                                                                      state on any path that is
+                                                                      the only path to a given
+                                                                      device is likely to fail.
+                                                                      The VMkernel will not
+                                                                      change the path's state if
+                                                                      changing the state would
+                                                                      cause an 'All paths down'
+                                                                      state or the device is
+                                                                      currently in use.
+storage.core.path.stats                             get               List the SCSI stats for
+                                                                      the SCSI Paths in the
+                                                                      system.
+storage.core.plugin                                 list              List loaded PSA plugins on
+                                                                      the system.
+storage.core.plugin.registration                    add               Register a plugin module
+                                                                      with PSA.
+storage.core.plugin.registration                    list              List modules currently
+                                                                      registered with PSA.
+storage.core.plugin.registration                    remove            UnRegister a plugin module
+                                                                      with PSA.
+storage.core.scsi.device                            list              List the SCSI devices
+                                                                      currently registered with
+                                                                      the PSA.
+storage.core.scsi.path                              list              List all the SCSI paths on
+                                                                      the system.
+storage.filesystem                                  automount         Request mounting of known
+                                                                      datastores not explicitly
+                                                                      unmounted.
+storage.filesystem                                  list              List the volumes available
+                                                                      to the host. This includes
+                                                                      VMFS, NAS, VFAT and UFS
+                                                                      partitions.
+storage.filesystem                                  mount             Connect to and mount an
+                                                                      unmounted volume on the
+                                                                      ESX host.
+storage.filesystem                                  rescan            Scan storage devices for
+                                                                      new mountable filesystems.
+storage.filesystem                                  unmount           Disconnect and unmount and
+                                                                      existing VMFS or NAS
+                                                                      volume. This will not
+                                                                      delete the configuration
+                                                                      for the volume, but will
+                                                                      remove the volume from the
+                                                                      list of mounted volumes.
+storage.fpin.fc.adapter                             list              List FC adapters that
+                                                                      support FPIN.
+storage.fpin.fc                                     clear             Clear FPIN errors.
+storage.fpin.fc.event                               list              List all FPIN statistics
+                                                                      of FC transport.
+storage.fpin.fc.stats                               get               Get the summary of FPIN
+                                                                      statistics of FC
+                                                                      transport.
+storage.fpin.fc.target                              get               Get FC targets connected
+                                                                      to a FPIN supported HBA.
+storage.fpin.info                                   get               Get general FPIN
+                                                                      information.
+storage.fpin.info                                   set               Enable/Disable FPIN
+                                                                      feature.
+storage.hpp.device                                  list              List the devices currently
+                                                                      controlled by the VMware
+                                                                      High Performance Plugin.
+storage.hpp.device                                  set               Configure settings for an
+                                                                      HPP device.
+storage.hpp.device.usermarkedssd                    list              List the devices that were
+                                                                      marked/unmarked as SSD by
+                                                                      user.
+storage.hpp.path                                    list              List the paths currently
+                                                                      claimed by the VMware High
+                                                                      Performance Plugin
+storage.iofilter                                    enable            Enable an iofilter.
+storage.iofilter                                    list              List the iofilters
+                                                                      installed on this host.
+storage.nfs                                         add               Add a new NAS volume to
+                                                                      the ESX Host and mount it
+                                                                      with the given volume
+                                                                      name.
+storage.nfs.firewall                                add               Add a new allowed IP/Mask
+                                                                      entry in the nfsClient
+                                                                      firewall ruleset
+storage.nfs.firewall                                list              List the allowed IP/Mask
+                                                                      entries from the nfsClient
+                                                                      firewall ruleset.
+storage.nfs.firewall                                remove            Remove an existing IP/Mask
+                                                                      entry from the nfsClient
+                                                                      firewall ruleset
+storage.nfs                                         list              List the NAS volumes
+                                                                      currently known to the ESX
+                                                                      host.
+storage.nfs.param                                   get               Get the volume parameters
+                                                                      of the NAS volumes.
+storage.nfs.param                                   set               Set the volume parameters
+                                                                      of the NAS volumes.
+storage.nfs                                         remove            Remove an existing NAS
+                                                                      volume from the ESX host.
+storage.nfs41                                       add               Add a new NFS v4.1 volume
+                                                                      to the ESX Host and mount
+                                                                      it with the given volume
+                                                                      name.
+storage.nfs41.firewall                              add               Add a new allowed IP/Mask
+                                                                      entry in the nfs41Client
+                                                                      firewall ruleset
+storage.nfs41.firewall                              list              List the allowed IP/Mask
+                                                                      entries from the
+                                                                      nfs41Client firewall
+                                                                      ruleset.
+storage.nfs41.firewall                              remove            Remove an existing IP/Mask
+                                                                      entry from the nfs41Client
+                                                                      firewall ruleset
+storage.nfs41                                       list              List the NFS v4.1 volumes
+                                                                      currently known to the ESX
+                                                                      host.
+storage.nfs41.param                                 get               Get the volume parameters
+                                                                      of the NFS v4.1 volumes.
+storage.nfs41.param                                 set               Set the volume parameters
+                                                                      of the NFS v4.1 volumes.
+storage.nfs41                                       remove            Remove an existing NFS
+                                                                      v4.1 volume from the ESX
+                                                                      host.
+storage.nmp.device                                  list              List the devices currently
+                                                                      controlled by the VMware
+                                                                      NMP Multipath Plugin and
+                                                                      show the SATP and PSP
+                                                                      information associated
+                                                                      with that device.
+storage.nmp.device                                  set               Allow setting of the Path
+                                                                      Selection Policy (PSP) for
+                                                                      the given device to one of
+                                                                      the loaded policies on the
+                                                                      system.
+storage.nmp.path                                    list              List the paths currently
+                                                                      claimed by the VMware NMP
+                                                                      Multipath Plugin and show
+                                                                      the SATP and PSP
+                                                                      information associated
+                                                                      with that path.
+storage.nmp.psp.fixed.deviceconfig                  get               Allow retrieving of Fixed
+                                                                      Path Selection Policy
+                                                                      settings for a given
+                                                                      device.
+storage.nmp.psp.fixed.deviceconfig                  set               Allow setting of the
+                                                                      perferred path on a given
+                                                                      device controlled by the
+                                                                      Fixed Path Selection
+                                                                      Policy.
+storage.nmp.psp.generic.deviceconfig                get               Allow retrieving of per
+                                                                      device PSP configuration
+                                                                      parameters.
+storage.nmp.psp.generic.deviceconfig                set               Allow setting of per
+                                                                      device PSP configuration
+                                                                      parameters.  This command
+                                                                      will set the configuration
+                                                                      for the given device with
+                                                                      whichever PSP it is
+                                                                      currently configurated
+                                                                      with.
+storage.nmp.psp.generic.pathconfig                  get               Allow retrieving of per
+                                                                      path PSP configuration
+                                                                      parameters.
+storage.nmp.psp.generic.pathconfig                  set               Allow setting of per path
+                                                                      PSP configuration
+                                                                      parameters.  This command
+                                                                      will set the configuration
+                                                                      for the given path with
+                                                                      whichever PSP it is
+                                                                      currently configurated
+                                                                      with.
+storage.nmp.psp                                     list              List the Path Selection
+                                                                      Plugins (PSP) that are
+                                                                      currently loaded into the
+                                                                      NMP system and display
+                                                                      information about those
+                                                                      PSPs
+storage.nmp.psp.roundrobin.deviceconfig             get               Allow retrieving of Round
+                                                                      Robin Path Selection
+                                                                      Policy settings for a
+                                                                      given device.
+storage.nmp.psp.roundrobin.deviceconfig             set               Allow setting of the Round
+                                                                      Robin path options on a
+                                                                      given device controlled by
+                                                                      the Round Robin Selection
+                                                                      Policy.
+storage.nmp.satp.generic.deviceconfig               get               Allow retrieving of per
+                                                                      device SATP configuration
+                                                                      parameters.
+storage.nmp.satp.generic.deviceconfig               set               Allow setting of per
+                                                                      device SATP configuration
+                                                                      parameters. This command
+                                                                      will set the configuration
+                                                                      for the given device with
+                                                                      whichever SATP it is
+                                                                      currently configurated
+                                                                      with.
+storage.nmp.satp.generic.pathconfig                 get               Allow retrieving of per
+                                                                      path SATP configuration
+                                                                      parameters.
+storage.nmp.satp.generic.pathconfig                 set               Allow setting of per path
+                                                                      SATP configuration
+                                                                      parameters.  This command
+                                                                      will set the configuration
+                                                                      for the given path with
+                                                                      whichever SATP it is
+                                                                      currently configurated
+                                                                      with.
+storage.nmp.satp                                    list              List the Storage Array
+                                                                      Type Plugins (SATP) that
+                                                                      are currently loaded into
+                                                                      the NMP system and display
+                                                                      information about those
+                                                                      SATPs
+storage.nmp.satp.rule                               add               Add a rule to the list of
+                                                                      claim rules for the given
+                                                                      SATP.
+storage.nmp.satp.rule                               list              List the claiming rules
+                                                                      for Storage Array Type
+                                                                      Plugins (SATP)
+storage.nmp.satp.rule                               remove            Delete a rule from the
+                                                                      list of claim rules for
+                                                                      the given SATP.
+storage.nmp.satp                                    set               Set the default Path
+                                                                      Selection Policy for a
+                                                                      given Storage Array Type
+                                                                      Plugin (SATP).
+storage.osdata                                      create            Create an OSData partition
+                                                                      on a disk.
+storage.san.fc.events                               clear             Clear events for a given
+                                                                      FC adapter on the system.
+storage.san.fc.events                               get               Get Events for FC Devices
+storage.san.fc                                      list              List attributes of all FC
+                                                                      adapters on the system.
+storage.san.fc                                      reset             Perform LIP (Loop
+                                                                      Initiation Primitive)
+                                                                      Reset to a given FC
+                                                                      adapter on the system.
+storage.san.fc.stats                                get               Get statistics for a given
+                                                                      FC adapter, or all FC
+                                                                      adapters on the system.
+storage.san.fcoe                                    list              List attributes of all
+                                                                      FCoE adapters on the
+                                                                      system.
+storage.san.fcoe                                    reset             Perform LIP (Loop
+                                                                      Initiation Primitive)
+                                                                      Reset to a given FCoE
+                                                                      adapter on the system.
+storage.san.fcoe.stats                              get               Get statistics for a given
+                                                                      FCoE adapter, or all FCoE
+                                                                      adapters on the system.
+storage.san.iscsi                                   list              List attributes of all
+                                                                      Software iSCSI adapters on
+                                                                      the system.
+storage.san.iscsi.stats                             get               Get statistics for
+                                                                      Software iSCSI adapter.
+storage.san.sas                                     list              List all SAS IO Device
+                                                                      Management devices.
+storage.san.sas                                     reset             Perform SAS Reset
+storage.san.sas.stats                               get               List Stats for given
+                                                                      device, or all devices.
+storage.vflash.device                               list              List vflash SSD devices.
+storage.vflash.module                               get               Get vflash module info.
+storage.vflash.module                               list              List vflash modules.
+storage.vflash.module.stats                         get               Get vflash module
+                                                                      statistics
+storage.vmfs.extent                                 list              List the VMFS extents
+                                                                      available on the host.
+storage.vmfs.host                                   list              List hosts accessing a
+                                                                      particular VMFS Volume.
+storage.vmfs.lockmode                               list              List the on-disk critical
+                                                                      section locking mode for
+                                                                      VMFS volumes available on
+                                                                      this host.
+storage.vmfs.lockmode                               set               Update the on-disk
+                                                                      critical section locking
+                                                                      mode for a particular VMFS
+                                                                      Volume.
+storage.vmfs.pbcache                                get               Get VMFS Pointer Block
+                                                                      cache statistics.
+storage.vmfs.pbcache                                reset             Reset the VMFS Pointer
+                                                                      Block cache statistics.
+storage.vmfs.reclaim.config                         get               Get space reclamation
+                                                                      configuration parameters
+storage.vmfs.reclaim.config                         set               Set space reclamation
+                                                                      configuration parameters
+storage.vmfs.snapshot.extent                        list              List extents of unresolved
+                                                                      snapshots/replicas of VMFS
+                                                                      volume.
+storage.vmfs.snapshot                               list              List unresolved
+                                                                      snapshots/replicas of VMFS
+                                                                      volume.
+storage.vmfs.snapshot                               mount             Mount a snapshot/replica
+                                                                      of a VMFS volume.
+storage.vmfs.snapshot                               resignature       Resignature a
+                                                                      snapshot/replica of a VMFS
+                                                                      volume.
+storage.vmfs                                        unmap             Reclaim the space by
+                                                                      unmapping free blocks from
+                                                                      VMFS Volume
+storage.vmfs                                        upgrade           Upgrade a VMFS3 volume to
+                                                                      VMFS5.
+storage.vvol.daemon                                 unbindall         Unbind all Virtual Volumes
+                                                                      from all VASA Providers
+                                                                      known to this host.
+storage.vvol.nvme                                   discover          Performs a rescan of vVol
+                                                                      NVMe subsystems.
+storage.vvol.nvme.info                              get               Get vVol NVMe host
+                                                                      information.
+storage.vvol.nvme.info                              set               Set vVol NVMe host
+                                                                      information.
+storage.vvol.protocolendpoint                       list              List the VVol Protocol
+                                                                      EndPoints currently known
+                                                                      to this host.
+storage.vvol.protocolendpoint                       startforceunbind  Unbind all Virtual Volumes
+                                                                      on the PE with zero open
+                                                                      handle count.
+storage.vvol.stats                                  add               Add entity for stats
+                                                                      tracking
+storage.vvol.stats                                  disable           Disable stats for complete
+                                                                      namespace
+storage.vvol.stats                                  enable            Enable stats for complete
+                                                                      namespace
+storage.vvol.stats                                  get               Get stats for given stats
+                                                                      namespace
+storage.vvol.stats                                  list              List all supported stats
+storage.vvol.stats                                  remove            Remove tracked entity
+storage.vvol.stats                                  reset             Reset stats for given
+                                                                      namespace
+storage.vvol.storagearray.container                 list              List VVol containers for
+                                                                      storage arrays known to
+                                                                      this host.
+storage.vvol.storagearray                           list              VVol VASA Storage Array
+storage.vvol.storagearray.protocolendpoint          list              List Protocol Endpoints
+                                                                      for storage arrays known
+                                                                      to this host.
+storage.vvol.storagecontainer.abandonedvvol         scan              Scans the specified
+                                                                      storage container for
+                                                                      abandoned VVols.
+storage.vvol.storagecontainer                       list              List VVol storage
+                                                                      containers known to this
+                                                                      host.
+storage.vvol.vasacontext                            get               Get the VVol VASA Context
+                                                                      (vCenter UUID).
+storage.vvol.vasaprovider                           list              List the VASA Providers
+                                                                      registered on this host.
+storage.vvol.virtualvolume                          unmap             Reclaim the space by
+                                                                      unmapping free blocks from
+                                                                      VMFS config volume.
+storage.vvol.vmstats                                get               Get the VVol information
+                                                                      and statistics for a
+                                                                      specific virtual machine.
+system.account                                      add               Create a new local user
+                                                                      account.
+system.account                                      list              List local user accounts.
+system.account                                      remove            Remove an existing local
+                                                                      user account.
+system.account                                      set               Modify an existing local
+                                                                      user account.
+system.auditrecords                                 get               Audit record configuration
+                                                                      settings.
+system.auditrecords.local                           disable           Disable audit record
+                                                                      storage.
+system.auditrecords.local                           enable            Enable audit record
+                                                                      storage.
+system.auditrecords.local                           set               Set audit record storage
+                                                                      configuration options.
+system.auditrecords.remote                          disable           Disable transmitting audit
+                                                                      records to remote hosts.
+system.auditrecords.remote                          enable            Enable transmitting audit
+                                                                      records to remote hosts.
+system.boot.device                                  get               Get the systems boot
+                                                                      device.
+system.clock                                        get               Display the current system
+                                                                      clock parameters.
+system.clock                                        set               Set system clock
+                                                                      parameters.
+system.coredump.file                                add               Create a VMkernel Dump
+                                                                      VMFS file for this system.
+system.coredump.file                                get               Get the dump file path.
+                                                                      This command will print
+                                                                      the path to the active
+                                                                      and/or configured VMFS
+                                                                      Dump File.
+system.coredump.file                                list              List the active and
+                                                                      configured VMFS Diagnostic
+                                                                      Files.
+system.coredump.file                                remove            Remove a VMkernel Dump
+                                                                      VMFS file from this
+                                                                      system.
+system.coredump.file                                set               Set the active and
+                                                                      configured VMkernel Dump
+                                                                      VMFS file for this system.
+system.coredump.network                             check             Check the status of the
+                                                                      configured network dump
+                                                                      server
+system.coredump.network                             get               Get the currently
+                                                                      configured parameters for
+                                                                      network coredump, if
+                                                                      enabled.
+system.coredump.network                             set               Set the parameters used
+                                                                      for network core dump
+system.coredump.partition                           get               Get one of the dump
+                                                                      partition configured
+                                                                      values. This command will
+                                                                      print either the active
+                                                                      dump partition or the
+                                                                      configured dump partition
+                                                                      depending on the flags
+                                                                      passed.
+system.coredump.partition                           list              List all of the partitions
+                                                                      on the system that have a
+                                                                      partition type matching
+                                                                      the VMware Core partition
+                                                                      type. Also indicate which
+                                                                      partition, if any, is
+                                                                      being used as the system's
+                                                                      dump partition and which
+                                                                      is configured to be used
+                                                                      at next boot.
+system.coredump.partition                           set               Set the specific VMkernel
+                                                                      dump partition for this
+                                                                      system. This will
+                                                                      configure the dump
+                                                                      partition for the next
+                                                                      boot. This command will
+                                                                      change the active dump
+                                                                      partition to the partition
+                                                                      specified.
+system.entropyd                                     get               Get configuration settings
+                                                                      of entropyd.
+system.entropyd                                     set               Set the entropyd config
+                                                                      parameters.
+system.health.report                                get               Displays one or more
+                                                                      health reports
+system.health.report                                list              List all the health
+                                                                      reports currently
+                                                                      generated.
+system.hostname                                     get               Get the host, domain or
+                                                                      fully qualified name of
+                                                                      the ESX host.
+system.hostname                                     set               This command allows the
+                                                                      user to set the hostname,
+                                                                      domain name or fully
+                                                                      qualified domain name of
+                                                                      the ESX host.
+system.maintenanceMode                              get               Get the maintenance mode
+                                                                      state of the system.
+system.maintenanceMode                              set               Enable or disable the
+                                                                      maintenance mode of the
+                                                                      system.
+system.module                                       get               Show information for a
+                                                                      VMkernel module.
+system.module                                       list              List the VMkernel modules
+                                                                      that the system knows
+                                                                      about.
+system.module                                       load              Load a VMkernel module
+                                                                      with the given name if it
+                                                                      is enabled. If the module
+                                                                      is disabled then the use
+                                                                      of --force is required to
+                                                                      load the module.
+system.module.parameters                            clear             Clear the load time
+                                                                      parameters for a given
+                                                                      VMkernel module.
+system.module.parameters                            copy              Copy the load time
+                                                                      parameters from one
+                                                                      VMkernel module to
+                                                                      another.
+system.module.parameters                            list              List the parameters, a
+                                                                      descriptions of each
+                                                                      parameter supported for a
+                                                                      given module name and the
+                                                                      user defined value for
+                                                                      each parameter.
+system.module.parameters                            set               Set the load time
+                                                                      parameters for the given
+                                                                      VMkernel module.
+system.module                                       set               Allow enabling and
+                                                                      disabling of a VMkernel
+                                                                      module.
+system.ntp.config                                   get               Display Network Time
+                                                                      Protocol configuration.
+system.ntp                                          get               Display Network Time
+                                                                      Protocol configuration
+system.ntp                                          set               Configures the ESX Network
+                                                                      Time Protocol agent.
+system.ntp.stats                                    get               Report operational state
+                                                                      of Network Time Protocol
+                                                                      Daemon
+system.ntp                                          test              Verify operational status
+                                                                      of ESX NTP service.
+system.partialMaintenanceMode                       list              Get the partial
+                                                                      maintenance mode state of
+                                                                      the system.
+system.partialMaintenanceMode                       set               Change partial maintenance
+                                                                      mode.
+system.permission                                   list              List permissions defined
+                                                                      on the host.
+system.permission                                   set               Set permission for a user
+                                                                      or group.
+system.permission                                   unset             Remove permission for a
+                                                                      user or group.
+system.process                                      list              List the VMkernel
+                                                                      UserWorld processes
+                                                                      currently on the host.
+system.process.stats.load                           get               System load average over
+                                                                      the last 1, 5 and 15
+                                                                      minutes.
+system.process.stats.running                        get               Number of currently
+                                                                      running processes.
+system.ptp                                          get               Display Precision Time
+                                                                      Protocol configuration
+system.ptp                                          set               Configures the ESX
+                                                                      Precision Time Protocol
+                                                                      agent.
+system.ptp.stats                                    get               Report operational state
+                                                                      of Precision Time Protocol
+                                                                      Daemon
+system.ptp                                          test              Verify operational status
+                                                                      of ESX PTP service.
+system.secpolicy.domain                             list              List the enforcement level
+                                                                      for each domain.
+system.secpolicy.domain                             set               Set the enforcement level
+                                                                      for a domain in the
+                                                                      system. Any option
+                                                                      specified here is not
+                                                                      persistent and will not
+                                                                      survive a reboot of the
+                                                                      system.
+system.security.certificatestore                    add               Add a new CA certificate
+                                                                      to the CA certificate
+                                                                      store.
+system.security.certificatestore                    list              List all certificates in
+                                                                      the CA certificate store.
+system.security.certificatestore                    remove            Remove a certificate from
+                                                                      the CA certificate store.
+system.security.fips140.ssh                         get               Get FIPS140 mode of ssh.
+system.security.fips140.ssh                         set               Set FIPS140 mode of ssh.
+system.security.keypersistence                      disable           Disable key persistence.
+system.security.keypersistence                      enable            Enable key persistence.
+system.security.keypersistence                      get               Get the status of key
+                                                                      persistence.
+system.settings.advanced                            add               Add a user defined
+                                                                      advanced option to the
+                                                                      /UserVars/ advanced option
+                                                                      tree.
+system.settings.advanced                            list              List the advanced options
+                                                                      available from the
+                                                                      VMkernel.
+system.settings.advanced                            remove            Remove a user defined
+                                                                      advanced option from the
+                                                                      /UserVars/ advanced option
+                                                                      tree.
+system.settings.advanced                            set               Set the value of an
+                                                                      advanced option.
+system.settings.encryption                          get               Get the encryption mode
+                                                                      and policy.
+system.settings.encryption.recovery                 list              List recovery keys.
+system.settings.encryption.recovery                 rotate            Rotate the recover key.
+system.settings.encryption                          set               Set the encryption mode
+                                                                      and policy.
+system.settings.gueststore.repository               get               Get GuestStore repository.
+system.settings.gueststore.repository               set               Set or clear GuestStore
+                                                                      repository.
+system.settings.kernel                              list              List VMkernel kernel
+                                                                      settings.
+system.settings.kernel                              set               Set a VMKernel setting.
+system.settings.keyboard.layout                     get               Get the keyboard layout
+system.settings.keyboard.layout                     list              List the keyboard layout
+system.settings.keyboard.layout                     set               Set the keyboard layout
+system.shutdown                                     poweroff          Power off the system. The
+                                                                      host must be in
+                                                                      maintenance mode.
+system.shutdown                                     reboot            Reboot the system. The
+                                                                      host must be in
+                                                                      maintenance mode.
+system.slp                                          get               Get SLP Agent
+                                                                      configuration.
+system.slp                                          search            Perform SLP search for
+                                                                      neighboring services
+system.slp                                          set               Configure ESX SLP agent.
+system.slp.stats                                    get               Report operational state
+                                                                      of Service Location
+                                                                      Protocol Daemon
+system.snmp                                         get               Get SNMP Agent
+                                                                      configuration
+system.snmp                                         hash              Generate localized hash
+                                                                      values based on this
+                                                                      agents snmp engine id.
+system.snmp                                         set               This command allows the
+                                                                      user to set up ESX SNMP
+                                                                      agent.
+system.snmp                                         test              Verify ESX SNMP
+                                                                      notifications can be
+                                                                      delivered to target
+                                                                      destinations.
+system.ssh.client.config                            list              List SSH client's
+                                                                      configuration settings.
+system.ssh.client.config                            set               Set SSH client
+                                                                      configuration.
+system.ssh.key                                      add               Add new SSH authorized
+                                                                      keys.
+system.ssh.key                                      list              List SSH authorized keys.
+system.ssh.key                                      remove            Remove SSH authorized
+                                                                      keys.
+system.ssh.server.config                            list              List SSH server's
+                                                                      configuration settings.
+system.ssh.server.config                            set               Set SSH server
+                                                                      configuration.
+system.ssh.version                                  get               Show the version of SSH.
+system.stats.installtime                            get               Display the date and time
+                                                                      when this system was first
+                                                                      installed. Value will not
+                                                                      change on subsequent
+                                                                      updates.
+system.stats.uptime                                 get               Display the number of
+                                                                      microseconds the system
+                                                                      has been running.
+system.syslog.config                                get               Show the current global
+                                                                      configuration values.
+system.syslog.config.logfilter                      add               Add a log filter.
+system.syslog.config.logfilter                      get               Show the current log
+                                                                      filter configuration
+                                                                      values.
+system.syslog.config.logfilter                      list              Show the added log
+                                                                      filters.
+system.syslog.config.logfilter                      remove            Remove a log filter.
+system.syslog.config.logfilter                      set               Set log filtering
+                                                                      configuration options.
+system.syslog.config.logger                         list              Show the currently
+                                                                      configured sub-loggers.
+system.syslog.config.logger                         set               Set configuration options
+                                                                      for a specific sub-logger.
+system.syslog.config                                set               Set syslog daemon
+                                                                      configuration options.
+system.syslog                                       mark              Issue a message to all
+                                                                      outputs.
+system.syslog                                       reload            Reload the log daemon to
+                                                                      apply any new
+                                                                      configuration options.
+system.tierdevice                                   create            Create a new tier device
+                                                                      partition.
+system.tierdevice                                   delete            Delete an already present
+                                                                      tier device partition.
+system.tierdevice                                   list              List all SSDs with a tier
+                                                                      device partition.
+system.time                                         get               Display the current system
+                                                                      time.
+system.time                                         set               Set the system clock time.
+                                                                      Any missing parameters
+                                                                      will default to the
+                                                                      current time
+system.tls.client                                   get               Get TLS client profile
+                                                                      name and values.
+system.tls.client                                   set               Set TLS client profile
+                                                                      name and values. The
+                                                                      system must be rebooted
+                                                                      for the new configuration
+                                                                      to take effect.
+system.tls.server                                   get               Get TLS server profile
+                                                                      name and values.
+system.tls.server                                   set               Set TLS server profile
+                                                                      name and values. The
+                                                                      system must be rebooted
+                                                                      for the new configuration
+                                                                      to take effect.
+system.uuid                                         get               Get the system UUID.
+system.version                                      get               Display the product name,
+                                                                      version and build
+                                                                      information.
+system.visorfs                                      get               Obtain status information
+                                                                      on the memory filesystem
+                                                                      as a whole.
+system.visorfs.ramdisk                              add               Add a new Visorfs RAM disk
+                                                                      to the ESXi Host and mount
+                                                                      it.
+system.visorfs.ramdisk                              list              List the RAM disks used by
+                                                                      the host.
+system.visorfs.ramdisk                              remove            Remove a Visorfs RAM disk
+                                                                      from the ESXi Host.
+system.visorfs.tardisk                              list              List the tardisks used by
+                                                                      the host.
+system.wbem                                         get               Display WBEM Agent
+                                                                      configuration.
+system.wbem.provider                                list              Display WBEM provider
+                                                                      configuration.
+system.wbem.provider                                set               This command is used to
+                                                                      manage ESX CIMOM
+                                                                      providers.
+system.wbem                                         set               This command allows the
+                                                                      user to set up ESX CIMOM
+                                                                      agent.
+system.welcomemsg                                   get               Get the Welcome Message
+                                                                      for DCUI.
+system.welcomemsg                                   set               Set the welcome message
+                                                                      string.
+vm.appinfo                                          get               Get the state of appinfo
+                                                                      component on the ESXi
+                                                                      host.
+vm.appinfo                                          set               Modify the appinfo
+                                                                      component on the ESXi
+                                                                      host.
+vm.process                                          kill              Used to forcibly kill
+                                                                      Virtual Machines that are
+                                                                      stuck and not responding
+                                                                      to normal stop operations.
+vm.process                                          list              List the virtual machines
+                                                                      on this system. This
+                                                                      command currently will
+                                                                      only list running VMs on
+                                                                      the system.
+vsan.cluster                                        get               Get information about the
+                                                                      vSAN cluster that this
+                                                                      host is joined to.
+vsan.cluster                                        join              Join the host to a vSAN
+                                                                      cluster.
+vsan.cluster                                        leave             Leave the vSAN cluster the
+                                                                      host is currently joined
+                                                                      to.
+vsan.cluster                                        list              Get information about the
+                                                                      vSAN clusters that this
+                                                                      host is joined to.
+vsan.cluster                                        new               Create a vSAN cluster with
+                                                                      current host joined. A
+                                                                      random sub-cluster UUID
+                                                                      will be generated.
+vsan.cluster.preferredfaultdomain                   get               Get the preferred fault
+                                                                      domain for a stretched
+                                                                      cluster.
+vsan.cluster.preferredfaultdomain                   list              List the preferred fault
+                                                                      domain for all attached
+                                                                      stretched clusters.
+vsan.cluster.preferredfaultdomain                   set               Set the preferred fault
+                                                                      domain for a stretched
+                                                                      cluster.
+vsan.cluster                                        restore           Restore the persisted vSAN
+                                                                      cluster configuration.
+vsan.cluster.unicastagent                           add               Add a unicast agent to the
+                                                                      vSAN cluster
+                                                                      configuration.
+vsan.cluster.unicastagent                           clear             Removes all unicast agents
+                                                                      in the vSAN cluster
+                                                                      configuration.
+vsan.cluster.unicastagent                           list              List all unicast agents in
+                                                                      the vSAN cluster
+                                                                      configuration.
+vsan.cluster.unicastagent                           remove            Remove a unicast agent
+                                                                      from the vSAN cluster
+                                                                      configuration.
+vsan.cmmds.timemachine                              get               Get vSAN CMMDS time
+                                                                      machine configuration.
+vsan.cmmds.timemachine                              set               Configure vSAN CMMDS time
+                                                                      machine.
+vsan.datastore                                      add               Add a new datastore to the
+                                                                      vSAN cluster. This
+                                                                      operation may be used to
+                                                                      add either a new local
+                                                                      datastore or a remote
+                                                                      datastore. Adding local
+                                                                      datastore is only allowed
+                                                                      if vSAN is enabled on the
+                                                                      host. In general, add
+                                                                      should be done at cluster
+                                                                      level. Across a vSAN
+                                                                      cluster vSAN datastores
+                                                                      should be in sync.
+vsan.datastore                                      clear             Remove all but the default
+                                                                      datastore from the vSAN
+                                                                      cluster. This operation is
+                                                                      only allowed if vSAN is
+                                                                      enabled on the host. In
+                                                                      general, clear should be
+                                                                      done at cluster level.
+                                                                      Across a vSAN cluster vSAN
+                                                                      datastores should be in
+                                                                      sync.
+vsan.datastore                                      list              List datastores in the
+                                                                      vSAN cluster.
+vsan.datastore.name                                 get               Get vSAN datastore name.
+vsan.datastore.name                                 set               Configure vSAN datastore
+                                                                      name. In general, rename
+                                                                      should always be done at
+                                                                      cluster level. Across a
+                                                                      vSAN cluster vSAN
+                                                                      datastore name should be
+                                                                      in sync.
+vsan.datastore                                      remove            Remove a datastore from
+                                                                      the vSAN cluster. This
+                                                                      operation is only allowed
+                                                                      if vSAN is enabled on the
+                                                                      host. In general, remove
+                                                                      should be done at cluster
+                                                                      level. Across a vSAN
+                                                                      cluster vSAN datastores
+                                                                      should be in sync.
+vsan.debug.advcfg                                   list              List all advanced
+                                                                      configuration options with
+                                                                      non-default values.
+vsan.debug.controller                               list              Print detailed information
+                                                                      about all vSAN disk
+                                                                      controllers (output may
+                                                                      change between releases)
+vsan.debug.disk                                     list              Print detailed information
+                                                                      about all vSAN disks in
+                                                                      the cluster.
+vsan.debug.disk                                     overview          Print overview information
+                                                                      about all vSAN disks in
+                                                                      the cluster.
+vsan.debug.disk.summary                             get               Print summary information
+                                                                      about all vSAN disks in
+                                                                      the cluster.
+vsan.debug.evacuation                               precheck          Examine what it takes if
+                                                                      an entity (disk group or
+                                                                      host) is evacuated in
+                                                                      various modes (Action).
+                                                                      The result is accurate
+                                                                      when all hosts in the vSAN
+                                                                      cluster are of the same
+                                                                      version and have the same
+                                                                      disk format.
+vsan.debug.limit                                    get               Print summary information
+                                                                      about vSAN limits (output
+                                                                      may change between
+                                                                      releases)
+vsan.debug.memory                                   list              Print both userworld and
+                                                                      kernel memory consumptions
+                                                                      of vSAN.
+vsan.debug.mob                                      start             Start vSAN Managed Object
+                                                                      Browser Service.
+vsan.debug.mob                                      status            Query vSAN Managed Object
+                                                                      Browser Service is running
+                                                                      or not.
+vsan.debug.mob                                      stop              Stop vSAN Managed Object
+                                                                      Browser Service.
+vsan.debug.object.health.summary                    get               Print health summary
+                                                                      information about all vSAN
+                                                                      objects in the cluster
+                                                                      (output may change between
+                                                                      releases)
+vsan.debug.object                                   list              Print detailed information
+                                                                      about vSAN objects in the
+                                                                      cluster. This command
+                                                                      would only show 100
+                                                                      objects at most by
+                                                                      default.
+vsan.debug.object                                   overview          Print overview information
+                                                                      about all vSAN objects in
+                                                                      the cluster. This command
+                                                                      would only show 100
+                                                                      objects at most by
+                                                                      default.
+vsan.debug.resync                                   list              Print detailed information
+                                                                      about vSAN resyncing
+                                                                      objects (output may change
+                                                                      between releases)
+vsan.debug.resync.summary                           get               Print summary information
+                                                                      about vSAN resyncing
+                                                                      objects (output may change
+                                                                      between releases)
+vsan.debug.vmdk                                     list              Print summary information
+                                                                      about VMDKs on local vSAN
+                                                                      datastore (output may
+                                                                      change between releases)
+vsan.dedupstore.distribution                        get               Get the dedup store
+                                                                      distribution info of vSAN
+                                                                      ESA (Express Storage
+                                                                      Architecture) cluster.
+vsan.dedupstore                                     get               Get vSAN ESA dedup store
+                                                                      view.
+vsan.encryption.cert                                get               Get encryption KMS server
+                                                                      certificate contents.
+vsan.encryption.cert.path                           list              List encryption
+                                                                      certificate file paths.
+vsan.encryption.hostkey                             get               Get host key from keycache
+                                                                      used for vSAN encryption.
+vsan.encryption.info                                get               Get vSAN encryption
+                                                                      infomation.
+vsan.encryption.kms                                 list              List the KMS
+                                                                      configurations used for
+                                                                      vSAN encryption.
+vsan.faultdomain                                    get               Get the fault domain name
+                                                                      for this host.
+vsan.faultdomain                                    reset             Reset Host fault domain to
+                                                                      default value
+vsan.faultdomain                                    set               Set the fault domain for
+                                                                      this host
+vsan.hardware.vcg                                   add               Map unidentified vSAN
+                                                                      hardware device with VCG
+                                                                      ID.
+vsan.hardware.vcg                                   get               Get the vSAN VCG ID for a
+                                                                      vSAN hardware device.
+                                                                      Output is VCG ID while
+                                                                      "N/A" means device ID is
+                                                                      not mapped.
+vsan.health.cluster                                 get               Get a specific health
+                                                                      check status and its
+                                                                      details
+vsan.health.cluster                                 list              List a cluster wide health
+                                                                      check across all types of
+                                                                      health checks
+vsan.iscsi.defaultconfig                            get               Get default values for
+                                                                      vSAN iSCSI Target
+                                                                      configurations.
+vsan.iscsi.defaultconfig                            set               Set default values for
+                                                                      vSAN iSCSI Target
+                                                                      configurations.
+vsan.iscsi.homeobject                               create            Create vSAN iSCSI target
+                                                                      home object. Once created,
+                                                                      the home object will be
+                                                                      available for all the
+                                                                      hosts in vSAN cluster.
+                                                                      vSAN iSCSI target home
+                                                                      object should be created
+                                                                      only once for the vSAN
+                                                                      cluster.
+vsan.iscsi.homeobject                               delete            Delete vSAN iSCSI target
+                                                                      home object. This
+                                                                      operation will destroy all
+                                                                      vSAN iSCSI target
+                                                                      configuration
+vsan.iscsi.homeobject                               get               Get status for the vSAN
+                                                                      iSCSI target home object
+vsan.iscsi.homeobject                               set               Update configuration for
+                                                                      the vSAN iSCSI target home
+                                                                      object
+vsan.iscsi.initiatorgroup                           add               Add a new initiator group.
+                                                                      An initiator group is a
+                                                                      collection of iSCSI
+                                                                      initiator hosts. A LUN can
+                                                                      be exposed to multiple
+                                                                      initiators via initiator
+                                                                      group.
+vsan.iscsi.initiatorgroup                           get               Get initiator group
+                                                                      properties.
+vsan.iscsi.initiatorgroup.initiator                 add               Add new initiator iSCSI
+                                                                      names to the vSAN iSCSI
+                                                                      initiator group.
+vsan.iscsi.initiatorgroup.initiator                 remove            Remove initiator iSCSI
+                                                                      names from the vSAN iSCSI
+                                                                      initiator group.
+vsan.iscsi.initiatorgroup                           list              Get the list of initiator
+                                                                      groups.
+vsan.iscsi.initiatorgroup                           remove            Remove an initiator group.
+                                                                      Group should be empty. If
+                                                                      you want to remove non-
+                                                                      empty group use --force
+                                                                      option.
+vsan.iscsi.status                                   get               Gets current status
+                                                                      (Enabled or Disabled).
+vsan.iscsi.status                                   set               Enable or disable iSCSI
+                                                                      target support, query
+                                                                      status
+vsan.iscsi.target                                   add               Add a new vSAN iSCSI
+                                                                      target.
+vsan.iscsi.target                                   get               Get configuration for vSAN
+                                                                      iSCSI target
+vsan.iscsi.target                                   list              List vSAN iSCSI targets.
+vsan.iscsi.target.lun                               add               Add a new vSAN iSCSI LUN
+                                                                      to specified target
+vsan.iscsi.target.lun                               get               Get configuration for vSAN
+                                                                      iSCSI LUN
+vsan.iscsi.target.lun                               list              List vSAN iSCSI LUNs in
+                                                                      specified target.
+vsan.iscsi.target.lun                               remove            Remove a vSAN iSCSI LUN
+                                                                      from specified target.
+vsan.iscsi.target.lun                               set               Update configuration for
+                                                                      given vSAN iSCSI target
+                                                                      LUN.
+vsan.iscsi.target                                   remove            Remove a vSAN iSCSI
+                                                                      target.
+vsan.iscsi.target                                   set               Update configuration of
+                                                                      the given iSCSI target.
+vsan.maintenancemode                                cancel            Cancel an in-progress vSAN
+                                                                      maintenance mode
+                                                                      operation.The command is
+                                                                      not used for exit host
+                                                                      maintenance mode. Please
+                                                                      run esxcli system
+                                                                      maintenanceMode set -e 0
+                                                                      to exit host maintenance
+                                                                      mode
+vsan.network                                        clear             Clear the vSAN network
+                                                                      configuration.
+vsan.network.ip                                     add               Add an IP interface to the
+                                                                      vSAN network
+                                                                      configuration.
+vsan.network.ip                                     remove            Remove an IP interface
+                                                                      from the vSAN network
+                                                                      configuration.
+vsan.network.ip                                     set               Reconfigure an IP
+                                                                      interface in the vSAN
+                                                                      network configuration.
+vsan.network.ipv4                                   add               Add an IP interface to the
+                                                                      vSAN network
+                                                                      configuration.
+vsan.network.ipv4                                   remove            Remove an IP interface
+                                                                      from the vSAN network
+                                                                      configuration.
+vsan.network.ipv4                                   set               Reconfigure an IP
+                                                                      interface in the vSAN
+                                                                      network configuration.
+vsan.network                                        list              List the network
+                                                                      configuration currently in
+                                                                      use by vSAN.
+vsan.network                                        remove            Remove an interface from
+                                                                      the vSAN network
+                                                                      configuration.
+vsan.network                                        restore           Restore the persisted vSAN
+                                                                      network configuration.
+vsan.network.security                               get               Get vSAN network security
+                                                                      configurations for a
+                                                                      subcluster.
+vsan.network.security                               list              List vSAN network security
+                                                                      configurations.
+vsan.network.security                               set               Configure vSAN network
+                                                                      security settings for a
+                                                                      subcluster.
+vsan.perf.diagnostic                                get               Gets current status about
+                                                                      diagnostic mode.
+vsan.perf.diagnostic                                set               Set vSAN diagnostic mode
+                                                                      configuration.
+vsan.perf                                           get               Gets current status
+                                                                      (Enabled or Disabled).
+vsan.perf                                           set               Set vSAN performance
+                                                                      service configuration.
+vsan.policy                                         cleardefault      Clear default vSAN storage
+                                                                      policy values.
+vsan.policy                                         getdefault        Get default vSAN storage
+                                                                      policy values.
+vsan.policy                                         setdefault        Set default vSAN storage
+                                                                      policy values.
+vsan.resync.bandwidth                               get               Get information about vSAN
+                                                                      resync bandwidth in Mbps
+                                                                      for the disk group with
+                                                                      the heaviest resync
+                                                                      workload.
+vsan.resync.throttle                                get               Get information about vSAN
+                                                                      resync throttling
+vsan.resync.throttle                                set               Configure vSAN resync
+                                                                      throttling
+vsan.storage                                        add               Add physical disk for vSAN
+                                                                      usage.
+vsan.storage.automode                               get                Get status of storage
+                                                                      auto claim mode.
+vsan.storage.automode                               set               Configure storage auto
+                                                                      claim mode
+vsan.storage.diskgroup                              mount             Mount a vSAN disk or disk
+                                                                      group.
+vsan.storage.diskgroup                              rebuild           Rebuild vSAN diskgroup.
+vsan.storage.diskgroup                              unmount           Unmount vSAN disk or disk
+                                                                      group.
+vsan.storage                                        list              List vSAN storage
+                                                                      configuration.
+vsan.storage                                        remove            Remove physical disks from
+                                                                      vSAN disk groups.
+vsan.storage.tag                                    add               Add a vSAN storage tag.
+vsan.storage.tag                                    remove            Remove a vSAN storage tag.
+vsan.storagepool                                    add               Add physical disk for vSAN
+                                                                      usage.
+vsan.storagepool                                    list              List vSAN storage pool
+                                                                      configuration.
+vsan.storagepool                                    mount             Mount vSAN disk from
+                                                                      storage pool.
+vsan.storagepool                                    rebuild           Rebuild vSAN storage pool
+                                                                      disks.
+vsan.storagepool                                    remove            Remove physical disk from
+                                                                      storage pool usage.
+                                                                      Exactly one of --disk or
+                                                                      --uuid param is required.
+vsan.storagepool                                    unmount           Unmount vSAN disk from
+                                                                      storage pool.
+vsan.trace                                          get               Get the vSAN tracing
+                                                                      configuration.
+vsan.trace                                          set               Configure vSAN trace.
+                                                                      Please note: This command
+                                                                      is not thread safe.
+vsan.vdx                                            attach            Attach a virtual disk from
+                                                                      the specified disk
+                                                                      backend.
+vsan.vdx                                            create            Create virtual disk to
+                                                                      provide storage.
+vsan.vdx                                            delete            Delete the backend for the
+                                                                      virtual disk.
+vsan.vdx                                            detach            Detach a previously
+                                                                      attached virtual disk.
+vsan.vdx                                            list              List all the existing
+                                                                      virtual disks.
+[root@ec6rr0u19:~]  esxcli network nic list
+
