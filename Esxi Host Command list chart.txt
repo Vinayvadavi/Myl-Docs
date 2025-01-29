@@ -106,6 +106,15 @@ network.ip.dns.search                               remove            Remove a s
 network.ip.dns.server                               add               Add a new DNS server to
                                                                       the end of the list of DNS      15 esxcli network ip connection list
                                                                                                       16 esxcli network ip interface ipv4 address list
+0  esxcli network nic list
+   1 esxcli network nic list
+   2 esxcli system module list | grep igbn
+   3 tail -f /var/log/vmkernel.log | grep -i eth
+   4 esxcli system module list | grep igbn
+   5 lspci -vv | grep -i eth
+   6 esxcli system module info --module=igbn
+   7 esxcli system module get --module igbn
+   8 history
 
                                                                       servers to use for this
                                                                       ESXi host.
