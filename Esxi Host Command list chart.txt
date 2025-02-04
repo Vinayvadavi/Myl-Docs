@@ -2111,3 +2111,63 @@ vsan.vdx                                            list              List all t
                                                                       virtual disks.
 [root@ec6rr0u19:~]  esxcli network nic list
 
+
+The essential PowerShell commands cheat sheet
+In addition to the 5 essential commands above, we’ve compiled a list of other commonly used commands. Here is the essential Windows PowerShell commands cheat sheet:
+
+Command	Description
+Get-Service	Retrieve information about services
+Get-Process	Retrieve information about processes
+Get-EventLog	Retrieve information from event logs
+Set-ExecutionPolicy	Modify the script execution policy
+Test-Connection	Test the connectivity to a remote computer
+Out-File	Write PowerShell output to a file
+Get-Help	Display information about concepts and commands
+Get-History	Retrieve recent commands in your current session
+Get-Command	Retrieve all available PowerShell commands
+ConvertTo-HTML	Create an HTML file from PowerShell output
+Copy-Item	Copy a file to a specific location
+Clear-History	Clear entries from your command history
+Add-History	Add entries to your command history
+Format-Table	Format PowerShell output as a table
+Format-List	Format PowerShell output as a list
+Clear-Content	Retain an item while deleting the contents of that item
+Checkpoint-Computer	Set a restore point on your machine
+ForEach-Object	Perform an operation on each item in a specified group
+Where-Object	Select objects with a certain property  
+Select-Object	Select specific properties of an object or group of objects
+Out-File	Create a local file to save cmdlet output
+Write-Progress	Display a progress bar in a PowerShell window
+Debug-Process	Attach a debugger to a running process
+Get-WinEvent	Display Windows event logs
+Wait-Job	Suppress the command prompt until background jobs finish running
+
+PowerShell Commands List
+Here are 25 basic PowerShell commands:
+Command name	Alias	Description
+Set-Location	cd, chdir, sl	Sets the current working location to a specified location.
+Get-Content	cat, gc, type	Gets the content of the item at the specified location.
+Add-Content	ac	Adds content to the specified items, such as adding words to a file.
+Set-Content	sc	Writes or replaces the content in an item with new content.
+Copy-Item	copy, cp, cpi	Copies an item from one location to another.
+Remove-Item	del, erase, rd, ri, rm, rmdir	Deletes the specified items.
+Move-Item	mi, move, mv	Moves an item from one location to another.
+Set-Item	si	Changes the value of an item to the value specified in the command.
+New-Item	ni	Creates a new item.
+Start-Job	sajb	Starts a Windows PowerShell background job.
+Compare-Object	compare, dif	Compares two sets of objects.
+Group-Object	group	Groups objects that contain the same value for specified properties.
+Invoke-WebRequest	curl, iwr, wget	Gets content from a web page on the Internet.
+Measure-Object	measure	Calculates the numeric properties of objects, and the characters, words, and lines in string objects, such as files …
+Resolve-Path	rvpa	Resolves the wildcard characters in a path, and displays the path contents.
+Resume-Job	rujb	Restarts a suspended job
+Set-Variable	set, sv	Sets the value of a variable. Creates the variable if one with the requested name does not exist.
+Show-Command	shcm	Creates Windows PowerShell commands in a graphical command window.
+Sort-Object	sort	Sorts objects by property values.
+Start-Service	sasv	Starts one or more stopped services.
+Start-Process	saps, start	Starts one or more processes on the local computer.
+Suspend-Job	sujb	Temporarily stops workflow jobs.
+Wait-Job	wjb	Suppresses the command prompt until one or all of the Windows PowerShell background jobs running in the session are …
+Where-Object	?, where	Selects objects from a collection based on their property values.
+Write-Output	echo, write	Sends the specified objects to the next command in the pipeline. If the command is the last command in the pipeline,…
+
