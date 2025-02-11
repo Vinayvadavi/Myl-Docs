@@ -1,0 +1,2073 @@
+          Welcome to VMware PowerCLI!
+
+Log in to a vCenter Server or ESX host:              Connect-VIServer                                                                           To find out what commands are available, type:       Get-VICommand                                                                              To show searchable help for all PowerCLI commands:   Get-PowerCLIHelp                                                                           Once you've connected, display all virtual machines: Get-VM                                                                                     If you need more help, visit the PowerCLI community: Get-PowerCLICommunity                                                                                                                                                                                                                             Copyright (C) VMware, Inc. All rights reserved.
+
+PS C:\> P:
+PS P:\> cd .\Get-TransitionCheckListDetails\
+PS P:\Get-TransitionCheckListDetails> .\hardening-copy.ps1
+Connect-VIServer : 2025-02-11 6:08:35 AM        Connect-VIServer                Cannot complete login due to an incorrect user name or password.At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:1 char:1
++ Connect-VIServer -Server Ec6rr7u06.myl.com -User root -Password Pass@ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Connect-VIServer], InvalidLogin
+    + FullyQualifiedErrorId : Client20_ConnectivityServiceImpl_Reconnect_SoapException,VMware.VimAutomation.ViCore.Cmdlets.Commands.ConnectVIS
+   erver
+
+get-vmhost : 2025-02-11 6:08:36 AM      Get-VMHost              You are not currently connected to any servers. Please connect first using a Connect cmdlet.
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:3 char:10
++ $hosts = get-vmhost -name Ec6rr7u06.myl.com
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceUnavailable: (:) [Get-VMHost], ViServerConnectionException
+    + FullyQualifiedErrorId : Core_BaseCmdlet_NotConnectedError,VMware.VimAutomation.ViCore.Cmdlets.Commands.GetVMHost
+
+WARNING: The command 'Set-VMHostAdvancedConfiguration' is obsolete. Use Set-AdvancedSetting cmdlet instead.
+Set-VMHostAdvancedConfiguration : Cannot validate argument on parameter 'VMHost'. The argument is null or empty. Provide an argument that is
+not null or empty, and then try the command again.
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:7 char:10
++ $hosts | Set-VMHostAdvancedConfiguration Security.AccountUnlockTime - ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Set-VMHostAdvancedConfiguration], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,VMware.VimAutomation.ViCore.Cmdlets.Commands.Host.SetVMHostAdvancedConfiguratio
+   n
+
+WARNING: The command 'Set-VMHostAdvancedConfiguration' is obsolete. Use Set-AdvancedSetting cmdlet instead.
+Set-VMHostAdvancedConfiguration : Cannot validate argument on parameter 'VMHost'. The argument is null or empty. Provide an argument that is
+not null or empty, and then try the command again.
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:11 char:10
++ $hosts | Set-VMHostAdvancedConfiguration Security.AccountLockFailures ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Set-VMHostAdvancedConfiguration], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,VMware.VimAutomation.ViCore.Cmdlets.Commands.Host.SetVMHostAdvancedConfiguratio
+   n
+
+Get-AdvancedSetting : Cannot validate argument on parameter 'Entity'. The argument is null or empty. Provide an argument that is not null or
+empty, and then try the command again.
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:15 char:10
++ $hosts | Get-AdvancedSetting | Where-Object {$_.Name -eq "UserVars.Su ...
++          ~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Get-AdvancedSetting], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,VMware.VimAutomation.ViCore.Cmdlets.Commands.GetAdvancedSetting
+
+Get-AdvancedSetting : Cannot validate argument on parameter 'Entity'. The argument is null or empty. Provide an argument that is not null or
+empty, and then try the command again.
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:19 char:10
++ $hosts | Get-AdvancedSetting UserVars.DcuiTimeOut | Set-AdvancedSetti ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Get-AdvancedSetting], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,VMware.VimAutomation.ViCore.Cmdlets.Commands.GetAdvancedSetting
+
+Get-VMHostService : Cannot validate argument on parameter 'VMHost'. The argument is null or empty. Provide an argument that is not null or
+empty, and then try the command again.
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:23 char:27
++ Get-VMHostService -VMHost $hosts | where {$_.Key -eq 'sfcbd-watchdog' ...
++                           ~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Get-VMHostService], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,VMware.VimAutomation.ViCore.Cmdlets.Commands.Host.GetVMHostService
+
+Get-VMHostService : Cannot validate argument on parameter 'VMHost'. The argument is null or empty. Provide an argument that is not null or
+empty, and then try the command again.
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:24 char:27
++ Get-VMHostService -VMHost $hosts | where {$_.Key -eq 'sfcbd-watchdog' ...
++                           ~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Get-VMHostService], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,VMware.VimAutomation.ViCore.Cmdlets.Commands.Host.GetVMHostService
+
+Get-VMHostService : Cannot validate argument on parameter 'VMHost'. The argument is null or empty. Provide an argument that is not null or
+empty, and then try the command again.
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:28 char:27
++ Get-VMHostService -VMHost $hosts | where {$_.Key -eq 'slpd'} | Set-VM ...
++                           ~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Get-VMHostService], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,VMware.VimAutomation.ViCore.Cmdlets.Commands.Host.GetVMHostService
+
+Get-VMHostService : Cannot validate argument on parameter 'VMHost'. The argument is null or empty. Provide an argument that is not null or
+empty, and then try the command again.
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:29 char:27
++ Get-VMHostService -VMHost $hosts | where {$_.Key -eq 'slpd'} | Stop-V ...
++                           ~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Get-VMHostService], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,VMware.VimAutomation.ViCore.Cmdlets.Commands.Host.GetVMHostService
+
+Get-VMHostService : Cannot validate argument on parameter 'VMHost'. The argument is null or empty. Provide an argument that is not null or
+empty, and then try the command again.
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:33 char:27
++ Get-VMHostService -VMHost $hosts | Where-Object {$_.Key -eq 'snmpd' - ...
++                           ~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Get-VMHostService], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,VMware.VimAutomation.ViCore.Cmdlets.Commands.Host.GetVMHostService
+
+Get-VMHostService : Cannot validate argument on parameter 'VMHost'. The argument is null or empty. Provide an argument that is not null or
+empty, and then try the command again.
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:34 char:27
++ Get-VMHostService -VMHost $hosts | Where-Object {$_.Key -eq 'snmpd' - ...
++                           ~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Get-VMHostService], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,VMware.VimAutomation.ViCore.Cmdlets.Commands.Host.GetVMHostService
+
+Get-AdvancedSetting : Cannot validate argument on parameter 'Entity'. The argument is null or empty. Provide an argument that is not null or
+empty, and then try the command again.
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:38 char:10
++ $hosts | Get-AdvancedSetting UserVars.ESXiShellInteractiveTimeOut | S ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Get-AdvancedSetting], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,VMware.VimAutomation.ViCore.Cmdlets.Commands.GetAdvancedSetting
+
+Get-AdvancedSetting : Cannot validate argument on parameter 'Entity'. The argument is null or empty. Provide an argument that is not null or
+empty, and then try the command again.
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:42 char:10
++ $hosts | Get-AdvancedSetting UserVars.ESXiShellTimeOut | Set-Advanced ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Get-AdvancedSetting], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,VMware.VimAutomation.ViCore.Cmdlets.Commands.GetAdvancedSetting
+
+Get-AdvancedSetting : Cannot validate argument on parameter 'Entity'. The argument is null or empty. Provide an argument that is not null or
+empty, and then try the command again.
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:46 char:10
++ $hosts | Get-AdvancedSetting UserVars.SuppressShellWarning | Set-Adva ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Get-AdvancedSetting], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,VMware.VimAutomation.ViCore.Cmdlets.Commands.GetAdvancedSetting
+
+Get-AdvancedSetting : Cannot validate argument on parameter 'Entity'. The argument is null or empty. Provide an argument that is not null or
+empty, and then try the command again.
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:50 char:10
++ $hosts | Get-AdvancedSetting UserVars.ESXiVPsDisabledProtocols | Set- ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Get-AdvancedSetting], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,VMware.VimAutomation.ViCore.Cmdlets.Commands.GetAdvancedSetting
+
+PS P:\Get-TransitionCheckListDetails>
+PS P:\Get-TransitionCheckListDetails> Connect-VIServer wb5vc001.myl.com
+
+Name                           Port  User
+----                           ----  ----
+wb5vc001.myl.com               443   MYL\M676096_SADM
+
+
+PS P:\Get-TransitionCheckListDetails> .\hardening-copy.ps1
+Connect-VIServer : 2025-02-11 6:09:36 AM        Connect-VIServer                Cannot complete login due to an incorrect user name or password.At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:1 char:1
++ Connect-VIServer -Server Ec6rr7u06.myl.com -User root -Password Pass@ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Connect-VIServer], InvalidLogin
+    + FullyQualifiedErrorId : Client20_ConnectivityServiceImpl_Reconnect_SoapException,VMware.VimAutomation.ViCore.Cmdlets.Commands.ConnectVIS
+   erver
+
+WARNING: The command 'Set-VMHostAdvancedConfiguration' is obsolete. Use Set-AdvancedSetting cmdlet instead.
+
+Name                           Value
+----                           -----
+Security.AccountUnlockTime     600
+WARNING: The command 'Set-VMHostAdvancedConfiguration' is obsolete. Use Set-AdvancedSetting cmdlet instead.
+Security.AccountLockFailures   3
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-558141/AdvancedSetting=VMHostSetting-UserVars.SuppressHype
+              rthreadWarning/
+Value       : 1
+Description :
+Type        : VMHost
+Entity      : ec6rr7u06.myl.com
+Id          : VMHostSetting-UserVars.SuppressHyperthreadWarning
+Name        : UserVars.SuppressHyperthreadWarning
+
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-558141/AdvancedSetting=VMHostSetting-UserVars.DcuiTimeOut/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6rr7u06.myl.com
+Id          : VMHostSetting-UserVars.DcuiTimeOut
+Name        : UserVars.DcuiTimeOut
+
+
+Key           : sfcbd-watchdog
+Label         : CIM Server
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-558141
+VMHost        : ec6rr7u06.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-558141/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-558141/HostService=sfcbd-watchdog/
+ExtensionData : VMware.Vim.HostService
+
+
+Perform operation?
+Perform operation Stop host service. on CIM Server?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): A
+
+Key           : sfcbd-watchdog
+Label         : CIM Server
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-558141
+VMHost        : ec6rr7u06.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-558141/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-558141/HostService=sfcbd-watchdog/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : slpd
+Label         : slpd
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-558141
+VMHost        : ec6rr7u06.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-558141/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-558141/HostService=slpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Perform operation?
+Perform operation Stop host service. on slpd?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): A
+
+Key           : slpd
+Label         : slpd
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-558141
+VMHost        : ec6rr7u06.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-558141/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-558141/HostService=slpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : snmpd
+Label         : SNMP Server
+Policy        : on
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-558141
+VMHost        : ec6rr7u06.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-558141/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-558141/HostService=snmpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-558141/AdvancedSetting=VMHostSetting-UserVars.ESXiShellInt
+              eractiveTimeOut/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6rr7u06.myl.com
+Id          : VMHostSetting-UserVars.ESXiShellInteractiveTimeOut
+Name        : UserVars.ESXiShellInteractiveTimeOut
+
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-558141/AdvancedSetting=VMHostSetting-UserVars.ESXiShellTim
+              eOut/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6rr7u06.myl.com
+Id          : VMHostSetting-UserVars.ESXiShellTimeOut
+Name        : UserVars.ESXiShellTimeOut
+
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-558141/AdvancedSetting=VMHostSetting-UserVars.SuppressShel
+              lWarning/
+Value       : 0
+Description :
+Type        : VMHost
+Entity      : ec6rr7u06.myl.com
+Id          : VMHostSetting-UserVars.SuppressShellWarning
+Name        : UserVars.SuppressShellWarning
+
+Set-AdvancedSetting : 2025-02-11 6:10:21 AM     Set-AdvancedSetting             A specified parameter was not correct:. Operation failed, diagnostics report:
+sslv3, tlsv1, tlsv1.1 must be disabled. Optionally tlsv1.3 can be be disabled
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:50 char:66
++ ... dProtocols | Set-AdvancedSetting -Value "sslv3,tlsv1" -Confirm:$false
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Set-AdvancedSetting], InvalidArgument
+    + FullyQualifiedErrorId : Client20_SystemManagementServiceImpl_GetVmHostAdvancedConfiguration_ViError,VMware.VimAutomation.ViCore.Cmdlets.
+   Commands.SetAdvancedSetting
+
+
+
+PS P:\Get-TransitionCheckListDetails> .\hardening-copy.ps1
+
+Working with multiple default servers?
+
+    Select [Y] if you want to work with more than one default servers. In this case, every time when you connect to a different server using
+Connect-VIServer, the new server connection is stored in an array variable together with the previously connected servers. When you run a
+cmdlet and the target servers cannot be determined from the specified parameters, the cmdlet runs against all servers stored in the array
+variable.
+    Select [N] if you want to work with a single default server. In this case, when you run a cmdlet and the target servers cannot be
+determined from the specified parameters, the cmdlet runs against the last connected server.
+
+    WARNING: WORKING WITH MULTIPLE DEFAULT SERVERS WILL BE ENABLED BY DEFAULT IN A FUTURE RELEASE. You can explicitly set your own preference
+at any time by using the DefaultServerMode parameter of Set-PowerCLIConfiguration.
+
+[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
+
+Name                           Port  User
+----                           ----  ----
+ec6vm001.myl.com               443   root
+WARNING: The command 'Set-VMHostAdvancedConfiguration' is obsolete. Use Set-AdvancedSetting cmdlet instead.
+
+Key   : Security.AccountUnlockTime
+Value : 600
+Name  : Security.AccountUnlockTime
+
+
+Key   : Security.AccountUnlockTime
+Value : 600
+Name  : Security.AccountUnlockTime
+
+WARNING: The command 'Set-VMHostAdvancedConfiguration' is obsolete. Use Set-AdvancedSetting cmdlet instead.
+
+Key   : Security.AccountLockFailures
+Value : 3
+Name  : Security.AccountLockFailures
+
+
+Key   : Security.AccountLockFailures
+Value : 3
+Name  : Security.AccountLockFailures
+
+
+Uid         : /VIServer=root@ec6vm001.myl.com:443/VMHost=HostSystem-ha-host/AdvancedSetting=VMHostSetting-UserVars.SuppressHyperthreadWarning/
+Value       : 1
+Description :
+Type        : VMHost
+Entity      : ec6vm001.myl.com
+Id          : VMHostSetting-UserVars.SuppressHyperthreadWarning
+Name        : UserVars.SuppressHyperthreadWarning
+
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572571/AdvancedSetting=VMHostSetting-UserVars.SuppressHyper
+              threadWarning/
+Value       : 1
+Description :
+Type        : VMHost
+Entity      : ec6vm001.myl.com
+Id          : VMHostSetting-UserVars.SuppressHyperthreadWarning
+Name        : UserVars.SuppressHyperthreadWarning
+
+
+Uid         : /VIServer=root@ec6vm001.myl.com:443/VMHost=HostSystem-ha-host/AdvancedSetting=VMHostSetting-UserVars.DcuiTimeOut/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6vm001.myl.com
+Id          : VMHostSetting-UserVars.DcuiTimeOut
+Name        : UserVars.DcuiTimeOut
+
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572571/AdvancedSetting=VMHostSetting-UserVars.DcuiTimeOut/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6vm001.myl.com
+Id          : VMHostSetting-UserVars.DcuiTimeOut
+Name        : UserVars.DcuiTimeOut
+
+
+Key           : sfcbd-watchdog
+Label         : CIM Server
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-572571
+VMHost        : ec6vm001.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572571/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572571/HostService=sfcbd-watchdog/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : sfcbd-watchdog
+Label         : CIM Server
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-ha-host
+VMHost        : ec6vm001.myl.com
+VMHostUid     : /VIServer=root@ec6vm001.myl.com:443/VMHost=HostSystem-ha-host/
+Uid           : /VIServer=root@ec6vm001.myl.com:443/VMHost=HostSystem-ha-host/HostService=sfcbd-watchdog/
+ExtensionData : VMware.Vim.HostService
+
+
+Perform operation?
+Perform operation Stop host service. on CIM Server?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): A
+
+Key           : sfcbd-watchdog
+Label         : CIM Server
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-572571
+VMHost        : ec6vm001.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572571/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572571/HostService=sfcbd-watchdog/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : sfcbd-watchdog
+Label         : CIM Server
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-ha-host
+VMHost        : ec6vm001.myl.com
+VMHostUid     : /VIServer=root@ec6vm001.myl.com:443/VMHost=HostSystem-ha-host/
+Uid           : /VIServer=root@ec6vm001.myl.com:443/VMHost=HostSystem-ha-host/HostService=sfcbd-watchdog/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : slpd
+Label         : slpd
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-572571
+VMHost        : ec6vm001.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572571/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572571/HostService=slpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : slpd
+Label         : slpd
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-ha-host
+VMHost        : ec6vm001.myl.com
+VMHostUid     : /VIServer=root@ec6vm001.myl.com:443/VMHost=HostSystem-ha-host/
+Uid           : /VIServer=root@ec6vm001.myl.com:443/VMHost=HostSystem-ha-host/HostService=slpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Perform operation?
+Perform operation Stop host service. on slpd?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): A
+
+Key           : slpd
+Label         : slpd
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-572571
+VMHost        : ec6vm001.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572571/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572571/HostService=slpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : slpd
+Label         : slpd
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-ha-host
+VMHost        : ec6vm001.myl.com
+VMHostUid     : /VIServer=root@ec6vm001.myl.com:443/VMHost=HostSystem-ha-host/
+Uid           : /VIServer=root@ec6vm001.myl.com:443/VMHost=HostSystem-ha-host/HostService=slpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : snmpd
+Label         : SNMP Server
+Policy        : on
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-572571
+VMHost        : ec6vm001.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572571/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572571/HostService=snmpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : snmpd
+Label         : SNMP Server
+Policy        : on
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-ha-host
+VMHost        : ec6vm001.myl.com
+VMHostUid     : /VIServer=root@ec6vm001.myl.com:443/VMHost=HostSystem-ha-host/
+Uid           : /VIServer=root@ec6vm001.myl.com:443/VMHost=HostSystem-ha-host/HostService=snmpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Uid         : /VIServer=root@ec6vm001.myl.com:443/VMHost=HostSystem-ha-host/AdvancedSetting=VMHostSetting-UserVars.ESXiShellInteractiveTimeOut/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6vm001.myl.com
+Id          : VMHostSetting-UserVars.ESXiShellInteractiveTimeOut
+Name        : UserVars.ESXiShellInteractiveTimeOut
+
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572571/AdvancedSetting=VMHostSetting-UserVars.ESXiShellInte
+              ractiveTimeOut/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6vm001.myl.com
+Id          : VMHostSetting-UserVars.ESXiShellInteractiveTimeOut
+Name        : UserVars.ESXiShellInteractiveTimeOut
+
+
+Uid         : /VIServer=root@ec6vm001.myl.com:443/VMHost=HostSystem-ha-host/AdvancedSetting=VMHostSetting-UserVars.ESXiShellTimeOut/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6vm001.myl.com
+Id          : VMHostSetting-UserVars.ESXiShellTimeOut
+Name        : UserVars.ESXiShellTimeOut
+
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572571/AdvancedSetting=VMHostSetting-UserVars.ESXiShellTime
+              Out/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6vm001.myl.com
+Id          : VMHostSetting-UserVars.ESXiShellTimeOut
+Name        : UserVars.ESXiShellTimeOut
+
+
+Uid         : /VIServer=root@ec6vm001.myl.com:443/VMHost=HostSystem-ha-host/AdvancedSetting=VMHostSetting-UserVars.SuppressShellWarning/
+Value       : 0
+Description :
+Type        : VMHost
+Entity      : ec6vm001.myl.com
+Id          : VMHostSetting-UserVars.SuppressShellWarning
+Name        : UserVars.SuppressShellWarning
+
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572571/AdvancedSetting=VMHostSetting-UserVars.SuppressShell
+              Warning/
+Value       : 0
+Description :
+Type        : VMHost
+Entity      : ec6vm001.myl.com
+Id          : VMHostSetting-UserVars.SuppressShellWarning
+Name        : UserVars.SuppressShellWarning
+
+Set-AdvancedSetting : 2025-02-11 6:12:05 AM     Set-AdvancedSetting             A specified parameter was not correct:. Operation failed, diagnostics report:
+sslv3, tlsv1, tlsv1.1 must be disabled. Optionally tlsv1.3 can be be disabled
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:50 char:66
++ ... dProtocols | Set-AdvancedSetting -Value "sslv3,tlsv1" -Confirm:$false
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Set-AdvancedSetting], InvalidArgument
+    + FullyQualifiedErrorId : Client20_SystemManagementServiceImpl_GetVmHostAdvancedConfiguration_ViError,VMware.VimAutomation.ViCore.Cmdlets.C
+   ommands.SetAdvancedSetting
+
+Set-AdvancedSetting : 2025-02-11 6:12:05 AM     Set-AdvancedSetting             A specified parameter was not correct:. Operation failed, diagnostics report:
+sslv3, tlsv1, tlsv1.1 must be disabled. Optionally tlsv1.3 can be be disabled
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:50 char:66
++ ... dProtocols | Set-AdvancedSetting -Value "sslv3,tlsv1" -Confirm:$false
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Set-AdvancedSetting], InvalidArgument
+    + FullyQualifiedErrorId : Client20_SystemManagementServiceImpl_GetVmHostAdvancedConfiguration_ViError,VMware.VimAutomation.ViCore.Cmdlets.C
+   ommands.SetAdvancedSetting
+
+
+
+PS P:\Get-TransitionCheckListDetails>
+
+
+          Welcome to VMware PowerCLI!
+
+Log in to a vCenter Server or ESX host:              Connect-VIServer                                                                           To find out what commands are available, type:       Get-VICommand                                                                              To show searchable help for all PowerCLI commands:   Get-PowerCLIHelp                                                                           Once you've connected, display all virtual machines: Get-VM                                                                                     If you need more help, visit the PowerCLI community: Get-PowerCLICommunity                                                                                                                                                                                                                             Copyright (C) VMware, Inc. All rights reserved.
+
+PS C:\> P:
+PS P:\> cd .\Get-TransitionCheckListDetails\
+PS P:\Get-TransitionCheckListDetails> .\hardening-copy.ps1
+Connect-VIServer : 2025-02-11 6:08:35 AM        Connect-VIServer                Cannot complete login due to an incorrect user name or password.At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:1 char:1
++ Connect-VIServer -Server Ec6rr7u06.myl.com -User root -Password Pass@ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Connect-VIServer], InvalidLogin
+    + FullyQualifiedErrorId : Client20_ConnectivityServiceImpl_Reconnect_SoapException,VMware.VimAutomation.ViCore.Cmdlets.Commands.ConnectVIS
+   erver
+
+get-vmhost : 2025-02-11 6:08:36 AM      Get-VMHost              You are not currently connected to any servers. Please connect first using a Connect cmdlet.
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:3 char:10
++ $hosts = get-vmhost -name Ec6rr7u06.myl.com
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ResourceUnavailable: (:) [Get-VMHost], ViServerConnectionException
+    + FullyQualifiedErrorId : Core_BaseCmdlet_NotConnectedError,VMware.VimAutomation.ViCore.Cmdlets.Commands.GetVMHost
+
+WARNING: The command 'Set-VMHostAdvancedConfiguration' is obsolete. Use Set-AdvancedSetting cmdlet instead.
+Set-VMHostAdvancedConfiguration : Cannot validate argument on parameter 'VMHost'. The argument is null or empty. Provide an argument that is
+not null or empty, and then try the command again.
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:7 char:10
++ $hosts | Set-VMHostAdvancedConfiguration Security.AccountUnlockTime - ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Set-VMHostAdvancedConfiguration], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,VMware.VimAutomation.ViCore.Cmdlets.Commands.Host.SetVMHostAdvancedConfiguratio
+   n
+
+WARNING: The command 'Set-VMHostAdvancedConfiguration' is obsolete. Use Set-AdvancedSetting cmdlet instead.
+Set-VMHostAdvancedConfiguration : Cannot validate argument on parameter 'VMHost'. The argument is null or empty. Provide an argument that is
+not null or empty, and then try the command again.
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:11 char:10
++ $hosts | Set-VMHostAdvancedConfiguration Security.AccountLockFailures ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Set-VMHostAdvancedConfiguration], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,VMware.VimAutomation.ViCore.Cmdlets.Commands.Host.SetVMHostAdvancedConfiguratio
+   n
+
+Get-AdvancedSetting : Cannot validate argument on parameter 'Entity'. The argument is null or empty. Provide an argument that is not null or
+empty, and then try the command again.
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:15 char:10
++ $hosts | Get-AdvancedSetting | Where-Object {$_.Name -eq "UserVars.Su ...
++          ~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Get-AdvancedSetting], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,VMware.VimAutomation.ViCore.Cmdlets.Commands.GetAdvancedSetting
+
+Get-AdvancedSetting : Cannot validate argument on parameter 'Entity'. The argument is null or empty. Provide an argument that is not null or
+empty, and then try the command again.
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:19 char:10
++ $hosts | Get-AdvancedSetting UserVars.DcuiTimeOut | Set-AdvancedSetti ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Get-AdvancedSetting], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,VMware.VimAutomation.ViCore.Cmdlets.Commands.GetAdvancedSetting
+
+Get-VMHostService : Cannot validate argument on parameter 'VMHost'. The argument is null or empty. Provide an argument that is not null or
+empty, and then try the command again.
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:23 char:27
++ Get-VMHostService -VMHost $hosts | where {$_.Key -eq 'sfcbd-watchdog' ...
++                           ~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Get-VMHostService], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,VMware.VimAutomation.ViCore.Cmdlets.Commands.Host.GetVMHostService
+
+Get-VMHostService : Cannot validate argument on parameter 'VMHost'. The argument is null or empty. Provide an argument that is not null or
+empty, and then try the command again.
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:24 char:27
++ Get-VMHostService -VMHost $hosts | where {$_.Key -eq 'sfcbd-watchdog' ...
++                           ~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Get-VMHostService], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,VMware.VimAutomation.ViCore.Cmdlets.Commands.Host.GetVMHostService
+
+Get-VMHostService : Cannot validate argument on parameter 'VMHost'. The argument is null or empty. Provide an argument that is not null or
+empty, and then try the command again.
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:28 char:27
++ Get-VMHostService -VMHost $hosts | where {$_.Key -eq 'slpd'} | Set-VM ...
++                           ~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Get-VMHostService], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,VMware.VimAutomation.ViCore.Cmdlets.Commands.Host.GetVMHostService
+
+Get-VMHostService : Cannot validate argument on parameter 'VMHost'. The argument is null or empty. Provide an argument that is not null or
+empty, and then try the command again.
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:29 char:27
++ Get-VMHostService -VMHost $hosts | where {$_.Key -eq 'slpd'} | Stop-V ...
++                           ~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Get-VMHostService], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,VMware.VimAutomation.ViCore.Cmdlets.Commands.Host.GetVMHostService
+
+Get-VMHostService : Cannot validate argument on parameter 'VMHost'. The argument is null or empty. Provide an argument that is not null or
+empty, and then try the command again.
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:33 char:27
++ Get-VMHostService -VMHost $hosts | Where-Object {$_.Key -eq 'snmpd' - ...
++                           ~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Get-VMHostService], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,VMware.VimAutomation.ViCore.Cmdlets.Commands.Host.GetVMHostService
+
+Get-VMHostService : Cannot validate argument on parameter 'VMHost'. The argument is null or empty. Provide an argument that is not null or
+empty, and then try the command again.
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:34 char:27
++ Get-VMHostService -VMHost $hosts | Where-Object {$_.Key -eq 'snmpd' - ...
++                           ~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Get-VMHostService], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,VMware.VimAutomation.ViCore.Cmdlets.Commands.Host.GetVMHostService
+
+Get-AdvancedSetting : Cannot validate argument on parameter 'Entity'. The argument is null or empty. Provide an argument that is not null or
+empty, and then try the command again.
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:38 char:10
++ $hosts | Get-AdvancedSetting UserVars.ESXiShellInteractiveTimeOut | S ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Get-AdvancedSetting], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,VMware.VimAutomation.ViCore.Cmdlets.Commands.GetAdvancedSetting
+
+Get-AdvancedSetting : Cannot validate argument on parameter 'Entity'. The argument is null or empty. Provide an argument that is not null or
+empty, and then try the command again.
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:42 char:10
++ $hosts | Get-AdvancedSetting UserVars.ESXiShellTimeOut | Set-Advanced ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Get-AdvancedSetting], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,VMware.VimAutomation.ViCore.Cmdlets.Commands.GetAdvancedSetting
+
+Get-AdvancedSetting : Cannot validate argument on parameter 'Entity'. The argument is null or empty. Provide an argument that is not null or
+empty, and then try the command again.
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:46 char:10
++ $hosts | Get-AdvancedSetting UserVars.SuppressShellWarning | Set-Adva ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Get-AdvancedSetting], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,VMware.VimAutomation.ViCore.Cmdlets.Commands.GetAdvancedSetting
+
+Get-AdvancedSetting : Cannot validate argument on parameter 'Entity'. The argument is null or empty. Provide an argument that is not null or
+empty, and then try the command again.
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:50 char:10
++ $hosts | Get-AdvancedSetting UserVars.ESXiVPsDisabledProtocols | Set- ...
++          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Get-AdvancedSetting], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationError,VMware.VimAutomation.ViCore.Cmdlets.Commands.GetAdvancedSetting
+
+PS P:\Get-TransitionCheckListDetails>
+PS P:\Get-TransitionCheckListDetails> Connect-VIServer wb5vc001.myl.com
+
+Name                           Port  User
+----                           ----  ----
+wb5vc001.myl.com               443   MYL\M676096_SADM
+
+
+PS P:\Get-TransitionCheckListDetails> .\hardening-copy.ps1
+Connect-VIServer : 2025-02-11 6:09:36 AM        Connect-VIServer                Cannot complete login due to an incorrect user name or password.At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:1 char:1
++ Connect-VIServer -Server Ec6rr7u06.myl.com -User root -Password Pass@ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Connect-VIServer], InvalidLogin
+    + FullyQualifiedErrorId : Client20_ConnectivityServiceImpl_Reconnect_SoapException,VMware.VimAutomation.ViCore.Cmdlets.Commands.ConnectVIS
+   erver
+
+WARNING: The command 'Set-VMHostAdvancedConfiguration' is obsolete. Use Set-AdvancedSetting cmdlet instead.
+
+Name                           Value
+----                           -----
+Security.AccountUnlockTime     600
+WARNING: The command 'Set-VMHostAdvancedConfiguration' is obsolete. Use Set-AdvancedSetting cmdlet instead.
+Security.AccountLockFailures   3
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-558141/AdvancedSetting=VMHostSetting-UserVars.SuppressHype
+              rthreadWarning/
+Value       : 1
+Description :
+Type        : VMHost
+Entity      : ec6rr7u06.myl.com
+Id          : VMHostSetting-UserVars.SuppressHyperthreadWarning
+Name        : UserVars.SuppressHyperthreadWarning
+
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-558141/AdvancedSetting=VMHostSetting-UserVars.DcuiTimeOut/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6rr7u06.myl.com
+Id          : VMHostSetting-UserVars.DcuiTimeOut
+Name        : UserVars.DcuiTimeOut
+
+
+Key           : sfcbd-watchdog
+Label         : CIM Server
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-558141
+VMHost        : ec6rr7u06.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-558141/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-558141/HostService=sfcbd-watchdog/
+ExtensionData : VMware.Vim.HostService
+
+
+Perform operation?
+Perform operation Stop host service. on CIM Server?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): A
+
+Key           : sfcbd-watchdog
+Label         : CIM Server
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-558141
+VMHost        : ec6rr7u06.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-558141/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-558141/HostService=sfcbd-watchdog/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : slpd
+Label         : slpd
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-558141
+VMHost        : ec6rr7u06.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-558141/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-558141/HostService=slpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Perform operation?
+Perform operation Stop host service. on slpd?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): A
+
+Key           : slpd
+Label         : slpd
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-558141
+VMHost        : ec6rr7u06.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-558141/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-558141/HostService=slpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : snmpd
+Label         : SNMP Server
+Policy        : on
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-558141
+VMHost        : ec6rr7u06.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-558141/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-558141/HostService=snmpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-558141/AdvancedSetting=VMHostSetting-UserVars.ESXiShellInt
+              eractiveTimeOut/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6rr7u06.myl.com
+Id          : VMHostSetting-UserVars.ESXiShellInteractiveTimeOut
+Name        : UserVars.ESXiShellInteractiveTimeOut
+
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-558141/AdvancedSetting=VMHostSetting-UserVars.ESXiShellTim
+              eOut/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6rr7u06.myl.com
+Id          : VMHostSetting-UserVars.ESXiShellTimeOut
+Name        : UserVars.ESXiShellTimeOut
+
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-558141/AdvancedSetting=VMHostSetting-UserVars.SuppressShel
+              lWarning/
+Value       : 0
+Description :
+Type        : VMHost
+Entity      : ec6rr7u06.myl.com
+Id          : VMHostSetting-UserVars.SuppressShellWarning
+Name        : UserVars.SuppressShellWarning
+
+Set-AdvancedSetting : 2025-02-11 6:10:21 AM     Set-AdvancedSetting             A specified parameter was not correct:. Operation failed, diagnostics report:
+sslv3, tlsv1, tlsv1.1 must be disabled. Optionally tlsv1.3 can be be disabled
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:50 char:66
++ ... dProtocols | Set-AdvancedSetting -Value "sslv3,tlsv1" -Confirm:$false
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Set-AdvancedSetting], InvalidArgument
+    + FullyQualifiedErrorId : Client20_SystemManagementServiceImpl_GetVmHostAdvancedConfiguration_ViError,VMware.VimAutomation.ViCore.Cmdlets.
+   Commands.SetAdvancedSetting
+
+
+
+PS P:\Get-TransitionCheckListDetails> .\hardening-copy.ps1
+
+Working with multiple default servers?
+
+    Select [Y] if you want to work with more than one default servers. In this case, every time when you connect to a different server using
+Connect-VIServer, the new server connection is stored in an array variable together with the previously connected servers. When you run a
+cmdlet and the target servers cannot be determined from the specified parameters, the cmdlet runs against all servers stored in the array
+variable.
+    Select [N] if you want to work with a single default server. In this case, when you run a cmdlet and the target servers cannot be
+determined from the specified parameters, the cmdlet runs against the last connected server.
+
+    WARNING: WORKING WITH MULTIPLE DEFAULT SERVERS WILL BE ENABLED BY DEFAULT IN A FUTURE RELEASE. You can explicitly set your own preference
+at any time by using the DefaultServerMode parameter of Set-PowerCLIConfiguration.
+
+[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
+
+Name                           Port  User
+----                           ----  ----
+ec6vm001.myl.com               443   root
+WARNING: The command 'Set-VMHostAdvancedConfiguration' is obsolete. Use Set-AdvancedSetting cmdlet instead.
+
+Key   : Security.AccountUnlockTime
+Value : 600
+Name  : Security.AccountUnlockTime
+
+
+Key   : Security.AccountUnlockTime
+Value : 600
+Name  : Security.AccountUnlockTime
+
+WARNING: The command 'Set-VMHostAdvancedConfiguration' is obsolete. Use Set-AdvancedSetting cmdlet instead.
+
+Key   : Security.AccountLockFailures
+Value : 3
+Name  : Security.AccountLockFailures
+
+
+Key   : Security.AccountLockFailures
+Value : 3
+Name  : Security.AccountLockFailures
+
+
+Uid         : /VIServer=root@ec6vm001.myl.com:443/VMHost=HostSystem-ha-host/AdvancedSetting=VMHostSetting-UserVars.SuppressHyperthreadWarning/
+Value       : 1
+Description :
+Type        : VMHost
+Entity      : ec6vm001.myl.com
+Id          : VMHostSetting-UserVars.SuppressHyperthreadWarning
+Name        : UserVars.SuppressHyperthreadWarning
+
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572571/AdvancedSetting=VMHostSetting-UserVars.SuppressHyper
+              threadWarning/
+Value       : 1
+Description :
+Type        : VMHost
+Entity      : ec6vm001.myl.com
+Id          : VMHostSetting-UserVars.SuppressHyperthreadWarning
+Name        : UserVars.SuppressHyperthreadWarning
+
+
+Uid         : /VIServer=root@ec6vm001.myl.com:443/VMHost=HostSystem-ha-host/AdvancedSetting=VMHostSetting-UserVars.DcuiTimeOut/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6vm001.myl.com
+Id          : VMHostSetting-UserVars.DcuiTimeOut
+Name        : UserVars.DcuiTimeOut
+
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572571/AdvancedSetting=VMHostSetting-UserVars.DcuiTimeOut/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6vm001.myl.com
+Id          : VMHostSetting-UserVars.DcuiTimeOut
+Name        : UserVars.DcuiTimeOut
+
+
+Key           : sfcbd-watchdog
+Label         : CIM Server
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-572571
+VMHost        : ec6vm001.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572571/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572571/HostService=sfcbd-watchdog/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : sfcbd-watchdog
+Label         : CIM Server
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-ha-host
+VMHost        : ec6vm001.myl.com
+VMHostUid     : /VIServer=root@ec6vm001.myl.com:443/VMHost=HostSystem-ha-host/
+Uid           : /VIServer=root@ec6vm001.myl.com:443/VMHost=HostSystem-ha-host/HostService=sfcbd-watchdog/
+ExtensionData : VMware.Vim.HostService
+
+
+Perform operation?
+Perform operation Stop host service. on CIM Server?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): A
+
+Key           : sfcbd-watchdog
+Label         : CIM Server
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-572571
+VMHost        : ec6vm001.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572571/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572571/HostService=sfcbd-watchdog/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : sfcbd-watchdog
+Label         : CIM Server
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-ha-host
+VMHost        : ec6vm001.myl.com
+VMHostUid     : /VIServer=root@ec6vm001.myl.com:443/VMHost=HostSystem-ha-host/
+Uid           : /VIServer=root@ec6vm001.myl.com:443/VMHost=HostSystem-ha-host/HostService=sfcbd-watchdog/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : slpd
+Label         : slpd
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-572571
+VMHost        : ec6vm001.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572571/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572571/HostService=slpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : slpd
+Label         : slpd
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-ha-host
+VMHost        : ec6vm001.myl.com
+VMHostUid     : /VIServer=root@ec6vm001.myl.com:443/VMHost=HostSystem-ha-host/
+Uid           : /VIServer=root@ec6vm001.myl.com:443/VMHost=HostSystem-ha-host/HostService=slpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Perform operation?
+Perform operation Stop host service. on slpd?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): A
+
+Key           : slpd
+Label         : slpd
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-572571
+VMHost        : ec6vm001.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572571/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572571/HostService=slpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : slpd
+Label         : slpd
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-ha-host
+VMHost        : ec6vm001.myl.com
+VMHostUid     : /VIServer=root@ec6vm001.myl.com:443/VMHost=HostSystem-ha-host/
+Uid           : /VIServer=root@ec6vm001.myl.com:443/VMHost=HostSystem-ha-host/HostService=slpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : snmpd
+Label         : SNMP Server
+Policy        : on
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-572571
+VMHost        : ec6vm001.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572571/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572571/HostService=snmpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : snmpd
+Label         : SNMP Server
+Policy        : on
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-ha-host
+VMHost        : ec6vm001.myl.com
+VMHostUid     : /VIServer=root@ec6vm001.myl.com:443/VMHost=HostSystem-ha-host/
+Uid           : /VIServer=root@ec6vm001.myl.com:443/VMHost=HostSystem-ha-host/HostService=snmpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Uid         : /VIServer=root@ec6vm001.myl.com:443/VMHost=HostSystem-ha-host/AdvancedSetting=VMHostSetting-UserVars.ESXiShellInteractiveTimeOut/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6vm001.myl.com
+Id          : VMHostSetting-UserVars.ESXiShellInteractiveTimeOut
+Name        : UserVars.ESXiShellInteractiveTimeOut
+
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572571/AdvancedSetting=VMHostSetting-UserVars.ESXiShellInte
+              ractiveTimeOut/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6vm001.myl.com
+Id          : VMHostSetting-UserVars.ESXiShellInteractiveTimeOut
+Name        : UserVars.ESXiShellInteractiveTimeOut
+
+
+Uid         : /VIServer=root@ec6vm001.myl.com:443/VMHost=HostSystem-ha-host/AdvancedSetting=VMHostSetting-UserVars.ESXiShellTimeOut/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6vm001.myl.com
+Id          : VMHostSetting-UserVars.ESXiShellTimeOut
+Name        : UserVars.ESXiShellTimeOut
+
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572571/AdvancedSetting=VMHostSetting-UserVars.ESXiShellTime
+              Out/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6vm001.myl.com
+Id          : VMHostSetting-UserVars.ESXiShellTimeOut
+Name        : UserVars.ESXiShellTimeOut
+
+
+Uid         : /VIServer=root@ec6vm001.myl.com:443/VMHost=HostSystem-ha-host/AdvancedSetting=VMHostSetting-UserVars.SuppressShellWarning/
+Value       : 0
+Description :
+Type        : VMHost
+Entity      : ec6vm001.myl.com
+Id          : VMHostSetting-UserVars.SuppressShellWarning
+Name        : UserVars.SuppressShellWarning
+
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572571/AdvancedSetting=VMHostSetting-UserVars.SuppressShell
+              Warning/
+Value       : 0
+Description :
+Type        : VMHost
+Entity      : ec6vm001.myl.com
+Id          : VMHostSetting-UserVars.SuppressShellWarning
+Name        : UserVars.SuppressShellWarning
+
+Set-AdvancedSetting : 2025-02-11 6:12:05 AM     Set-AdvancedSetting             A specified parameter was not correct:. Operation failed, diagnostics report:
+sslv3, tlsv1, tlsv1.1 must be disabled. Optionally tlsv1.3 can be be disabled
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:50 char:66
++ ... dProtocols | Set-AdvancedSetting -Value "sslv3,tlsv1" -Confirm:$false
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Set-AdvancedSetting], InvalidArgument
+    + FullyQualifiedErrorId : Client20_SystemManagementServiceImpl_GetVmHostAdvancedConfiguration_ViError,VMware.VimAutomation.ViCore.Cmdlets.C
+   ommands.SetAdvancedSetting
+
+Set-AdvancedSetting : 2025-02-11 6:12:05 AM     Set-AdvancedSetting             A specified parameter was not correct:. Operation failed, diagnostics report:
+sslv3, tlsv1, tlsv1.1 must be disabled. Optionally tlsv1.3 can be be disabled
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:50 char:66
++ ... dProtocols | Set-AdvancedSetting -Value "sslv3,tlsv1" -Confirm:$false
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Set-AdvancedSetting], InvalidArgument
+    + FullyQualifiedErrorId : Client20_SystemManagementServiceImpl_GetVmHostAdvancedConfiguration_ViError,VMware.VimAutomation.ViCore.Cmdlets.C
+   ommands.SetAdvancedSetting
+
+
+
+PS P:\Get-TransitionCheckListDetails> .\hardening-copy.ps1
+
+Name                           Port  User
+----                           ----  ----
+ec6vm002.myl.com               443   root
+WARNING: The command 'Set-VMHostAdvancedConfiguration' is obsolete. Use Set-AdvancedSetting cmdlet instead.
+
+Key   : Security.AccountUnlockTime
+Value : 600
+Name  : Security.AccountUnlockTime
+
+
+Key   : Security.AccountUnlockTime
+Value : 600
+Name  : Security.AccountUnlockTime
+
+WARNING: The command 'Set-VMHostAdvancedConfiguration' is obsolete. Use Set-AdvancedSetting cmdlet instead.
+
+Key   : Security.AccountLockFailures
+Value : 3
+Name  : Security.AccountLockFailures
+
+
+Key   : Security.AccountLockFailures
+Value : 3
+Name  : Security.AccountLockFailures
+
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572574/AdvancedSetting=VMHostSetting-UserVars.SuppressHyper
+              threadWarning/
+Value       : 1
+Description :
+Type        : VMHost
+Entity      : ec6vm002.myl.com
+Id          : VMHostSetting-UserVars.SuppressHyperthreadWarning
+Name        : UserVars.SuppressHyperthreadWarning
+
+
+Uid         : /VIServer=root@ec6vm002.myl.com:443/VMHost=HostSystem-ha-host/AdvancedSetting=VMHostSetting-UserVars.SuppressHyperthreadWarning/
+Value       : 1
+Description :
+Type        : VMHost
+Entity      : ec6vm002.myl.com
+Id          : VMHostSetting-UserVars.SuppressHyperthreadWarning
+Name        : UserVars.SuppressHyperthreadWarning
+
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572574/AdvancedSetting=VMHostSetting-UserVars.DcuiTimeOut/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6vm002.myl.com
+Id          : VMHostSetting-UserVars.DcuiTimeOut
+Name        : UserVars.DcuiTimeOut
+
+
+Uid         : /VIServer=root@ec6vm002.myl.com:443/VMHost=HostSystem-ha-host/AdvancedSetting=VMHostSetting-UserVars.DcuiTimeOut/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6vm002.myl.com
+Id          : VMHostSetting-UserVars.DcuiTimeOut
+Name        : UserVars.DcuiTimeOut
+
+
+Key           : sfcbd-watchdog
+Label         : CIM Server
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-572574
+VMHost        : ec6vm002.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572574/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572574/HostService=sfcbd-watchdog/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : sfcbd-watchdog
+Label         : CIM Server
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-ha-host
+VMHost        : ec6vm002.myl.com
+VMHostUid     : /VIServer=root@ec6vm002.myl.com:443/VMHost=HostSystem-ha-host/
+Uid           : /VIServer=root@ec6vm002.myl.com:443/VMHost=HostSystem-ha-host/HostService=sfcbd-watchdog/
+ExtensionData : VMware.Vim.HostService
+
+
+Perform operation?
+Perform operation Stop host service. on CIM Server?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): A
+
+Key           : sfcbd-watchdog
+Label         : CIM Server
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-572574
+VMHost        : ec6vm002.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572574/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572574/HostService=sfcbd-watchdog/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : sfcbd-watchdog
+Label         : CIM Server
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-ha-host
+VMHost        : ec6vm002.myl.com
+VMHostUid     : /VIServer=root@ec6vm002.myl.com:443/VMHost=HostSystem-ha-host/
+Uid           : /VIServer=root@ec6vm002.myl.com:443/VMHost=HostSystem-ha-host/HostService=sfcbd-watchdog/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : slpd
+Label         : slpd
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-572574
+VMHost        : ec6vm002.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572574/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572574/HostService=slpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : slpd
+Label         : slpd
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-ha-host
+VMHost        : ec6vm002.myl.com
+VMHostUid     : /VIServer=root@ec6vm002.myl.com:443/VMHost=HostSystem-ha-host/
+Uid           : /VIServer=root@ec6vm002.myl.com:443/VMHost=HostSystem-ha-host/HostService=slpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Perform operation?
+Perform operation Stop host service. on slpd?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): A
+
+Key           : slpd
+Label         : slpd
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-572574
+VMHost        : ec6vm002.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572574/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572574/HostService=slpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : slpd
+Label         : slpd
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-ha-host
+VMHost        : ec6vm002.myl.com
+VMHostUid     : /VIServer=root@ec6vm002.myl.com:443/VMHost=HostSystem-ha-host/
+Uid           : /VIServer=root@ec6vm002.myl.com:443/VMHost=HostSystem-ha-host/HostService=slpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : snmpd
+Label         : SNMP Server
+Policy        : on
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-572574
+VMHost        : ec6vm002.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572574/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572574/HostService=snmpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : snmpd
+Label         : SNMP Server
+Policy        : on
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-ha-host
+VMHost        : ec6vm002.myl.com
+VMHostUid     : /VIServer=root@ec6vm002.myl.com:443/VMHost=HostSystem-ha-host/
+Uid           : /VIServer=root@ec6vm002.myl.com:443/VMHost=HostSystem-ha-host/HostService=snmpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572574/AdvancedSetting=VMHostSetting-UserVars.ESXiShellInte
+              ractiveTimeOut/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6vm002.myl.com
+Id          : VMHostSetting-UserVars.ESXiShellInteractiveTimeOut
+Name        : UserVars.ESXiShellInteractiveTimeOut
+
+
+Uid         : /VIServer=root@ec6vm002.myl.com:443/VMHost=HostSystem-ha-host/AdvancedSetting=VMHostSetting-UserVars.ESXiShellInteractiveTimeOut/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6vm002.myl.com
+Id          : VMHostSetting-UserVars.ESXiShellInteractiveTimeOut
+Name        : UserVars.ESXiShellInteractiveTimeOut
+
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572574/AdvancedSetting=VMHostSetting-UserVars.ESXiShellTime
+              Out/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6vm002.myl.com
+Id          : VMHostSetting-UserVars.ESXiShellTimeOut
+Name        : UserVars.ESXiShellTimeOut
+
+
+Uid         : /VIServer=root@ec6vm002.myl.com:443/VMHost=HostSystem-ha-host/AdvancedSetting=VMHostSetting-UserVars.ESXiShellTimeOut/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6vm002.myl.com
+Id          : VMHostSetting-UserVars.ESXiShellTimeOut
+Name        : UserVars.ESXiShellTimeOut
+
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572574/AdvancedSetting=VMHostSetting-UserVars.SuppressShell
+              Warning/
+Value       : 0
+Description :
+Type        : VMHost
+Entity      : ec6vm002.myl.com
+Id          : VMHostSetting-UserVars.SuppressShellWarning
+Name        : UserVars.SuppressShellWarning
+
+
+Uid         : /VIServer=root@ec6vm002.myl.com:443/VMHost=HostSystem-ha-host/AdvancedSetting=VMHostSetting-UserVars.SuppressShellWarning/
+Value       : 0
+Description :
+Type        : VMHost
+Entity      : ec6vm002.myl.com
+Id          : VMHostSetting-UserVars.SuppressShellWarning
+Name        : UserVars.SuppressShellWarning
+
+Set-AdvancedSetting : 2025-02-11 6:14:30 AM     Set-AdvancedSetting             A specified parameter was not correct:. Operation failed, diagnostics report:
+sslv3, tlsv1, tlsv1.1 must be disabled. Optionally tlsv1.3 can be be disabled
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:50 char:66
++ ... dProtocols | Set-AdvancedSetting -Value "sslv3,tlsv1" -Confirm:$false
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Set-AdvancedSetting], InvalidArgument
+    + FullyQualifiedErrorId : Client20_SystemManagementServiceImpl_GetVmHostAdvancedConfiguration_ViError,VMware.VimAutomation.ViCore.Cmdlets.C
+   ommands.SetAdvancedSetting
+
+Set-AdvancedSetting : 2025-02-11 6:14:30 AM     Set-AdvancedSetting             A specified parameter was not correct:. Operation failed, diagnostics report:
+sslv3, tlsv1, tlsv1.1 must be disabled. Optionally tlsv1.3 can be be disabled
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:50 char:66
++ ... dProtocols | Set-AdvancedSetting -Value "sslv3,tlsv1" -Confirm:$false
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Set-AdvancedSetting], InvalidArgument
+    + FullyQualifiedErrorId : Client20_SystemManagementServiceImpl_GetVmHostAdvancedConfiguration_ViError,VMware.VimAutomation.ViCore.Cmdlets.C
+   ommands.SetAdvancedSetting
+
+
+
+PS P:\Get-TransitionCheckListDetails> .\hardening-copy.ps1
+
+Name                           Port  User
+----                           ----  ----
+ec6vm003.myl.com               443   root
+WARNING: The command 'Set-VMHostAdvancedConfiguration' is obsolete. Use Set-AdvancedSetting cmdlet instead.
+
+Key   : Security.AccountUnlockTime
+Value : 600
+Name  : Security.AccountUnlockTime
+
+
+Key   : Security.AccountUnlockTime
+Value : 600
+Name  : Security.AccountUnlockTime
+
+WARNING: The command 'Set-VMHostAdvancedConfiguration' is obsolete. Use Set-AdvancedSetting cmdlet instead.
+
+Key   : Security.AccountLockFailures
+Value : 3
+Name  : Security.AccountLockFailures
+
+
+Key   : Security.AccountLockFailures
+Value : 3
+Name  : Security.AccountLockFailures
+
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572563/AdvancedSetting=VMHostSetting-UserVars.SuppressHyper
+              threadWarning/
+Value       : 1
+Description :
+Type        : VMHost
+Entity      : ec6vm003.myl.com
+Id          : VMHostSetting-UserVars.SuppressHyperthreadWarning
+Name        : UserVars.SuppressHyperthreadWarning
+
+
+Uid         : /VIServer=root@ec6vm003.myl.com:443/VMHost=HostSystem-ha-host/AdvancedSetting=VMHostSetting-UserVars.SuppressHyperthreadWarning/
+Value       : 1
+Description :
+Type        : VMHost
+Entity      : ec6vm003.myl.com
+Id          : VMHostSetting-UserVars.SuppressHyperthreadWarning
+Name        : UserVars.SuppressHyperthreadWarning
+
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572563/AdvancedSetting=VMHostSetting-UserVars.DcuiTimeOut/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6vm003.myl.com
+Id          : VMHostSetting-UserVars.DcuiTimeOut
+Name        : UserVars.DcuiTimeOut
+
+
+Uid         : /VIServer=root@ec6vm003.myl.com:443/VMHost=HostSystem-ha-host/AdvancedSetting=VMHostSetting-UserVars.DcuiTimeOut/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6vm003.myl.com
+Id          : VMHostSetting-UserVars.DcuiTimeOut
+Name        : UserVars.DcuiTimeOut
+
+
+Key           : sfcbd-watchdog
+Label         : CIM Server
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-572563
+VMHost        : ec6vm003.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572563/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572563/HostService=sfcbd-watchdog/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : sfcbd-watchdog
+Label         : CIM Server
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-ha-host
+VMHost        : ec6vm003.myl.com
+VMHostUid     : /VIServer=root@ec6vm003.myl.com:443/VMHost=HostSystem-ha-host/
+Uid           : /VIServer=root@ec6vm003.myl.com:443/VMHost=HostSystem-ha-host/HostService=sfcbd-watchdog/
+ExtensionData : VMware.Vim.HostService
+
+
+Perform operation?
+Perform operation Stop host service. on CIM Server?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): A
+
+Key           : sfcbd-watchdog
+Label         : CIM Server
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-572563
+VMHost        : ec6vm003.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572563/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572563/HostService=sfcbd-watchdog/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : sfcbd-watchdog
+Label         : CIM Server
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-ha-host
+VMHost        : ec6vm003.myl.com
+VMHostUid     : /VIServer=root@ec6vm003.myl.com:443/VMHost=HostSystem-ha-host/
+Uid           : /VIServer=root@ec6vm003.myl.com:443/VMHost=HostSystem-ha-host/HostService=sfcbd-watchdog/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : slpd
+Label         : slpd
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-572563
+VMHost        : ec6vm003.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572563/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572563/HostService=slpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : slpd
+Label         : slpd
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-ha-host
+VMHost        : ec6vm003.myl.com
+VMHostUid     : /VIServer=root@ec6vm003.myl.com:443/VMHost=HostSystem-ha-host/
+Uid           : /VIServer=root@ec6vm003.myl.com:443/VMHost=HostSystem-ha-host/HostService=slpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Perform operation?
+Perform operation Stop host service. on slpd?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): A
+
+Key           : slpd
+Label         : slpd
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-572563
+VMHost        : ec6vm003.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572563/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572563/HostService=slpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : slpd
+Label         : slpd
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-ha-host
+VMHost        : ec6vm003.myl.com
+VMHostUid     : /VIServer=root@ec6vm003.myl.com:443/VMHost=HostSystem-ha-host/
+Uid           : /VIServer=root@ec6vm003.myl.com:443/VMHost=HostSystem-ha-host/HostService=slpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : snmpd
+Label         : SNMP Server
+Policy        : on
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-572563
+VMHost        : ec6vm003.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572563/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572563/HostService=snmpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : snmpd
+Label         : SNMP Server
+Policy        : on
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-ha-host
+VMHost        : ec6vm003.myl.com
+VMHostUid     : /VIServer=root@ec6vm003.myl.com:443/VMHost=HostSystem-ha-host/
+Uid           : /VIServer=root@ec6vm003.myl.com:443/VMHost=HostSystem-ha-host/HostService=snmpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572563/AdvancedSetting=VMHostSetting-UserVars.ESXiShellInte
+              ractiveTimeOut/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6vm003.myl.com
+Id          : VMHostSetting-UserVars.ESXiShellInteractiveTimeOut
+Name        : UserVars.ESXiShellInteractiveTimeOut
+
+
+Uid         : /VIServer=root@ec6vm003.myl.com:443/VMHost=HostSystem-ha-host/AdvancedSetting=VMHostSetting-UserVars.ESXiShellInteractiveTimeOut/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6vm003.myl.com
+Id          : VMHostSetting-UserVars.ESXiShellInteractiveTimeOut
+Name        : UserVars.ESXiShellInteractiveTimeOut
+
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572563/AdvancedSetting=VMHostSetting-UserVars.ESXiShellTime
+              Out/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6vm003.myl.com
+Id          : VMHostSetting-UserVars.ESXiShellTimeOut
+Name        : UserVars.ESXiShellTimeOut
+
+
+Uid         : /VIServer=root@ec6vm003.myl.com:443/VMHost=HostSystem-ha-host/AdvancedSetting=VMHostSetting-UserVars.ESXiShellTimeOut/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6vm003.myl.com
+Id          : VMHostSetting-UserVars.ESXiShellTimeOut
+Name        : UserVars.ESXiShellTimeOut
+
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572563/AdvancedSetting=VMHostSetting-UserVars.SuppressShell
+              Warning/
+Value       : 0
+Description :
+Type        : VMHost
+Entity      : ec6vm003.myl.com
+Id          : VMHostSetting-UserVars.SuppressShellWarning
+Name        : UserVars.SuppressShellWarning
+
+
+Uid         : /VIServer=root@ec6vm003.myl.com:443/VMHost=HostSystem-ha-host/AdvancedSetting=VMHostSetting-UserVars.SuppressShellWarning/
+Value       : 0
+Description :
+Type        : VMHost
+Entity      : ec6vm003.myl.com
+Id          : VMHostSetting-UserVars.SuppressShellWarning
+Name        : UserVars.SuppressShellWarning
+
+Set-AdvancedSetting : 2025-02-11 6:15:05 AM     Set-AdvancedSetting             A specified parameter was not correct:. Operation failed, diagnostics report:
+sslv3, tlsv1, tlsv1.1 must be disabled. Optionally tlsv1.3 can be be disabled
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:50 char:66
++ ... dProtocols | Set-AdvancedSetting -Value "sslv3,tlsv1" -Confirm:$false
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Set-AdvancedSetting], InvalidArgument
+    + FullyQualifiedErrorId : Client20_SystemManagementServiceImpl_GetVmHostAdvancedConfiguration_ViError,VMware.VimAutomation.ViCore.Cmdlets.C
+   ommands.SetAdvancedSetting
+
+Set-AdvancedSetting : 2025-02-11 6:15:06 AM     Set-AdvancedSetting             A specified parameter was not correct:. Operation failed, diagnostics report:
+sslv3, tlsv1, tlsv1.1 must be disabled. Optionally tlsv1.3 can be be disabled
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:50 char:66
++ ... dProtocols | Set-AdvancedSetting -Value "sslv3,tlsv1" -Confirm:$false
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Set-AdvancedSetting], InvalidArgument
+    + FullyQualifiedErrorId : Client20_SystemManagementServiceImpl_GetVmHostAdvancedConfiguration_ViError,VMware.VimAutomation.ViCore.Cmdlets.C
+   ommands.SetAdvancedSetting
+
+
+
+PS P:\Get-TransitionCheckListDetails> .\hardening-copy.ps1
+
+Name                           Port  User
+----                           ----  ----
+ec6vm004.myl.com               443   root
+WARNING: The command 'Set-VMHostAdvancedConfiguration' is obsolete. Use Set-AdvancedSetting cmdlet instead.
+
+Key   : Security.AccountUnlockTime
+Value : 600
+Name  : Security.AccountUnlockTime
+
+
+Key   : Security.AccountUnlockTime
+Value : 600
+Name  : Security.AccountUnlockTime
+
+WARNING: The command 'Set-VMHostAdvancedConfiguration' is obsolete. Use Set-AdvancedSetting cmdlet instead.
+
+Key   : Security.AccountLockFailures
+Value : 3
+Name  : Security.AccountLockFailures
+
+
+Key   : Security.AccountLockFailures
+Value : 3
+Name  : Security.AccountLockFailures
+
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572562/AdvancedSetting=VMHostSetting-UserVars.SuppressHyper
+              threadWarning/
+Value       : 1
+Description :
+Type        : VMHost
+Entity      : ec6vm004.myl.com
+Id          : VMHostSetting-UserVars.SuppressHyperthreadWarning
+Name        : UserVars.SuppressHyperthreadWarning
+
+
+Uid         : /VIServer=root@ec6vm004.myl.com:443/VMHost=HostSystem-ha-host/AdvancedSetting=VMHostSetting-UserVars.SuppressHyperthreadWarning/
+Value       : 1
+Description :
+Type        : VMHost
+Entity      : ec6vm004.myl.com
+Id          : VMHostSetting-UserVars.SuppressHyperthreadWarning
+Name        : UserVars.SuppressHyperthreadWarning
+
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572562/AdvancedSetting=VMHostSetting-UserVars.DcuiTimeOut/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6vm004.myl.com
+Id          : VMHostSetting-UserVars.DcuiTimeOut
+Name        : UserVars.DcuiTimeOut
+
+
+Uid         : /VIServer=root@ec6vm004.myl.com:443/VMHost=HostSystem-ha-host/AdvancedSetting=VMHostSetting-UserVars.DcuiTimeOut/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6vm004.myl.com
+Id          : VMHostSetting-UserVars.DcuiTimeOut
+Name        : UserVars.DcuiTimeOut
+
+
+Key           : sfcbd-watchdog
+Label         : CIM Server
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-572562
+VMHost        : ec6vm004.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572562/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572562/HostService=sfcbd-watchdog/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : sfcbd-watchdog
+Label         : CIM Server
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-ha-host
+VMHost        : ec6vm004.myl.com
+VMHostUid     : /VIServer=root@ec6vm004.myl.com:443/VMHost=HostSystem-ha-host/
+Uid           : /VIServer=root@ec6vm004.myl.com:443/VMHost=HostSystem-ha-host/HostService=sfcbd-watchdog/
+ExtensionData : VMware.Vim.HostService
+
+
+Perform operation?
+Perform operation Stop host service. on CIM Server?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): A
+
+Key           : sfcbd-watchdog
+Label         : CIM Server
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-572562
+VMHost        : ec6vm004.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572562/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572562/HostService=sfcbd-watchdog/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : sfcbd-watchdog
+Label         : CIM Server
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-ha-host
+VMHost        : ec6vm004.myl.com
+VMHostUid     : /VIServer=root@ec6vm004.myl.com:443/VMHost=HostSystem-ha-host/
+Uid           : /VIServer=root@ec6vm004.myl.com:443/VMHost=HostSystem-ha-host/HostService=sfcbd-watchdog/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : slpd
+Label         : slpd
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-572562
+VMHost        : ec6vm004.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572562/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572562/HostService=slpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : slpd
+Label         : slpd
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-ha-host
+VMHost        : ec6vm004.myl.com
+VMHostUid     : /VIServer=root@ec6vm004.myl.com:443/VMHost=HostSystem-ha-host/
+Uid           : /VIServer=root@ec6vm004.myl.com:443/VMHost=HostSystem-ha-host/HostService=slpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Perform operation?
+Perform operation Stop host service. on slpd?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): A
+
+Key           : slpd
+Label         : slpd
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-572562
+VMHost        : ec6vm004.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572562/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572562/HostService=slpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : slpd
+Label         : slpd
+Policy        : off
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-ha-host
+VMHost        : ec6vm004.myl.com
+VMHostUid     : /VIServer=root@ec6vm004.myl.com:443/VMHost=HostSystem-ha-host/
+Uid           : /VIServer=root@ec6vm004.myl.com:443/VMHost=HostSystem-ha-host/HostService=slpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : snmpd
+Label         : SNMP Server
+Policy        : on
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-host-572562
+VMHost        : ec6vm004.myl.com
+VMHostUid     : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572562/
+Uid           : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572562/HostService=snmpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Key           : snmpd
+Label         : SNMP Server
+Policy        : on
+Required      : False
+Ruleset       :
+Running       : False
+Uninstallable : False
+VMHostId      : HostSystem-ha-host
+VMHost        : ec6vm004.myl.com
+VMHostUid     : /VIServer=root@ec6vm004.myl.com:443/VMHost=HostSystem-ha-host/
+Uid           : /VIServer=root@ec6vm004.myl.com:443/VMHost=HostSystem-ha-host/HostService=snmpd/
+ExtensionData : VMware.Vim.HostService
+
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572562/AdvancedSetting=VMHostSetting-UserVars.ESXiShellInte
+              ractiveTimeOut/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6vm004.myl.com
+Id          : VMHostSetting-UserVars.ESXiShellInteractiveTimeOut
+Name        : UserVars.ESXiShellInteractiveTimeOut
+
+
+Uid         : /VIServer=root@ec6vm004.myl.com:443/VMHost=HostSystem-ha-host/AdvancedSetting=VMHostSetting-UserVars.ESXiShellInteractiveTimeOut/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6vm004.myl.com
+Id          : VMHostSetting-UserVars.ESXiShellInteractiveTimeOut
+Name        : UserVars.ESXiShellInteractiveTimeOut
+
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572562/AdvancedSetting=VMHostSetting-UserVars.ESXiShellTime
+              Out/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6vm004.myl.com
+Id          : VMHostSetting-UserVars.ESXiShellTimeOut
+Name        : UserVars.ESXiShellTimeOut
+
+
+Uid         : /VIServer=root@ec6vm004.myl.com:443/VMHost=HostSystem-ha-host/AdvancedSetting=VMHostSetting-UserVars.ESXiShellTimeOut/
+Value       : 600
+Description :
+Type        : VMHost
+Entity      : ec6vm004.myl.com
+Id          : VMHostSetting-UserVars.ESXiShellTimeOut
+Name        : UserVars.ESXiShellTimeOut
+
+
+Uid         : /VIServer=myl\m676096_sadm@wb5vc001.myl.com:443/VMHost=HostSystem-host-572562/AdvancedSetting=VMHostSetting-UserVars.SuppressShell
+              Warning/
+Value       : 0
+Description :
+Type        : VMHost
+Entity      : ec6vm004.myl.com
+Id          : VMHostSetting-UserVars.SuppressShellWarning
+Name        : UserVars.SuppressShellWarning
+
+
+Uid         : /VIServer=root@ec6vm004.myl.com:443/VMHost=HostSystem-ha-host/AdvancedSetting=VMHostSetting-UserVars.SuppressShellWarning/
+Value       : 0
+Description :
+Type        : VMHost
+Entity      : ec6vm004.myl.com
+Id          : VMHostSetting-UserVars.SuppressShellWarning
+Name        : UserVars.SuppressShellWarning
+
+Set-AdvancedSetting : 2025-02-11 6:15:35 AM     Set-AdvancedSetting             A specified parameter was not correct:. Operation failed, diagnostics report:
+sslv3, tlsv1, tlsv1.1 must be disabled. Optionally tlsv1.3 can be be disabled
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:50 char:66
++ ... dProtocols | Set-AdvancedSetting -Value "sslv3,tlsv1" -Confirm:$false
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Set-AdvancedSetting], InvalidArgument
+    + FullyQualifiedErrorId : Client20_SystemManagementServiceImpl_GetVmHostAdvancedConfiguration_ViError,VMware.VimAutomation.ViCore.Cmdlets.C
+   ommands.SetAdvancedSetting
+
+Set-AdvancedSetting : 2025-02-11 6:15:36 AM     Set-AdvancedSetting             A specified parameter was not correct:. Operation failed, diagnostics report:
+sslv3, tlsv1, tlsv1.1 must be disabled. Optionally tlsv1.3 can be be disabled
+At P:\Get-TransitionCheckListDetails\hardening-copy.ps1:50 char:66
++ ... dProtocols | Set-AdvancedSetting -Value "sslv3,tlsv1" -Confirm:$false
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Set-AdvancedSetting], InvalidArgument
+    + FullyQualifiedErrorId : Client20_SystemManagementServiceImpl_GetVmHostAdvancedConfiguration_ViError,VMware.VimAutomation.ViCore.Cmdlets.C
+   ommands.SetAdvancedSetting
+
+
+
+PS P:\Get-TransitionCheckListDetails>
