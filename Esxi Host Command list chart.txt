@@ -2171,3 +2171,7 @@ Wait-Job	wjb	Suppresses the command prompt until one or all of the Windows Power
 Where-Object	?, where	Selects objects from a collection based on their property values.
 Write-Output	echo, write	Sends the specified objects to the next command in the pipeline. If the command is the last command in the pipeline,…
 
+We can scratch partition through GUI mode only in advanced setting by setting the below path.
+/vmfs/volumes/67382ebc-23318a4d-71e3-6cfe5484a3d8/Scratch_Partition/C6HADRS003/.locker-EC6VM004
+
+and done the hardening script from wb5 jump server through help form logeshwaran
