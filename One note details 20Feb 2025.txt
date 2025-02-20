@@ -1,0 +1,657 @@
+Server Build RITM:
+RITM4928734-Getting failed in Firewall
+RITM4698614-Successfully Build Server RITM
+(Parent)RITM4915753-->(Child)RITM4925517--->RITM4935324(Transition RITM
+transition Reference - RITM4928493
+Linux Build RITM: RITM4926384
+From <https://mylan.service-now.com/now/nav/ui/classic/params/target/sc_req_item.do%3Fsys_id%3De983fdef1b849650462ba827bc4bcb7f%26sysparm_stack%3D%26sysparm_view%3D> 
+
+
+
+https://mylan.service-now.com/-Service 
+
+
+
+
+	SADM creds:
+	Username : M676096_SADM
+
+Vcenter creds:
+Uname: myl\m676096_sadm	Pswd: Supp0rt#456
+
+Vcenter URL Details:
+
+	vCenter	URL	Location
+1	w0bvc001	https://w0bvc001.myl.com/	GDC Ashburn      (OB)
+2	w07vc001	https://w07vc001.myl.com/	WV Morgantown (07)
+3	23-sa40210	https://23-sa40210.myl.com/	Brisbane Australia (23)     
+4	22-sa40010	https://22-sa40010.myl.com/	Sydney Australia  (22)    
+5	w6evc001	https://w6evc001.myl.com/	Hyderabad  (6E)   
+6	w6vvc001	https://w6vvc001.myl.com/	Bangalore (6V)
+7	3nvcenter1	https://3nvcenter1.myl.com/	Tokyo (3n)
+8	3nvcsa002	https://3nvcsa002.myl.com/	Osaka (3n)
+9	wb5vc001	https://wb5vc001.myl.com/	Frankfurt (B5)
+10	EZVCSA001	https://EZVCSA001.myl.com/	China (EZ)
+11	W6ovc001	https://w6ovc001.myl.com/	India Datacenter(Secondary) (6o)
+12             6ovcsa002     https://6ovcsa002.myl.com      India Datacenter(Primary) (0V)
+13             W0BVCPOC001 https://W0BVCPOC001.myl.com (Testing VM Deployment)
+
+*)Automation Build Server/Manually Build Server
+
+User Name : root(IDRAC Default Creds)
+CIMC/IDRAC - $3CuredW@ll!
+ESXi Default creds:
+Root/20p/Pme1esx!
+
+Laptop and SSO creds: myl\m676096\Supp0rt#456
+
+Automation upgrade won't work in MFG N/W
+
+Transition RITM Details:
+
+New Build Transition | RITM4918046 | RITM4925516 | Build to Run | VM
+
+RITM Description
+• Server Build Description - Q -Doc Data Management Solution  Troisdorf
+• Build RITM/CR - | RITM4918046 | RITM4925516 |
+• Server names part of the Build RITM/CR - WBGVQDOCT001
+• Transitioned Date - 28-Aug-2024
+• Attach the updated transition checklist for reference - Attached
+
+*) Change Req Closed then RITM Closed.
+*) Project based tickets 3times need to close.
+
+Vmware tools ISO:
+
+https://packages.vmware.com/tools/releases/12.4.5/windows/#:~:text=Index%20of%20tools/releases/12.4,5/windows/
+
+Software's location
+\\n0bvsshare007\SCCM-Packages\BAU\Prod\Microsoft_Office_O365_64Bit_Excel_and_Word
+\\n0bvsshare001\server_build\ISO's
+
+6EJump server excel 2019,Google chrome,edge setup files available.
+
+NTT Data:
+Portal ID: 334987@nttdata.com
+Pass: Supp0rt#456
+
+Viatris Sadm and Myl creds
+myl\m676096_sadm
+Supp0rt#456
+
+Wintel Passwd: Ph@rMac3^t!C@1$
+Symantec EDR Passwd: Vi@tr1s1234
+Linux(RHEL) root passwd: myl2026
+
+m0bomech001.myl.com-DELL MX7000 IDRAC
+Root/Dellscvs1!
+
+New SCCM Server at 1P location:
+
+IMM IP - 172.20.139.5          6Y-Hyd Location IDRAC
+root
+BCBRM178A                  https://10.248.189.40/
+Administrator                root/T!tin2sQ
+Passw0rd*89
+
+ENT builds can directly run the script in jump box.
+MFG build need to run script in VM.
+
+*) NFS LUN drivers needs to add through esxi hostname and ip address once done need to add new storage select nfs update the server ip and path and bond the vmk adapter and mount the datastore on other esxi.
+*) VMFS lun storage devices once available go to the esxi add new storage selct vmfs select LUN id and give generic name and finish it.
+
+Go to service now and type computers and try to search with hostname and check the Gxp status.
+
+Sharepoint GIDC BuildTeam:
+
+https://myl.sharepoint.com/sites/GIDCBuild
+
+ISO Files stored in Below Location:
+
+\\172.20.27.104\SQL_Server_Install\DBAutomation\Security_Installers\Crowdstrike\Windows\
+ 
+Automation software repositories
+ 
+\\172.20.27.104\SQL_Server_Install\Automation\Security_Installers\Crowdstrike\Windows\
+ 
+ Automation upgrade
+ 
+\\WB5JUMPT001\Build_Team_ISO_Do_Not_Delete
+ 
+\\w6ejumpt001\ISO
+ 
+\\W23sccmdp001\iso
+ 
+\\W6ESCCMDP001\ISO
+ 
+SW_DVD9_Win_Server_STD_CORE_2019_1809.19_64Bit_English_DC_STD_MLF_X23-31944.ISO
+ 
+SW_DVD9_Win_Server_STD_CORE_2022_2108.34_64Bit_English_DC_STD_MLF_X23-76432.ISO
+
+General software repository path
+
+\\w0btem001\d$\Softwares
+
+Jump Server for CHINA location: this location behind the firewall so need Manual Build Process|
+
+EZVCSA001	Shanghai
+	wezvjumpt001/w6ejumpt001 – Jump Server
+
+OS Upgradation Task for 4servers: (RITM4915414)
+As per the prod requirement RITM has been created.
+*) we have create change task and get approval from Venu.
+*) Need to schedule the downtime for servers to avoid generate the logs.
+*)Need to close Ctask from Application Team & DB Team.
+*)snapshots will be taken care From automation
+*)once done ISO file will be mounted and need to start the process.
+*) the process can be start automatically and we can monitor in the PowerShell through logs files.
+
+Storage 2TB for 0B site: RITM5103694
+Storage 2TB for 0B site: RITM5103698
+
+**)Downgrade from datacenter to Standard license in windows server through registry editor.
+
+New Build Transition | RITM4936056 | RITM4957831 | Build to Run | VM
+
+RITM Description
+• Server Build Description - MES EIH Server | E7-DAL
+• Build RITM/CR - | RITM4936056 | RITM4957831 |
+• Server names part of the Build RITM/CR - WE7VMESEIHP001
+• Transitioned Date - 20-Sep-2024
+• Attach the updated transition checklist for reference - Attached
+
+1P location details:
+
+IDRAC :
+IMM IP - 172.20.139.5
+root
+BCBRM178A
+administrator
+Passw0rd*89
+
+Server IP and DNS:
+
+255.255.255.192
+
+172.20.31.11
+
+Server Build Activity:(RITM4797593)
+RHEL 9.2 Build Activity:(RITM4925144)
+
+To downgrade the server edition from Datacenter to Standard steps below:
+
+REDHAT Account Login:
+vinayvadavi944@gmail.com
+Supp0rt#456789
+ISO images: 
+https://developers.redhat.com/products/rhel/download
+
+Server Handover Transition  details:
+Server Handover Sheet:  Need to take through script in  P Drive file name and vm name and hit enter pull out the report and share it.
+
+Activation Key for 0B&0& site physical Build: NMTJD-9H9RB-FXYV6-Y3K6R-K4WDW
+
+
+Management Group Name - VIASCOM(SCOM)
+check control panel if SCOM server is configured: For manual Build servers
+
+GDC   --> W0BSCOMMGMTP004, W0BSCOMMGMTP005, W0BSCOMMGMTP006, W0BSCOMMGMTP007
+INDIA --> W6ESCOMGTYP002.myl.com
+EMEA --> WB5SCOMGTYP001.myl.com
+China --> WEZVSCOMGWP001.myl.com
+
+Viatris Creds: 
+Myl passwd: Supp0rt*89
+SADM Passwd: $upp0rt#456
+
+RITM4912113 - AG-GBL-SRVADMIN, REQ5170635 - ESX ADMINS Group, REQ5176155  - ag-gbl-ucsadmin, RITM4921844 - AG-MYL-NCIRCLE(Tripwire), RITM4903421- O365, RITM4910847  - SADM Account creation
+
+Install crowdstrike AV for manual build server with Customer ID
+Install VMDR using below command through the exact path with Run as admin cmd prompt.
+
+VMDR Command: 
+windows-5.0.0.17.exe CustomerId={10be877a-0233-5061-8014-373a38ad4a38} ActivationId={2e1aea15-018b-4a98-bb37-7f8b9bda18a1} WebServiceUri= https://qagpublic.qg1.apps.qualys.com/CloudAgent/
+
+
+7G&95 Site Media server build:
+
+S95dd001(DataDomian)
+idrac :  🡪 10.230.11.82
+Mgmt ! 🡪 10.230.10.28
+u7gpnbmep003(Media server )
+idrac  🡪10.240.101.50 
+s7gdd001(DataDomian)
+Idrac 🡪 10.240.101.52 
+Mgmt 🡪 10.240.101.53  
+
+To Do PDF file signature:
+
+	1) Open the pdf file which you want to sign
+	2) Click on the tools-->certificates-->digitally Sign-->select the place-->sign over and save it somewhere.
+	
+
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion Check the values of “EditionID” and “CompositionEditionID”
+											172.20.139.65
+											172.20.24.19
+											172.20.139.95
+REQ5170635 - ESX ADMINS Group
+REQ5176155  - ag-gbl-ucsadmin
+RITM4903421 - Access Request - Microsoft Office Licensing
+RITM4910847 - Creation of SADM / WSADM ID 
+RITM4912043 - ServiceNow Access Request 
+
+
+Firewall Groups:
+
+Build Server Getting Failed on Firewall:
+Automation firewall groups
+ VIATRIS-MFG-ATM-INFRA-SERVERS
+VIATRIS-MFG-ATM-INFRA-PLAIN-SERVERS  
+VIATRIS-MFG-ATM-INFRA-UNIX-SERVERS    
+VIATRIS-MFG-ATM-INFRA-UNIX-PLAIN-SERVERS
+VIATRIS-MFG-ATM-INFRA-SERVERS - Windows DB
+VIATRIS-MFG-ATM-INFRA-PLAIN-SERVERS  - Windows Application
+VIATRIS-MFG-ATM-INFRA-UNIX-SERVERS    - Linux DB
+VIATRIS-MFG-ATM-INFRA-UNIX-PLAIN-SERVERS  - Linux Application
+
+
+Commands Section
+
+03 September, 2024
+11:43 AM
+
+for i in `esxcfg-scsidevs -c |awk '{print $1}' | grep naa.600a0980383145674a3f545170315442`; do esxcli storage nmp psp roundrobin deviceconfig set --type=iops --iops=1 --device=$i;done
+
+Command to set scratch partition on ESXi level.
+
+Get-VMHost -Name ebgr165u21.myl.com | Get-AdvancedSetting -name "ScratchConfig.ConfiguredScratchLocation"| Set-AdvancedSetting -Value "/vmfs/volumes/63e4a7de-8c09e130-bc76-0025b5f1510e/ebgr165u21" -Confirm:$false
+
+In Place Upgrade Server Notes
+
+25 September, 2024
+12:38 PM
+
+ 
+CHG0168951-OS Upgrade.. reference change.
+For the OS Upgrade Task Steps:
+Open the Service Catalog.
+Select OS In-Place Upgrade (Windows).
+Fill in the required details: Vcenter name, Hostname, Downtime, ISO path, and OS name.
+Submit the request; this will generate an RITM with a Change Request number.
+Please forward the RITM to the technical approver (Venu).Put the server in maintenance mood manually by maintenance schedules.
+For the OS Upgrade Task Steps:
+First, check the available space on the C drive; ensure there is a minimum of 35GB.
+If there is insufficient space, clear any unwanted files.
+Monitor the C request. Close the App and DB service tasks; snapshots will be taken care of automatically.
+Mount the ISO to the VM and start the upgrade process.(Automatically)
+Monitor the status in the VM through the Log View folder using Script1.
+Need to monitor the Change Request and Request Pending Change RITM's
+Close the App and DB service CTasks.
+Inform the server owner to start the application services and check the status.
+Attach the post-upgrade activity details, including: 1. Hostname and Properties, 2. Drive Details, 3. Screenshot
+Post upgradation completed
+1. Upgrade the VMware Tools.
+2. Change the hardware compatibility version to the latest version.
+3. Update the Guest OS version in the VMware Options console (OS Container).
+4. Inform the Patch team to push the latest updates.
+
+
+Esxi Hostname	IDRAC IP Address	Esxi IP Address	Change Request
+Ec6rr7u02.myl.com	10.243.94.76(root/Viatris)	10.243.94.79	CHG0167014
+	
+Ec6rr7u04.myl.com	10.243.94.77	10.243.94.80	
+Ec6rr7u06.myl.com	10.243.94.78	10.243.94.81	
+
+nc6clst003::> igroup show
+Vserver   Igroup       Protocol OS Type  Initiators
+--------- ------------ -------- -------- ------------------------------------
+nc6vssan003 C6HADRS003 fcp      vmware   21:00:f4:c7:aa:99:90:2e
+                                         21:00:f4:c7:aa:99:90:2f
+                                         21:00:f4:c7:aa:9a:a4:b2
+                                         21:00:f4:c7:aa:9a:a4:b3
+                                         21:00:f4:c7:aa:9a:a5:3a
+                                         21:00:f4:c7:aa:9a:a5:3b
+nc6vssan003 EC6RR7U02_IG fcp    vmware   21:00:f4:c7:aa:9a:a4:b2
+                                         21:00:f4:c7:aa:9a:a4:b3
+nc6vssan003 EC6RR7U04_IG fcp    vmware   21:00:f4:c7:aa:9a:a5:3a
+                                         21:00:f4:c7:aa:9a:a5:3b
+nc6vssan003 EC6RR7U06_IG fcp    vmware   21:00:f4:c7:aa:99:90:2e
+                                         21:00:f4:c7:aa:99:90:2f
+                                         21:00:f4:c7:aa:9a:a5:20
+                                         21:00:f4:c7:aa:9a:a5:21
+4 entries were displayed.
+
+IDRAC IP Details:
+VLAN 152 - 10.243.94.76 -- Ec6rr7u02-imm.myl.com
+VLAN 152 - 10.243.94.77 -- Ec6rr7u04-imm.myl.com
+VLAN 152 - 10.243.94.78 -- Ec6rr7u06-imm.myl.com
+
+ESXi IP Details:
+VLAN 152 - 10.243.94.79 -- Ec6rr7u02.myl.com
+VLAN 152 - 10.243.94.80 -- Ec6rr7u04.myl.com
+VLAN 152 - 10.243.94.81 -- Ec6rr7u06.myl.com
+
+VLAN 152 – IP- 10.243.94.79 Subnet:255.255.255.128 GW 10.243.94.1 Hostname: Ec6rr7u02.myl.com
+VLAN 152 – IP- 10.243.94.80 Subnet:255.255.255.128 GW 10.243.94.1 Hostname: Ec6rr7u04.myl.com
+VLAN 152 – IP- 10.243.94.81 Subnet:255.255.255.128 GW 10.243.94.1 Hostname: Ec6rr7u06.myl.com
+Pref DNS: 10.243.94.112
+Alternate DNS: 10.250.31.41    NTP Settings: EMEANTP.myl.com, GNTP.myl.com, APACNTP.myl.com
+
+Vmotion IP Details:
+
+Vlan : 2010
+IP : 10.243.93.101 - 103
+SM : 255.255.255.255.224
+DG : 10.243.93.97
+
+
+Manual Esxi Build Reference CR: CHG0141320, CHG0141320, CHG0141322, CHG0141323, CHG0141324
+Broadcom login:
+Vinayvadavi944@gmail.com
+Supp0rt#456
+
+
+ESXI change Request Details:
+
+This change has been created for building a New ESXI server at C6-DUBLIN site with below mentioned configuration.
+ 
+#Platform
+ 
+VMWare vCenter: wb5vc001
+VMWare Datacenter: C6-DUBLIN
+ESXi Cluster : BGHADRS001
+P/V: P (Physical)
+OS:  VMware ESXi
+Version: 8.0.1
+CPU: Intel(R) Xeon(R) Gold 6342 CPU @ 2.80GHz
+Physical Processors 2
+Logical Processors 48
+RAM: 1024 GB
+SAN Boot Storage: 50GB for OS
+#Network
+Network configuration details: - 
+2 NIC for ESXi management. They will be connected with same standard virtual switch and will provide fail-over for each other.
+2 NIC for VM data traffic. They will be connected with same distributed virtual switch and will provide fail-over for each other.
+ 
+IP Address Details: -
+ESXi Host Name :  ec6rr7u02
+ESXi Management IP: 10.243.94.76
+vMotion IP : 10.243.77.113
+iSCSI IP:  10.243.77.79
+CIMC IP: 10.243.77.19
+#Facilities
+- Server Name:  EBGR165U21
+- Server Make: Cisco
+- Server Model: Cisco UCSC-C240-M5
+- Server Serial Number: WZP27090F4L
+ 
+Location: BG-Troisdorf
+End user impact: No impact, as this a New ESXI server build
+Application Impact: No impact, as this a New ESXI server build
+Downtime: No impact, as this a New ESXI server build
+Was this performed in DEV/TEST? This is a New ESXI Build Server in Single Environment, hence no Dev & Test is required.
+Primary Change Implementer : Srinu Y
+Primary Approver: Venugopal Reddy Konga /Santhosh Kumar M
+has context menu
+
+
+To get IDRAC console through hostname:
+
+https://www.seei.biz/cannot-access-idrac8-by-fqdn/
+
+Steps to Install New Esxi Build:
+1)create CI
+2)create RITM for IP address reservation
+3)create change for each build
+4)validate the N/W port status and storage & FC port status RAM&CPU as well in IDRAC console
+5)Ask storage team to get Boot LUN and scratch partition mapping
+6)once they assign SAN storage to the server got the boot manger - UEFI boot menu - virtual optical menu
+7)mount the Esxi ISO and start the installation
+8)choose the LUN storage to install OS
+9Once installed OS it's not getting boot up we have to enable SAN boot enable.
+10)assign the IP and subnets and all
+11)set the password
+12)login with esxi console in browser
+Need to configure network,added to ENT & MFG Networks and created VM kernel adapter for VMotion scratch parition, datastore,
+Added datastores through LUN in the cluster
+Made datastore cluster
+Executed hardening script and roundrobbin script
+Checked the vmotion in the cluster by test vm
+Set rules HA, DRS, EVC mode, assigned license, 
+
+New Esxi Build Checklist:
+>>We have validated the ESXi Networks configures as per standard.
+>>We have validated the ESXi OS NTP servers configured as per standard.
+>>We have validated the scratch partition configured as per standard.
+>>We have validated the warranty details, cabling sheets.
+>>We have validated the ESXi OS version is 8.0U3 as per standard.
+>>We have validated the IDRAC able to access with default password.
+>>We have validated the ESXi OS end DNS configured as per standard.
+>>We have validated the BIOS is installed N-1 version.
+>>We have validated the ESXi Networks configures as per standard.
+>>We have validated the ESXi OS NTP servers configured as per standard.
+>>We have validated the scratch partition configured as per standard.
+>>We have validated the warranty details, cabling sheets.
+>>We have validated the ESXi OS version is 8.0U3 as per standard and assigned license as well.
+>>We have validated the IDRAC able to access with default password.
+>>We have validated the ESXi OS end DNS configured as per standard.
+>>We have validated the BIOS is installed N-1 version.
+>>We have validated the transition check list updated as per dell servers standard.
+>>We have validated and able to login IDRAC with SADM/ domain accounts as well.
+>> We have validated and able to login ESXi host UI with the default password.
+>>We have validated the IDRAC Firmware version installed with N-1 version.
+>>We have validated the IDRAC NTP servers configured as per standard.
+>>We have validated the IDRAC DNS servers Configured as per standard.
+>>We sent to L3 Validation, Hence keeping the request in pending state.
+>>We have validated the ESXi Networks configures as per standard.
+>>We have validated the ESXi OS NTP servers configured as per standard.
+>>We have validated the scratch partition configured as per standard.
+>>We have validated the warranty details, cabling sheets.
+>>We have validated the ESXi OS version is 8.0U3 as per standard and assigned license as well.
+>>We have validated the IDRAC able to access with default password.
+>>We have validated the ESXi OS end DNS configured as per standard.
+>>We have validated the BIOS is installed N-1 version.
+>>We have validated the transition check list updated as per dell servers standard.
+>>We have validated and able to login IDRAC with SADM/ domain accounts as well.
+>> We have validated and able to login ESXi host UI with the default password.
+>>We have validated the IDRAC Firmware version installed with N-1 version.
+>>We have validated the IDRAC NTP servers configured as per standard.
+>>We have validated the IDRAC DNS servers Configured as per standard.
+>>We sent to L3 Validation, Hence keeping the request in pending state.
+>>L3 Validation:
+Identified port Channel not configured.: Pending to validate.
+Vmotion vlan port group is not created for vmotion : Vmotion is configured in vmk1 due to non-available of more uplinks as discussed with Build team
+Scratch partition not properly configured : Scratch partition configured properly.
+SNMP configuration not configured in IDRAC : : SNMP configuration configured properly.
+> Observations identified : We are unable to take the imm console with the hostname asked to fix this.
+
+
+
+
+
+
+LUN's For New ESXi Servers:
+
+nc6clst003::> lun show
+Vserver   Path                            State   Mapped   Type        Size
+--------- ------------------------------- ------- -------- -------- --------
+nc6vssan003 /vol/V_C6_C3N1T0_EC6RR7U02_BOOT_FCP/L_EC6RR7U02_BOOT_FCP online mapped vmware 50GB
+nc6vssan003 /vol/V_C6_C3N1T0_EC6RR7U04_BOOT_FCP/L_EC6RR7U04_BOOT_FCP online mapped vmware 50GB
+nc6vssan003 /vol/V_C6_C3N1T0_EC6RR7U06_BOOT_FCP/L_EC6RR7U06_BOOT_FCP online mapped vmware 50GB
+3 entries were displayed.
+
+
+To set scratch partition : 
+Get-VMHost -Name ebgr165u21.myl.com | Get-AdvancedSetting -name "ScratchConfig.ConfiguredScratchLocation"| Set-AdvancedSetting -Value "/vmfs/volumes/67382ebc-23318a4d-71e3-6cfe5484a3d8/Scratch_Partition/C6HADRS003/.locker-ec6rr7u02" -Confirm:$false
+ 
+
+1st take BOOT Lun from storage team
+Mount the ISO image and start the esxi installation
+Select the mapped LUN to deploy OS
+Post OS deployment boot from the SAN if possible configure the HBA adapter fiber configuration channel in bios device settings
+Configure the both apaters collect the zone show output for the server WWPN
+And Target LUN ID should be 0(default)
+
+
+Fibre Channel Target Configuration for BOOT LUN
+
+
+Primary-->pwwn 20:10:d0:39:ea:57:a1:a0--1st
+                   pwwn 20:0f:d0:39:ea:57:a1:a0=2nd adapter
+ 
+Secondary -->pwwn 20:04:d0:39:ea:57:a1:a0 
+                         pwwn 20:08:d0:39:ea:57:a1:a0=1st adapter
+						 
+
+
+
+
+nc6clst003::> lun show -instance  -vserver nc6vssan003 -path /vol/V_C6_C1N1T1_ec6rr0u17_DS_BOOT/L_ec6rr0u17_BOOT
+ 
+                  Vserver Name: nc6vssan003
+                      LUN Path: /vol/V_C6_C1N1T1_ec6rr0u17_DS_BOOT/L_ec6rr0u17_BOOT
+                   Volume Name: V_C6_C1N1T1_ec6rr0u17_DS_BOOT
+                    Qtree Name: ""
+                      LUN Name: L_ec6rr0u17_BOOT  Esxi 8.0.3 Update ISO: Wb5 jump server D:\ESXi upgrade\ISO D:\ESXi Upgrade
+                      LUN Size: 50GB
+                       OS Type: vmware
+             Space Reservation: enabled
+                 Serial Number: 819DX?XNwv4P
+           Serial Number (Hex): 38313944583f584e77763450
+
+nc6clst003::> lun show -instance  -vserver ... by Prabhu Devanasamy
+Prabhu Devanasamy
+1:09 PM
+nc6clst003::> lun show -instance  -vserver nc6vssan003 -path  /vol/V_C6_C1N1T1_ec6rr0u19_DS_BOOT/L_ec6rr0u19_BOOT
+ 
+                  Vserver Name: nc6vssan003
+                      LUN Path: /vol/V_C6_C1N1T1_ec6rr0u19_DS_BOOT/L_ec6rr0u19_BOOT
+                   Volume Name: V_C6_C1N1T1_ec6rr0u19_DS_BOOT
+                    Qtree Name: ""
+                      LUN Name: L_ec6rr0u19_BOOT
+                      LUN Size: 50GB
+                       OS Type: vmware
+             Space Reservation: enabled
+                 Serial Number: 819DX?XNwv4R
+           Serial Number (Hex): 38313944583f584e77763452
+
+nc6clst003::> lun show -instance  -vserver ... by Prabhu Devanasamy
+Prabhu Devanasamy
+1:11 PM
+nc6clst003::> lun show -instance  -vserver nc6vssan003 -path /vol/V_C6_C1N2T1_ec6rr0u15_DS_BOOT/L_ec6rr0u15_BOOT
+ 
+                  Vserver Name: nc6vssan003
+                      LUN Path: /vol/V_C6_C1N2T1_ec6rr0u15_DS_BOOT/L_ec6rr0u15_BOOT
+                   Volume Name: V_C6_C1N2T1_ec6rr0u15_DS_BOOT
+                    Qtree Name: ""
+                      LUN Name: L_ec6rr0u15_BOOT
+                      LUN Size: 50GB
+                       OS Type: vmware
+             Space Reservation: enabled
+                 Serial Number: 819DX?XNwv4O
+           Serial Number (Hex): 38313944583f584e7776344f
+
+nc6clst003::> lun show -instance  -vserver ... by Prabhu Devanasamy
+Prabhu Devanasamy
+1:11 PM
+nc6clst003::> lun show -instance  -vserver nc6vssan003 -path /vol/V_C6_C1N2T1_ec6rr0u13_DS_BOOT/L_ec6rr0u13_BOOT
+ 
+                  Vserver Name: nc6vssan003
+                      LUN Path: /vol/V_C6_C1N2T1_ec6rr0u13_DS_BOOT/L_ec6rr0u13_BOOT
+                   Volume Name: V_C6_C1N2T1_ec6rr0u13_DS_BOOT
+                    Qtree Name: ""
+                      LUN Name: L_ec6rr0u13_BOOT
+                      LUN Size: 50GB
+                       OS Type: vmware
+             Space Reservation: enabled
+                 Serial Number: 819DX?XNwv4Q
+           Serial Number (Hex): 38313944583f584e77763451
+
+nc6clst003::> lun show -instance  -vserver ... by Prabhu Devanasamy
+Prabhu Devanasamy
+1:11 PM
+nc6clst003::> lun show -instance  -vserver nc6vssan003 -path  /vol/V_C6_C1N2T1_ec6rr0u11_DS_BOOT/L_ec6rr0u11_BOOT
+ 
+                  Vserver Name: nc6vssan003
+                      LUN Path: /vol/V_C6_C1N2T1_ec6rr0u11_DS_BOOT/L_ec6rr0u11_BOOT
+                   Volume Name: V_C6_C1N2T1_ec6rr0u11_DS_BOOT
+                    Qtree Name: ""
+                      LUN Name: L_ec6rr0u11_BOOT
+                      LUN Size: 50GB
+                       OS Type: vmware
+             Space Reservation: enabled
+                 Serial Number: 819DX?XNwv4N
+           Serial Number (Hex): 38313944583f584e7776344e
+
+zone name ze_ec6rr0u11_NC6CLST003_012A_012B vsan 100
+  pwwn 21:00:f4:c7:aa:08:05:6d
+  pwwn 20:10:d0:39:ea:57:a1:a0
+  pwwn 20:0f:d0:39:ea:57:a1:a0
+ 
+zone name ze_ec6rr0u13_NC6CLST003_012A_012B vsan 100
+  pwwn 21:00:f4:c7:aa:08:06:07
+  pwwn 20:10:d0:39:ea:57:a1:a0
+  pwwn 20:0f:d0:39:ea:57:a1:a0
+ 
+zone name ze_ec6rr0u15_NC6CLST003_012A_012B vsan 100
+  pwwn 21:00:f4:c7:aa:08:05:6f
+  pwwn 20:10:d0:39:ea:57:a1:a0
+  pwwn 20:0f:d0:39:ea:57:a1:a0
+ 
+zone name ze_ec6rr0u17_NC6CLST003_012A_012B vsan 100
+  pwwn 21:00:f4:c7:aa:08:04:e1
+  pwwn 20:10:d0:39:ea:57:a1:a0
+  pwwn 20:0f:d0:39:ea:57:a1:a0
+ 
+zone name ze_ec6rr0u19_NC6CLST003_012A_012B vsan 100
+  pwwn 21:00:f4:c7:aa:08:04:d3
+  pwwn 20:10:d0:39:ea:57:a1:a0
+  pwwn 20:0f:d0:39:ea:57:a1:a0
+
+zone name ze_ec6rr0u11_NC6CLST003_022A_022b... 
+
+zone name ze_ec6rr0u11_NC6CLST003_022A_022b vsan 200
+  pwwn 21:00:f4:c7:aa:08:04:cd
+  pwwn 20:04:d0:39:ea:57:a1:a0 [NC6CLST003_02_2A]
+  pwwn 20:08:d0:39:ea:57:a1:a0 [NC6CLST003_02_2B]
+ 
+zone name ze_ec6rr0u13_NC6CLST003_022A_022b vsan 200
+  pwwn 21:00:f4:c7:aa:08:04:d7
+  pwwn 20:04:d0:39:ea:57:a1:a0 [NC6CLST003_02_2A]
+  pwwn 20:08:d0:39:ea:57:a1:a0 [NC6CLST003_02_2B]
+ 
+zone name ze_ec6rr0u15_NC6CLST003_022A_022b vsan 200
+  pwwn 21:00:f4:c7:aa:08:05:0b
+  pwwn 20:04:d0:39:ea:57:a1:a0 [NC6CLST003_02_2A]
+  pwwn 20:08:d0:39:ea:57:a1:a0 [NC6CLST003_02_2B]
+ 
+zone name ze_ec6rr0u17_NC6CLST003_022A_022b vsan 200
+  pwwn 21:00:f4:c7:aa:08:05:2d
+  pwwn 20:04:d0:39:ea:57:a1:a0 [NC6CLST003_02_2A]
+  pwwn 20:08:d0:39:ea:57:a1:a0 [NC6CLST003_02_2B]
+ 
+zone name ze_ec6rr0u19_NC6CLST003_022A_022b vsan 200
+  pwwn 21:00:f4:c7:aa:08:05:0f
+  pwwn 20:04:d0:39:ea:57:a1:a0 [NC6CLST003_02_2A]
+  pwwn 20:08:d0:39:ea:57:a1:a0 [NC6CLST003_02_2B]
+
+How to check for network firmware and detailed driver info
+esxcli network nic list
+esxcli network nic get -n vmnic0
+esxcli software vib list | grep gb
+
+
+			Servers					Source			ESXi MGMT				vMotion IP		
+	MGMT		Service Tag	Hostname	IP Address	Subnet	Gateway				IP Address	Subnet	Gateway		IP Address	Subnet	Gateway
+	172.29.127.137-143		HPVSS64	u5hpnbmep003	172.29.127.137	255.255.255.224	172.29.127.129	iDRAC Port		Media	172.29.127.148	255.255.255.224	172.29.127.129				
+	255.255.255.224		2YVSS64	e5hrr2u25.myl.com	172.29.127.138	255.255.255.224	172.29.127.129	iDRAC Port		Server 1	172.29.127.149	255.255.255.224	172.29.127.129		172.29.127.162	255.255.255.224	172.29.127.161
+	172.29.127.129		DPVSS64	e5hrr2u23.myl.com	172.29.127.139	255.255.255.224	172.29.127.129	iDRAC Port		Server 2	172.29.127.150	255.255.255.224	172.29.127.129		172.29.127.163	255.255.255.224	172.29.127.161
+	vMotion		6PVSS64	e5hrr2u21.myl.com	172.29.127.140	255.255.255.224	172.29.127.129	iDRAC Port		Server 3	172.29.127.151	255.255.255.224	172.29.127.129		172.29.127.164	255.255.255.224	172.29.127.161
+	172.29.127.162-165		CQVSS64	e5hrr2u19.myl.com	172.29.127.141	255.255.255.224	172.29.127.129	iDRAC Port		Server 4	172.29.127.152	255.255.255.224	172.29.127.129		172.29.127.165	255.255.255.224	172.29.127.161
+	255.255.255.224																
+																	
+	172.29.127.161			SAN Switches													
+	NFS		RU	Serial No	Hostname	IP Address	Subnet	Gateway									
+	172.29.127.194-197		38U	FLM28390BEU	S5HSANSW0012	172.29.127.142	255.255.255.224	172.29.127.129									
+	255.255.255.224		36U	FLM28390BE8	S5HSANSW002	172.29.127.143	255.255.255.224	172.29.127.129									
+	172.29.127.193																

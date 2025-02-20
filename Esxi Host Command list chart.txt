@@ -2172,6 +2172,36 @@ Where-Object	?, where	Selects objects from a collection based on their property 
 Write-Output	echo, write	Sends the specified objects to the next command in the pipeline. If the command is the last command in the pipeline,…
 
 We can scratch partition through GUI mode only in advanced setting by setting the below path.
-/vmfs/volumes/67382ebc-23318a4d-71e3-6cfe5484a3d8/Scratch_Partition/C6HADRS003/.locker-EC6VM004
+/vmfs/volumes/67b703ac-e2c61d51-acfc-303ea71fc864/Scratch_Partition/5HHADRS001/.locker-E5HRR2U23
+
+/vmfs/volumes/67382ebc-23318a4d-71e3-6cfe5484a3d8/Scratch_Partition/C6HADRS003/.locker-EC6VM001
+/vmfs/volumes/67b703ac-e2c61d51-acfc-303ea71fc864/Scratch_Partition/5HHADRS001
+ 
 
 and done the hardening script from wb5 jump server through help form logeshwaran
+
+
+S5HSANSW001
+ 
+fc1/6       100    auto   on      notConnected swl   --     --     --       --  =  6PVSS64
+
+ 
+fc1/7       100    auto   on      up           swl   F      32     --       edge
+fc1/8       100    auto   on      up           swl   F      32     --       edge
+
+fc1/21      100    auto   on      up           swl   F      32     --       edge = CQVSS64
+
+ 
+S5HSANSW002
+
+fc1/6       200    auto   on      up           swl   F      32     --       edge  = 6PVSS64
+
+
+fc1/7       200    auto   on      up           swl   F      32     --       edge 
+fc1/8       200    auto   on      up           swl   F      32     --       edge
+ 
+fc1/21      200    auto   on      notConnected swl   --     --     --       --   =  CQVSS64
+
+
+
+ 
