@@ -2175,32 +2175,50 @@ We can scratch partition through GUI mode only in advanced setting by setting th
 /vmfs/volumes/67b703ac-e2c61d51-acfc-303ea71fc864/Scratch_Partition/5HHADRS001/.locker-E5HRR2U23
 
 /vmfs/volumes/67382ebc-23318a4d-71e3-6cfe5484a3d8/Scratch_Partition/C6HADRS003/.locker-EC6VM001
-/vmfs/volumes/67b703ac-e2c61d51-acfc-303ea71fc864/Scratch_Partition/5HHADRS001
+/vmfs/volumes/67b703ac-e2c61d51-acfc-303ea71fc864/Scratch_Partition/5HHADRS001/.locker-E5HRR2U23
  
 
-and done the hardening script from wb5 jump server through help form logeshwaran
-
+and done the hardening script from wb5 jump server through help form logeshwaran.
+Pushed the latest updetes through central repo from management console from logeshwaran help.
 
 S5HSANSW001
- 
-fc1/6       100    auto   on      notConnected swl   --     --     --       --  =  6PVSS64
-
- 
+fc1/6       100    auto   on      up           swl   F      32     --       edge
 fc1/7       100    auto   on      up           swl   F      32     --       edge
 fc1/8       100    auto   on      up           swl   F      32     --       edge
-
-fc1/21      100    auto   on      up           swl   F      32     --       edge = CQVSS64
-
+fc1/21      100    auto   on      up           swl   F      32     --       edge
  
 S5HSANSW002
-
-fc1/6       200    auto   on      up           swl   F      32     --       edge  = 6PVSS64
-
-
-fc1/7       200    auto   on      up           swl   F      32     --       edge 
+fc1/6       200    auto   on      up           swl   F      32     --       edge
+fc1/7       200    auto   on      up           swl   F      32     --       edge
 fc1/8       200    auto   on      up           swl   F      32     --       edge
+fc1/21      200    auto   on      up           swl   F      32     --       edge
+
+
+10.250.26.17,10.250.26.18,172.20.25.231,172.26.208.10,172.28.135.37,10.248.21.57
+
+vmb://172.29.127.150/5H-5HHADRS001-002-955-SSD-S5HSANSW001/OVF/GBL-W2K19STD-GEN-TMP.ovf" "vmb://172.29.127.150/5H-5HHADRS001-002-955-SSD-S5HSANSW001/GBL-W2K19STD-GEN-TMP_new1
+
+
+
+
+Src:W5HFP001-172.18.61.16-->Dest:e5hrr2u23.myl.com-172.29.127.150
+
+Cannot complete the configuration of the vSphere HA agent on the host. "Applying HA VIBs on the cluster encountered a failure". 
+Failed installing HA component on the host: host-574414 An error occurred while downloading depot metadata from 
+http://WB5VC001.myl.com:9084/vum/repository/hostupdate/vmw/metadata-143.zip.
+
+/vmfs/volumes/67becb46-1355ab31-371a-303ea71fc864
+
+/vmfs/volumes/67b703ac-e2c61d51-acfc-303ea71fc864/Scratch_Partition/5HHADRS001/.locker-E5HRR2U21
+
+faced HA Error VIB files are missiing in hosts created new cluster and disconnected from old cluster and added freshly then the vib files are available in esxi hosts.
+
+
+
  
-fc1/21      200    auto   on      notConnected swl   --     --     --       --   =  CQVSS64
+
+
+
 
 
 
