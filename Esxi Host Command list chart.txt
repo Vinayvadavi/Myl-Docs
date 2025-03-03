@@ -2214,6 +2214,35 @@ http://WB5VC001.myl.com:9084/vum/repository/hostupdate/vmw/metadata-143.zip.
 faced HA Error VIB files are missiing in hosts created new cluster and disconnected from old cluster and added freshly then the vib files are available in esxi hosts.
 
 
+DELL POWEREDGE 760 Model Drivers
+Firmware is running with N-2 version need to upgrade to N-1 version 7.10.90.00-A00
+Bios - running with N-2 need to upgrade to N-1 version as 2.35
+Intel Net Adapters - Current Network Adapter driver Firmware Version : 22.5.7, A00
+Desired Network Adapter driver Firmware Version : 23.0.8, A00
+FC adapter currently running with 03.07.23 need to upgrade with 03.08.24
+Perc Controller - currently running with 8.8.0.0.18-26 need to upgrade with 8.8.0.0.18-32 - A07
+
+CHG0180541 - e5hrr2u25
+CHG0180537 - e5hrr2u23
+CHG0180524 - e5hrr2u21
+CHG0180519 - e5hrr2u19
+
+
+5H Site 4 ESXi Hosts Observation:
+Summary: New Build Transition | CHG0180537 | Build to Run | ESXi || e5hrr2u23
+Analysis and findings:
+Hardware observation
+>> The fiber channel version was lower version Kindly upgrade to latest 03.08.24
+>>PERC H965i is in a lower version; kindly upgrade to N-1 version
+>>Kindly add the host in the domain.
+>> The license was in evaluation mode. Kindly check and upgrade
+>> CI details were not added properly
+>>Alerts configuration was in the OFF state. Kindly ON it.
+>> All hosts, Management and vMotion network is connected to vDS as per standard should be in vSS
+>> Hence assigning ticket back to build team
+ 
+
+
 
  
 
