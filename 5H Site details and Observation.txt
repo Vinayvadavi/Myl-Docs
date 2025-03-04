@@ -1,0 +1,35 @@
+NTP Servers for Viatris:10.250.26.17,10.250.26.18,172.20.25.231,172.26.208.10,172.28.135.37,10.248.21.57
+
+vmb://172.29.127.150/5H-5HHADRS001-002-955-SSD-S5HSANSW001/OVF/GBL-W2K19STD-GEN-TMP.ovf" "vmb://172.29.127.150/5H-5HHADRS001-002-955-SSD-S5HSANSW001/GBL-W2K19STD-GEN-TMP_new1
+
+Src:W5HFP001-172.18.61.16-->Dest:e5hrr2u23.myl.com-172.29.127.150
+
+Cannot complete the configuration of the vSphere HA agent on the host. "Applying HA VIBs on the cluster encountered a failure". 
+Failed installing HA component on the host: host-574414 An error occurred while downloading depot metadata from 
+http://WB5VC001.myl.com:9084/vum/repository/hostupdate/vmw/metadata-143.zip.
+
+/vmfs/volumes/67becb46-1355ab31-371a-303ea71fc864
+
+/vmfs/volumes/67b703ac-e2c61d51-acfc-303ea71fc864/Scratch_Partition/5HHADRS001/.locker-E5HRR2U21
+
+5H Asendis IDRAC & BIOS N-1 Version
+
+7.10.90.00, A00-IDRAC
+2.3.5-BIOS
+
+Summary: New Build Transition | CHG0180537 | Build to Run | ESXi || e5hrr2u23
+Analysis and findings:
+
+Hardware observation
+>> The fiber channel version was lower version Kindly upgrade to latest 03.08.24-Taken Care
+>>PERC H965i is in a lower version; kindly upgrade to N-1 version-Taken Care
+>>Kindly add the host in the domain.-Taken Care
+>> The license was in evaluation mode. Kindly check and upgrade-Senthil wil take care.
+>> CI details were not added properly
+>>Alerts configuration was in the OFF state. Kindly ON it.-Taken Care
+>> All hosts, Management and vMotion network is connected to vDS as per standard should be in vSS-Only 1physical adapters are there so we have configured under distributed switch.
+
+e5hrr2u25.myl.com-Done
+e5hrr2u23.myl.com-Done
+e5hrr2u21.myl.com-Done
+e5hrr2u19.myl.com-Done

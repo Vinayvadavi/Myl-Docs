@@ -2227,6 +2227,8 @@ CHG0180537 - e5hrr2u23
 CHG0180524 - e5hrr2u21
 CHG0180519 - e5hrr2u19
 
+Emulex FC Adapter no need to configure boot target just need to enable Boot from SAN.
+Qlogic FC Adapter need to configure target detais on FC adapter target connection.
 
 5H Site 4 ESXi Hosts Observation:
 Summary: New Build Transition | CHG0180537 | Build to Run | ESXi || e5hrr2u23
@@ -2241,7 +2243,15 @@ Hardware observation
 >> All hosts, Management and vMotion network is connected to vDS as per standard should be in vSS
 >> Hence assigning ticket back to build team
  
+New Esxi build.
 
+UEFI Boot Enable
+TPM Disable 
+FIrmware & IDRAC N-1
+SAN Boot enable
+Std passwd
+NTP Configuration
+IDRAC Alerts & SNMP Configuration
 
 
  
