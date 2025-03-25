@@ -1,0 +1,34 @@
+Automation New server build task:
+First will Receive the task from Venu
+Will Verify the build task will assign and close the task after verfication
+Will work on the Child RITM
+will intiate the server build automate process(by clicking on Checkbox)
+Will monitor the same child RITM
+and lookout for any task raises 
+once server build completion--->update the VMware tools(Latest)
+---->Need to work on Transition Sheet(Excel)
+---->Serer Handover Sheet(Excel)
+---->Transition script need to run on the VM using respective location jumbox
+and attached the transition sheet and script(HTML) on transition RITM
+Server handover email with respective details and team Serer Handover Sheet(Excel)
+Transition RITM should be raise for windows_team with work on Transition Sheet(Excel), script(HTML)
+
+Note=====>make sure server details should match the same exact detials as on Vcenter server and server handover sheet and script(HTML)
+Need to update in Internal Tracker.
+Need to update in External Tracker.
+
+Parent RITM	Child RITM	RITM Transition	Date	Status 
+RITM4915753	RITM4925517	RITM4935838	28-08-24	Closed
+
+
+manual new server build steps:
+-------------
+Once we received mail for manual build server
+First need to create CI creation from CI maintainance form on service now
+Firewall port open RITM for MFG only ENT not required.
+Change request for Standard change with Vm details.
+preactivity evidence need to close and complete Gxp sensitive change task and send for review and approval
+once Approved need to raise RITM for Prililegged access and auto logoff in service catalog.
+
+ 
+
