@@ -655,3 +655,259 @@ esxcli software vib list | grep gb
 	172.29.127.194-197		38U	FLM28390BEU	S5HSANSW0012	172.29.127.142	255.255.255.224	172.29.127.129									
 	255.255.255.224		36U	FLM28390BE8	S5HSANSW002	172.29.127.143	255.255.255.224	172.29.127.129									
 	172.29.127.193																
+
+
+Server Build RITM:
+RITM4928734-Getting failed in Firewall
+RITM4698614-Successfully Build Server RITM
+(Parent)RITM4915753-->(Child)RITM4925517--->RITM4935324(Transition RITM
+transition Reference - RITM4928493
+Linux Build RITM: RITM4926384
+From <https://mylan.service-now.com/now/nav/ui/classic/params/target/sc_req_item.do%3Fsys_id%3De983fdef1b849650462ba827bc4bcb7f%26sysparm_stack%3D%26sysparm_view%3D> 
+
+
+
+https://mylan.service-now.com/-Service 
+
+
+
+
+	SADM creds:
+	Username : M676096_SADM
+
+Vcenter creds:
+Uname: myl\m676096_sadm	Pswd: Supp0rt#456
+
+Vcenter URL Details:
+
+	vCenter	URL	Location
+1	w0bvc001	https://w0bvc001.myl.com/	GDC Ashburn      (OB)
+2	w07vc001	https://w07vc001.myl.com/	WV Morgantown (07)
+3	23-sa40210	https://23-sa40210.myl.com/	Brisbane Australia (23)     
+4	22-sa40010	https://22-sa40010.myl.com/	Sydney Australia  (22)    
+5	w6evc001	https://w6evc001.myl.com/	Hyderabad  (6E)   
+6	w6vvc001	https://w6vvc001.myl.com/	Bangalore (6V)
+7	3nvcenter1	https://3nvcenter1.myl.com/	Tokyo (3n)
+8	3nvcsa002	https://3nvcsa002.myl.com/	Osaka (3n)
+9	wb5vc001	https://wb5vc001.myl.com/	Frankfurt (B5)
+10	EZVCSA001	https://EZVCSA001.myl.com/	China (EZ)
+11	W6ovc001	https://w6ovc001.myl.com/	India Datacenter(Secondary) (6o)
+12             6ovcsa002     https://6ovcsa002.myl.com      India Datacenter(Primary) (0V)
+13             W0BVCPOC001 https://W0BVCPOC001.myl.com (Testing VM Deployment)
+
+*)Automation Build Server/Manually Build Server
+
+User Name : root(IDRAC Default Creds)
+CIMC/IDRAC - $3CuredW@ll!
+ESXi Default creds:
+Root/20p/Pme1esx!
+
+Laptop and SSO creds: myl\m676096\Supp0rt#456
+
+Automation upgrade won't work in MFG N/W
+
+Transition RITM Details:
+
+New Build Transition | RITM4918046 | RITM4925516 | Build to Run | VM
+
+RITM Description
+• Server Build Description - Q -Doc Data Management Solution  Troisdorf
+• Build RITM/CR - | RITM4918046 | RITM4925516 |
+• Server names part of the Build RITM/CR - WBGVQDOCT001
+• Transitioned Date - 28-Aug-2024
+• Attach the updated transition checklist for reference - Attached
+
+*) Change Req Closed then RITM Closed.
+*) Project based tickets 3times need to close.
+
+Vmware tools ISO:
+
+https://packages.vmware.com/tools/releases/12.4.5/windows/#:~:text=Index%20of%20tools/releases/12.4,5/windows/
+
+Software's location
+\\n0bvsshare007\SCCM-Packages\BAU\Prod\Microsoft_Office_O365_64Bit_Excel_and_Word
+\\n0bvsshare001\server_build\ISO's
+
+6EJump server excel 2019,Google chrome,edge setup files available.
+
+NTT Data:
+Portal ID: 334987@nttdata.com
+Pass: Supp0rt#456
+
+Viatris Sadm and Myl creds
+myl\m676096_sadm
+Supp0rt#456
+Tripwire creds: M676096\laptop passwd
+
+Wintel Passwd: Ph@rMac3^t!C@1$
+Symantec EDR Passwd: Vi@tr1s1234\Vi@tr1s2025
+Linux(RHEL) root passwd: myl2026
+
+m0bomech001.myl.com-DELL MX7000 IDRAC
+Root/Dellscvs1!
+
+New SCCM Server at 1P location:
+
+IMM IP - 172.20.139.5          6Y-Hyd Location IDRAC
+root
+BCBRM178A                  https://10.248.189.40/
+Administrator                root/T!tin2sQ
+Passw0rd*89
+
+ENT builds can directly run the script in jump box.
+MFG build need to run script in VM.
+
+*) NFS LUN drivers needs to add through esxi hostname and ip address once done need to add new storage select nfs update the server ip and path and bond the vmk adapter and mount the datastore on other esxi.
+*) VMFS lun storage devices once available go to the esxi add new storage selct vmfs select LUN id and give generic name and finish it.
+
+Go to service now and type computers and try to search with hostname and check the Gxp status.
+
+
+Sharepoint GIDC BuildTeam:
+
+https://myl.sharepoint.com/sites/GIDCBuild
+
+ISO Files stored in Below Location:
+
+\\172.20.27.104\SQL_Server_Install\DBAutomation\Security_Installers\Crowdstrike\Windows\
+ 
+Automation software repositories
+ 
+\\172.20.27.104\SQL_Server_Install\Automation\Security_Installers\Crowdstrike\Windows\
+ 
+ Automation upgrade
+ 
+\\WB5JUMPT001\Build_Team_ISO_Do_Not_Delete
+ 
+\\w6ejumpt001\ISO
+ 
+\\W23sccmdp001\iso
+ 
+\\W6ESCCMDP001\ISO
+ 
+SW_DVD9_Win_Server_STD_CORE_2019_1809.19_64Bit_English_DC_STD_MLF_X23-31944.ISO
+ 
+SW_DVD9_Win_Server_STD_CORE_2022_2108.34_64Bit_English_DC_STD_MLF_X23-76432.ISO
+
+General software repository path
+
+\\w0btem001\d$\Softwares
+SEP Repo: \\n0bnnas002\SQL_Server_install
+
+Jump Server for CHINA location: this location behind the firewall so need Manual Build Process|
+
+EZVCSA001	Shanghai
+	wezvjumpt001/w6ejumpt001 – Jump Server
+
+OS Upgradation Task for 4servers: (RITM4915414)
+As per the prod requirement RITM has been created.
+*) we have create change task and get approval from Venu.
+*) Need to schedule the downtime for servers to avoid generate the logs.
+*)Need to close Ctask from Application Team & DB Team.
+*)snapshots will be taken care From automation
+*)once done ISO file will be mounted and need to start the process.
+*) the process can be start automatically and we can monitor in the PowerShell through logs files.
+
+Storage 2TB for 0B site: RITM5103694
+Storage 2TB for 0B site: RITM5103698
+
+**)Downgrade from datacenter to Standard license in windows server through registry editor.
+
+New Build Transition | RITM4936056 | RITM4957831 | Build to Run | VM
+
+RITM Description
+• Server Build Description - MES EIH Server | E7-DAL
+• Build RITM/CR - | RITM4936056 | RITM4957831 |
+• Server names part of the Build RITM/CR - WE7VMESEIHP001
+• Transitioned Date - 20-Sep-2024
+• Attach the updated transition checklist for reference - Attached
+
+1P location details:
+
+IDRAC :
+IMM IP - 172.20.139.5
+root
+BCBRM178A
+administrator
+Passw0rd*89
+
+Server IP and DNS:
+
+255.255.255.192
+
+172.20.31.11
+
+Server Build Activity:(RITM4797593)
+RHEL 9.2 Build Activity:(RITM4925144)
+
+To downgrade the server edition from Datacenter to Standard steps below:
+
+REDHAT Account Login:
+vinayvadavi944@gmail.com
+Supp0rt#456789
+ISO images: 
+https://developers.redhat.com/products/rhel/download
+
+Server Handover Transition  details:
+Server Handover Sheet:  Need to take through script in  P Drive file name and vm name and hit enter pull out the report and share it.
+
+Activation Key for 0B&07 site physical Build: NMTJD-9H9RB-FXYV6-Y3K6R-K4WDW
+NMTJD-9H9RB-FXYV6-Y3K6R-K4WDW-2k22
+2NCKQ-KWM48-FP949-HJQXW-JFJV3-2k19
+
+
+
+Management Group Name - VIASCOM(SCOM)
+check control panel if SCOM server is configured: For manual Build servers
+
+GDC   --> W0BSCOMMGMTP004, W0BSCOMMGMTP005, W0BSCOMMGMTP006, W0BSCOMMGMTP007
+INDIA --> W6ESCOMGTYP002.myl.com
+EMEA --> WB5SCOMGTYP001.myl.com
+China --> WEZVSCOMGWP001.myl.com
+
+Viatris Creds: 
+Myl passwd: Supp0rt*89
+SADM Passwd: $upp0rt#456
+
+RITM4912113 - AG-GBL-SRVADMIN, REQ5170635 - ESX ADMINS Group, REQ5176155  - ag-gbl-ucsadmin, RITM4921844 - AG-MYL-NCIRCLE(Tripwire), RITM4903421- O365, RITM4910847  - SADM Account creation
+
+Install crowdstrike AV for manual build server with Customer ID
+Install VMDR using below command through the exact path with Run as admin cmd prompt.
+
+VMDR Command: 
+windows-5.0.0.17.exe CustomerId={10be877a-0233-5061-8014-373a38ad4a38} ActivationId={2e1aea15-018b-4a98-bb37-7f8b9bda18a1} WebServiceUri= https://qagpublic.qg1.apps.qualys.com/CloudAgent/
+
+
+7G&95 Site Media server build:
+
+S95dd001(DataDomian)
+idrac :  🡪 10.230.11.82
+Mgmt ! 🡪 10.230.10.28
+u7gpnbmep003(Media server )
+idrac  🡪10.240.101.50 
+s7gdd001(DataDomian)
+Idrac 🡪 10.240.101.52 
+Mgmt 🡪 10.240.101.53  
+
+To Do PDF file signature:
+
+	1) Open the pdf file which you want to sign
+	2) Click on the tools-->certificates-->digitally Sign-->select the place-->sign over and save it somewhere.
+	
+
+IT Quality Management Services - Pre-CAB and CAB Notifications - All Documents-For Pre-CAB Document
+
+
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion Check the values of “EditionID” and “CompositionEditionID”
+											172.20.139.65
+											172.20.24.19
+											172.20.139.95
+REQ5170635 - ESX ADMINS Group
+REQ5176155  - ag-gbl-ucsadmin
+RITM4903421 - Access Request - Microsoft Office Licensing
+RITM4910847 - Creation of SADM / WSADM ID 
+RITM4912043 - ServiceNow Access Request 
+
+DISM.exe /Online /Add-Package /PackagePath:D:\Softwares\kb5015811\windows10.0-kb5015811-x64_f850429a022ae53bcebad5e99369adff8b663489\Windows10.0-KB5015811-x64.cab -Solution for Server roles adding 0*80073701
+
+
