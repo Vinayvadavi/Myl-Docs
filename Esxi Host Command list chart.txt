@@ -2336,7 +2336,14 @@ iSCSI IP:  172.18.86.96
 Esxi Default creds:
  "PASSW0RD" ("0" = numeric zero). For ESXi 6.7 the default root code is "P@ssw0rd" ("@" = at sign; "0" = numeric zero) or it is blank (that is, no password).
 
- 
+slmgr /upk to uninstall the key, 
+and then use slmgr /ipk <your_product_key> and 
+slmgr /ato to reactivate it. 
+
+DISM /Online /Cleanup-Image /RestoreHealth
+DISM /Online /Cleanup-Image /StartComponentCleanup
+sfc /scannow
+DISM /online /get-packages
 
 
 
