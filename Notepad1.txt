@@ -1,0 +1,40 @@
+An error occurred while enrolling for a certificate the certificate request could not be submitted to the certification authority.
+The RPC server is unavailable 0*800706ba(win32: 1722 RPC_S_SERVER_UNAVAILABLE)
+
+MFG || 23|| BRISBANE|| New Build Transition |RITM5254919|RITM5286688| Build to Run | VM || W23VIDAAPP002
+
+RITM Description
+• Server Build Description                                         - MFG-SDH-01-PROD
+• Build RITM/CR                                                    - |RITM5254919|RITM5286688
+• Server names part of the Build RITM/CR                           - W23VIDAAPP002
+• Transitioned Date                                                - 27/03/2025
+• Attach the updated transition checklist for reference   - Attached
+
+Note: 
+1) Auto Logoff policy has been added.
+2) Cyber arc added
+
+23_23MHADRS001_004_N23CLST003
+
+23_23MHADRS001_005_N23CLST003
+
+6)Thursday, March 27, 2025
+NTT Timesheet=11Hrs
+
+EPEF login Details
+UAN Number:101515774859
+Password: Kallu*1995 
+IFSC:UTIB0004878
+Bank account number: 924010056169854
+
+TNMAS008557 4000 0035612
+
+Name: Keshavamurti Vadavi
+UAN Number:101485022487
+Password: Supp0rt*89
+
+5D-5DHADRS002-N5DVSVM002-NFS0013
+
+n5dvsvm002:/V_5D_C2N1T1_5DHADRS002_PROD_NFSDS013
+
+BGBNG 00263 7600 000 13332
