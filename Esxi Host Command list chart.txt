@@ -2352,6 +2352,17 @@ DISM /online /get-packages
 Rescan the STORAGE.
 Refresh the STORAGE.
 
+22. What is the rsync command, and how do you use this command for synchronization?
+The rsync command is used to synchronize and transfer the files in Linux. It synchronizes files between two local systems, directories, or a network. The basic rsync command contains the following:
 
+rsync <options> <source> <destination>
+For example, let’s synchronize between Documents and the Downloads directory. For this, you need to run the following command:
 
+rsync -av ~/Documents ~/Downloads
+If you want to go one step further, then you can use the below command:
+
+rsync -avz --delete ~/Documents ~/Downloads
+
+Linux interview questions:
+https://www.geeksforgeeks.org/linux-interview-questions/
  
