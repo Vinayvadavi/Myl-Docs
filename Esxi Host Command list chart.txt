@@ -2366,7 +2366,8 @@ rsync -avz --delete ~/Documents ~/Downloads
 Linux interview questions:
 https://www.geeksforgeeks.org/linux-interview-questions/
  
- tar -czvf jayesh.tar.gz files
- tar -xzvf jayesh.tar.gz
+tar -czvf jayesh.tar.gz files
+tar -xzvf jayesh.tar.gz
  
- net user m676098 /domain
+net user m676098 /domain
+ 
