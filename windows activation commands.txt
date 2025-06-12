@@ -4,3 +4,6 @@
 /upk: uninstalls the existing license key;
 /cpky: removes license key information from the registry;
 /ipk [XXXXX-XXXXX-XXXXX-XXXXX-XXXXX]: changes the 25-digit license key or tries to activate the license if the provided key does not currently; and
+
+
+One more line added:
